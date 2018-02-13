@@ -12,25 +12,30 @@ include('include/head.php');
         <div id="quoteDisplay">A collection of statistics relating to the pyramid.</div>
     </div>
 
-    <div style="width: 850px; margin: 25px auto; background: white; padding: 25px;">
-        <h3>Top 20 Token Holders</h3>
-        <p>Aliases of dev team members are shown in place of address if known.</p>
-        <canvas id="top-holders" width="800" height="700" style="margin-top: 25px;"></canvas>
-    </div>
+    <div id="charts" style="text-align: center;">
+        <div style="width: 40%; margin: 25px auto; background: white; padding: 25px; display: inline-block;">
+            <h3>Top 25 Token Holders</h3>
+            <p>Aliases of dev team members are shown in place of address if known.</p>
+            <canvas id="top-holders" width="800" height="700" style="margin-top: 25px;"></canvas>
+        </div>
 
-    <div style="width: 850px; margin: 25px auto; background: white; padding: 25px;">
-        <h3>Daily Volume in ETH (Last 5 days)</h3>
-        <canvas id="daily-volume" width="800" height="700" style="margin-top: 25px;"></canvas>
+        <div style="width: 40%; margin: 25px auto; background: white; padding: 25px; display: inline-block;">
+            <h3>Daily Volume (Last 5 days)</h3>
+            <p>Volume is in ETH and timezone is UTC.</p>
+            <canvas id="daily-volume" width="800" height="700" style="margin-top: 25px;"></canvas>
+        </div>
     </div>
 
     <script type="text/javascript">
-      function randomColor (i, d) {
-        return '#' + Math.floor(16777215 / (d + 1) * (i + 1)).toString(16)
+      function selectColor (colorNum, colors) {
+        colorNum = (colorNum * colorNum) % colors
+        if (colors < 1) colors = 1
+        return 'hsl(' + (colorNum * (360 / colors) % 360) + ',60%,50%)'
       }
 
       var background_colors = []
-      for (var i = 0; i < 21; i++) {
-        background_colors.push(randomColor(i, 21))
+      for (var i = 0; i < 26; i++) {
+        background_colors.push(selectColor(i, 26))
       }
 
       $.getJSON('https://api.ethpyramid.io/holders.php', function (data) {
@@ -40,8 +45,11 @@ include('include/head.php');
           type: 'pie',
           data: data,
           options: {
-            responsive: false,
-            cutoutPercentage: 50
+            responsive: true,
+            cutoutPercentage: 50,
+            legend: {
+              display: false
+            }
           }
         })
       })
@@ -52,7 +60,15 @@ include('include/head.php');
           type: 'bar',
           data: data,
           options: {
-            responsive: false,
+            responsive: true,
+            scales: {
+              yAxes: [{
+                stacked: true,
+              }],
+              xAxes: [{
+                stacked: true,
+              }]
+            }
           }
         })
       })
