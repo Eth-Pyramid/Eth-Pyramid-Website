@@ -46,7 +46,7 @@
 				<a href="?lang=fr"><img src="images/FR.jpg"></a>
 				<a href="?lang=de"><img src="images/DE.jpg"></a>
 				<a href="?lang=sp"><img src="images/SP.jpg"></a>
-				<a href="https://img.memecdn.com/soon-my-friend-soon_o_175785.jpg"><img src="images/KR.jpg"></a>
+				<a href="?lang=kr"><img src="images/KR.jpg"></a>
 			</div>
 			<div class="socialBits">
 				<a href="https://twitter.com/ethpyramid" target="_blank"><i class="fab fa-twitter-square"
