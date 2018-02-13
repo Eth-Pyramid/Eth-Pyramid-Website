@@ -11,7 +11,7 @@ include('include/head.php');
         <h2 style="color:#d69361"><?php __('EthPyramid Statistics'); ?></h2>
         <div id="quoteDisplay">A collection of statistics relating to the pyramid.</div>
     </div>
-
+	<p>If you were directed here from https://ethpyramid.com, <strong>don't panic</strong>! We are migrating to this domain as part of a back-end rewrite.</p>
     <div id="charts" style="text-align: center;">
         <div style="width: 40%; margin: 25px auto; background: white; padding: 25px; display: inline-block;">
             <h3>Top 25 Token Holders</h3>
