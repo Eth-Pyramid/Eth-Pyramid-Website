@@ -1,0 +1,1201 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset='UTF-8'>
+      <meta name='viewport' content='width=device-width initial-scale=1'>
+      <title></title>
+      <style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:  #ffffff; --text-color:  #333333; --code-block-bg-color: inherit; }
+         html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+         body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+         a:active, a:hover { outline: 0px; }
+         .in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
+         #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+         .for-image #write { padding-left: 8px; padding-right: 8px; }
+         body.typora-export { padding-left: 30px; padding-right: 30px; }
+         @media screen and (max-width: 500px) { 
+         body.typora-export { padding-left: 0px; padding-right: 0px; }
+         .CodeMirror-sizer { margin-left: 0px !important; }
+         .CodeMirror-gutters { display: none !important; }
+         }
+         .typora-export #write { margin: 0px auto; }
+         #write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+         #write li > table:first-child { margin-top: -20px; }
+         img { max-width: 100%; vertical-align: middle; }
+         input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+         input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+         ::before, ::after, * { box-sizing: border-box; }
+         #write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+         #write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+         h1 { font-size: 2rem; }
+         h2 { font-size: 1.8rem; }
+         h3 { font-size: 1.6rem; }
+         h4 { font-size: 1.4rem; }
+         h5 { font-size: 1.2rem; }
+         h6 { font-size: 1rem; }
+         p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+         .typora-export p { white-space: normal; }
+         .mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+         .hidden { display: none; }
+         .md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+         a { cursor: pointer; }
+         sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
+         #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+         #write > figure:first-child { margin-top: 16px; }
+         figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
+         tr { break-inside: avoid; break-after: auto; }
+         thead { display: table-header-group; }
+         table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+         table.md-table td { min-width: 80px; }
+         .CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+         .CodeMirror { text-align: left; }
+         .CodeMirror-placeholder { opacity: 0.3; }
+         .CodeMirror pre { padding: 0px 4px; }
+         .CodeMirror-lines { padding: 0px; }
+         div.hr:focus { cursor: none; }
+         pre { white-space: pre-wrap; }
+         .CodeMirror-gutters { margin-right: 4px; }
+         .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+         .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+         .md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+         .md-fences.mock-cm { white-space: pre-wrap; }
+         .show-fences-line-number .md-fences { padding-left: 0px; }
+         .show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+         .CodeMirror-line { break-inside: avoid; }
+         .footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+         .footnotes + .footnotes { margin-top: -1em; }
+         .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
+         li div { padding-top: 0px; }
+         blockquote { margin: 1rem 0px; }
+         li p, li .mathjax-block { margin: 0.5rem 0px; }
+         li { margin: 0px; position: relative; }
+         blockquote > :last-child { margin-bottom: 0px; }
+         blockquote > :first-child { margin-top: 0px; }
+         .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+         @media print { 
+         html, body { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
+         .typora-export * { -webkit-print-color-adjust: exact; }
+         h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+         p { orphans: 4; }
+         html.blink-to-pdf { font-size: 13px; }
+         .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
+         .typora-export #write::after { height: 0px; }
+         @page { margin: 20mm 0mm; }
+         }
+         .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+         a img, img a { cursor: pointer; }
+         pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+         p > img:only-child { display: block; margin: auto; }
+         p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+         #write .MathJax_Display { margin: 0.8em 0px 0px; }
+         .mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+         p + .mathjax-block { margin-top: -1.143rem; }
+         .mathjax-block:not(:empty)::after { display: none; }
+         [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+         .task-list { list-style-type: none; }
+         .task-list-item { position: relative; padding-left: 1em; }
+         .task-list-item input { position: absolute; top: 0px; left: 0px; }
+         .math { font-size: 1rem; }
+         .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+         .md-toc-content { position: relative; margin-left: 0px; }
+         .md-toc::after, .md-toc-content::after { display: none; }
+         .md-toc-item { display: block; color: rgb(65, 131, 196); }
+         .md-toc-item a { text-decoration: none; }
+         .md-toc-inner:hover { }
+         .md-toc-inner { display: inline-block; cursor: pointer; }
+         .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+         .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+         .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+         .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+         .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+         .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+         @media screen and (max-width: 48em) { 
+         .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+         .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+         .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+         .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+         }
+         a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+         .footnote-line a:not(.reversefootnote) { color: inherit; }
+         .md-attr { display: none; }
+         .md-fn-count::after { content: "."; }
+         .md-tag { opacity: 0.5; }
+         .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+         code { text-align: left; }
+         h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+         a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
+         .md-inline-math .MathJax_SVG .noError { display: none !important; }
+         .mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+         .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+         .MathJax_SVG .MJX-monospace { font-family: monospace; }
+         .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+         .MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+         .MathJax_SVG * { transition: none; }
+         .md-diagram-panel > svg { max-width: 100%; }
+         [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+         /* Flowchart variables */
+         /* Sequence Diagram variables */
+         /* Gantt chart variables */
+         .mermaid .label {
+         color: #323D47;
+         }
+         .node rect,
+         .node circle,
+         .node ellipse,
+         .node polygon {
+         fill: #BDD5EA;
+         stroke: #81B1DB;
+         stroke-width: 1px;
+         }
+         .edgePath .path {
+         stroke: lightgrey;
+         }
+         .edgeLabel {
+         background-color: #e8e8e8;
+         }
+         .cluster rect {
+         fill: #6D6D65 !important;
+         rx: 4 !important;
+         stroke: rgba(255, 255, 255, 0.25) !important;
+         stroke-width: 1px !important;
+         }
+         .cluster text {
+         fill: #F9FFFE;
+         }
+         .actor {
+         stroke: #81B1DB;
+         fill: #BDD5EA;
+         }
+         text.actor {
+         fill: black;
+         stroke: none;
+         }
+         .actor-line {
+         stroke: lightgrey;
+         }
+         .messageLine0 {
+         stroke-width: 1.5;
+         stroke-dasharray: "2 2";
+         stroke: lightgrey;
+         }
+         .messageLine1 {
+         stroke-width: 1.5;
+         stroke-dasharray: "2 2";
+         stroke: lightgrey;
+         }
+         #arrowhead {
+         fill: lightgrey !important;
+         }
+         #crosshead path {
+         fill: lightgrey !important;
+         stroke: lightgrey !important;
+         }
+         .messageText {
+         fill: lightgrey;
+         stroke: none;
+         }
+         .labelBox {
+         stroke: #81B1DB;
+         fill: #BDD5EA;
+         }
+         .labelText {
+         fill: #323D47;
+         stroke: none;
+         }
+         .loopText {
+         fill: lightgrey;
+         stroke: none;
+         }
+         .loopLine {
+         stroke-width: 2;
+         stroke-dasharray: "2 2";
+         stroke: #81B1DB;
+         }
+         .note {
+         stroke: rgba(255, 255, 255, 0.25);
+         fill: #fff5ad;
+         }
+         .noteText {
+         fill: black;
+         stroke: none;
+         font-family: 'trebuchet ms', verdana, arial;
+         font-size: 14px;
+         }
+         /** Section styling */
+         .section {
+         stroke: none;
+         opacity: 0.2;
+         }
+         .section0 {
+         fill: rgba(255, 255, 255, 0.3);
+         }
+         .section2 {
+         fill: #EAE8B9;
+         }
+         .section1,
+         .section3 {
+         fill: white;
+         opacity: 0.2;
+         }
+         .sectionTitle0 {
+         fill: #F9FFFE;
+         }
+         .sectionTitle1 {
+         fill: #F9FFFE;
+         }
+         .sectionTitle2 {
+         fill: #F9FFFE;
+         }
+         .sectionTitle3 {
+         fill: #F9FFFE;
+         }
+         .sectionTitle {
+         text-anchor: start;
+         font-size: 11px;
+         text-height: 14px;
+         }
+         /* Grid and axis */
+         .grid .tick {
+         stroke: rgba(255, 255, 255, 0.3);
+         opacity: 0.3;
+         shape-rendering: crispEdges;
+         }
+         .grid .tick text {
+         fill: lightgrey;
+         opacity: 0.5;
+         }
+         .grid path {
+         stroke-width: 0;
+         }
+         /* Today line */
+         .today {
+         fill: none;
+         stroke: #DB5757;
+         stroke-width: 2px;
+         }
+         /* Task styling */
+         /* Default task */
+         .task {
+         stroke-width: 1;
+         }
+         .taskText {
+         text-anchor: middle;
+         font-size: 11px;
+         }
+         .taskTextOutsideRight {
+         fill: #323D47;
+         text-anchor: start;
+         font-size: 11px;
+         }
+         .taskTextOutsideLeft {
+         fill: #323D47;
+         text-anchor: end;
+         font-size: 11px;
+         }
+         /* Specific task settings for the sections*/
+         .taskText0,
+         .taskText1,
+         .taskText2,
+         .taskText3 {
+         fill: #323D47;
+         }
+         .task0,
+         .task1,
+         .task2,
+         .task3 {
+         fill: #BDD5EA;
+         stroke: rgba(255, 255, 255, 0.5);
+         }
+         .taskTextOutside0,
+         .taskTextOutside2 {
+         fill: lightgrey;
+         }
+         .taskTextOutside1,
+         .taskTextOutside3 {
+         fill: lightgrey;
+         }
+         /* Active task */
+         .active0,
+         .active1,
+         .active2,
+         .active3 {
+         fill: #81B1DB;
+         stroke: rgba(255, 255, 255, 0.5);
+         }
+         .activeText0,
+         .activeText1,
+         .activeText2,
+         .activeText3 {
+         fill: #323D47 !important;
+         }
+         /* Completed task */
+         .done0,
+         .done1,
+         .done2,
+         .done3 {
+         fill: lightgrey;
+         }
+         .doneText0,
+         .doneText1,
+         .doneText2,
+         .doneText3 {
+         fill: #323D47 !important;
+         }
+         /* Tasks on the critical line */
+         .crit0,
+         .crit1,
+         .crit2,
+         .crit3 {
+         stroke: #E83737;
+         fill: #E83737;
+         stroke-width: 2;
+         }
+         .activeCrit0,
+         .activeCrit1,
+         .activeCrit2,
+         .activeCrit3 {
+         stroke: #E83737;
+         fill: #81B1DB;
+         stroke-width: 2;
+         }
+         .doneCrit0,
+         .doneCrit1,
+         .doneCrit2,
+         .doneCrit3 {
+         stroke: #E83737;
+         fill: lightgrey;
+         stroke-width: 1;
+         cursor: pointer;
+         shape-rendering: crispEdges;
+         }
+         .doneCritText0,
+         .doneCritText1,
+         .doneCritText2,
+         .doneCritText3 {
+         fill: lightgrey !important;
+         }
+         .activeCritText0,
+         .activeCritText1,
+         .activeCritText2,
+         .activeCritText3 {
+         fill: #323D47 !important;
+         }
+         .titleText {
+         text-anchor: middle;
+         font-size: 18px;
+         fill: lightgrey;
+         }
+         /*
+         */
+         .node text {
+         font-family: 'trebuchet ms', verdana, arial;
+         font-size: 14px;
+         }
+         div.mermaidTooltip {
+         position: absolute;
+         text-align: center;
+         max-width: 200px;
+         padding: 2px;
+         font-family: 'trebuchet ms', verdana, arial;
+         font-size: 12px;
+         background: #6D6D65;
+         border: 1px solid rgba(255, 255, 255, 0.25);
+         border-radius: 2px;
+         pointer-events: none;
+         z-index: 100;
+         }
+         @import "";
+         @import "night/codeblock.dark.css";
+         @import "night/sourcemode.dark.css";
+         :root {
+         --bg-color:  #363B40;
+         --side-bar-bg-color: #2E3033;
+         --text-color: #b8bfc6;
+         --code-block-bg-color: inherit;//#f8f8f8;
+         --item-hover-bg-color: #0a0d16;
+         --control-text-color: #b7b7b7;
+         --control-text-hover-color: #eee;
+         --window-border: 1px dashed #9b9b9b;
+         --active-file-bg-color: rgb(34, 34, 34);
+         --active-file-border-color: #8d8df0;
+         --primary-color: #a3d5fe;
+         --active-file-text-color: white;
+         --item-hover-bg-color: #70717d;
+         --item-hover-text-color: white;
+         --primary-color: #6dc1e7;
+         }
+         html {
+         font-size: 16px;
+         }
+         html,
+         body {
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         background: #363B40;
+         background: var(--bg-color);
+         fill: currentColor;
+         }
+         #write {
+         max-width: 914px;
+         padding-top: 20px;
+         }
+         html,
+         body,
+         button,
+         input,
+         select,
+         textarea,
+         div.code-tooltip-content {
+         color: #b8bfc6;
+         }
+         div.code-tooltip,
+         .md-hover-tip .md-arrow:after {
+         background: #4B535A;
+         }
+         .popover.bottom > .arrow:after {
+         border-bottom-color: #4B535A;
+         }
+         html,
+         body,
+         button,
+         input,
+         select,
+         textarea {
+         font-style: normal;
+         line-height: 1.625rem;
+         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+         }
+         hr {
+         height: 2px;
+         border: 0;
+         margin: 50px 0 !important;
+         }
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+         font-family: "Lucida Grande", "Corbal", sans-serif;
+         font-weight: normal;
+         clear: both;
+         -ms-word-wrap: break-word;
+         word-wrap: break-word;
+         margin: 0;
+         padding: 0;
+         color: #DEDEDE
+         }
+         h1 {
+         font-size: 2.5rem;
+         /* 36px */
+         line-height: 2.75rem;
+         /* 40px */
+         margin-bottom: 1.5rem;
+         /* 24px */
+         letter-spacing: -1.5px;
+         }
+         h2 {
+         font-size: 1.63rem;
+         /* 24px */
+         line-height: 1.875rem;
+         /* 30px */
+         margin-bottom: 1.5rem;
+         /* 24px */
+         letter-spacing: -1px;
+         font-weight: bold;
+         }
+         h3 {
+         font-size: 1.17rem;
+         /* 18px */
+         line-height: 1.5rem;
+         /* 24px */
+         margin-bottom: 1.5rem;
+         /* 24px */
+         letter-spacing: -1px;
+         font-weight: bold;
+         }
+         h4 {
+         font-size: 1.12rem;
+         /* 16px */
+         line-height: 1.375rem;
+         /* 22px */
+         margin-bottom: 1.5rem;
+         /* 24px */
+         color: white;
+         }
+         h5 {
+         font-size: 0.97rem;
+         /* 16px */
+         line-height: 1.25rem;
+         /* 22px */
+         margin-bottom: 1.5rem;
+         /* 24px */
+         font-weight: bold;
+         }
+         h6 {
+         font-size: 0.93rem;
+         /* 16px */
+         line-height: 1rem;
+         /* 16px */
+         margin-bottom: 0.75rem;
+         color: white;
+         }
+         @media (min-width: 980px) {
+         h3.md-focus:before,
+         h4.md-focus:before,
+         h5.md-focus:before,
+         h6.md-focus:before {
+         color: #ddd;
+         border: 1px solid #ddd;
+         border-radius: 3px;
+         position: absolute;
+         left: -1.642857143rem;
+         top: .357142857rem;
+         float: left;
+         font-size: 9px;
+         padding-left: 2px;
+         padding-right: 2px;
+         vertical-align: bottom;
+         font-weight: normal;
+         line-height: normal;
+         }
+         h3.md-focus:before {
+         content: 'h3';
+         }
+         h4.md-focus:before {
+         content: 'h4';
+         }
+         h5.md-focus:before {
+         content: 'h5';
+         top: 0px;
+         }
+         h6.md-focus:before {
+         content: 'h6';
+         top: 0px;
+         }
+         }
+         a {
+         text-decoration: none;
+         outline: 0;
+         }
+         a:hover {
+         outline: 0;
+         }
+         a:focus {
+         outline: thin dotted;
+         }
+         sup.md-footnote {
+         background-color: #555;
+         color: #ddd;
+         }
+         p {
+         -ms-word-wrap: break-word;
+         word-wrap: break-word;
+         }
+         p,
+         ul,
+         dd,
+         ol,
+         hr,
+         address,
+         pre,
+         table,
+         iframe,
+         .wp-caption,
+         .wp-audio-shortcode,
+         .wp-video-shortcode {
+         margin-top: 0;
+         margin-bottom: 1.5rem;
+         /* 24px */
+         }
+         audio:not([controls]) {
+         display: none;
+         }
+         [hidden] {
+         display: none;
+         }
+         ::-moz-selection {
+         background: #4a89dc;
+         color: #fff;
+         text-shadow: none;
+         }
+         *.in-text-selection,
+         ::selection {
+         background: #4a89dc;
+         color: #fff;
+         text-shadow: none;
+         }
+         ul,
+         ol {
+         padding: 0 0 0 1.875rem;
+         /* 30px */
+         }
+         ul {
+         list-style: square;
+         }
+         ol {
+         list-style: decimal;
+         }
+         ul ul,
+         ol ol,
+         ul ol,
+         ol ul {
+         margin: 0;
+         }
+         b,
+         th,
+         dt,
+         strong {
+         font-weight: bold;
+         }
+         i,
+         em,
+         dfn,
+         cite {
+         font-style: italic;
+         }
+         blockquote {
+         padding-left: 1.875rem;
+         margin: 0 0 1.875rem 1.875rem;
+         border-left: solid 2px #474d54;
+         padding-left: 30px;
+         margin-top: 35px;
+         }
+         pre,
+         code,
+         kbd,
+         tt,
+         var {
+         background: rgba(0, 0, 0, 0.05);
+         font-size: 0.875rem;
+         font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+         }
+         pre.md-fences {
+         padding: 10px 30px;
+         margin-bottom: 20px;
+         border: 1px solid;
+         }
+         .md-fences .code-tooltip {
+         bottom: -3.2em;
+         }
+         code,
+         kbd,
+         tt,
+         var {
+         padding: 2px 5px;
+         }
+         table {
+         max-width: 100%;
+         width: 100%;
+         border-collapse: collapse;
+         border-spacing: 0;
+         }
+         th,
+         td {
+         padding: 5px 10px;
+         vertical-align: top;
+         }
+         a {
+         -webkit-transition: all .2s ease-in-out;
+         transition: all .2s ease-in-out;
+         }
+         hr {
+         background: #474d54;
+         /* variable */
+         }
+         #write>*:first-child {
+         margin-top: 40px;
+         }
+         h1 {
+         margin-top: 2em;
+         }
+         a {
+         color: #e0e0e0;
+         text-decoration: underline;
+         }
+         a:hover {
+         color: #fff;
+         }
+         .md-inline-math script {
+         color: #81b1db;
+         }
+         b,
+         th,
+         dt,
+         strong {
+         color: #DEDEDE;
+         /* variable */
+         }
+         mark {
+         background: #D3D40E;
+         }
+         blockquote {
+         color: #9DA2A6;
+         }
+         table a {
+         color: #DEDEDE;
+         /* variable */
+         }
+         th,
+         td {
+         border: solid 1px #474d54;
+         /* variable */
+         }
+         .task-list {
+         padding-left: 0;
+         }
+         .task-list-item {
+         padding-left: 1.25rem;
+         }
+         .task-list-item input {
+         top: 0.1875rem;
+         }
+         .task-list-item input:before {
+         content: "";
+         display: inline-block;
+         width: 0.875rem;
+         height: 0.875rem;
+         vertical-align: middle;
+         text-align: center;
+         border: 1px solid #b8bfc6;
+         background-color: #363B40;
+         margin-top: -0.4375rem;
+         }
+         .task-list-item input:checked:before,
+         .task-list-item input[checked]:before {
+         content: '\221A';
+         /*◘*/
+         font-size: 0.625rem;
+         line-height: 0.625rem;
+         color: #DEDEDE;
+         }
+         .CodeMirror-gutters {
+         background: transparent;
+         border-right: 1px solid transparent;
+         }
+         /** quick open **/
+         .auto-suggest-container {
+         border: 0px;
+         background-color: #525C65;
+         }
+         #typora-quick-open {
+         background-color: #525C65;
+         }
+         #typora-quick-open input{
+         background-color: #525C65;
+         border: 0;
+         border-bottom: 1px solid grey;
+         }
+         .typora-quick-open-item {
+         background-color: inherit;
+         color: inherit;
+         }
+         .typora-quick-open-item.active {
+         background-color: #4D8BDB;
+         color: white;
+         }
+         .typora-search-spinner > div {
+         background-color: #fff;
+         }
+         #write pre.md-meta-block {
+         border-bottom: 1px dashed #ccc;
+         background: transparent;
+         padding-bottom: 0.6em;
+         line-height: 1.6em;
+         }
+         .btn,
+         .btn .btn-default {
+         background: transparent;
+         color: #b8bfc6;
+         }
+         .md-table-edit {
+         border-top: 1px solid gray;
+         background-color: #363B40;
+         }
+         .popover-title {
+         background: transparent;
+         }
+         .md-image>.md-meta {
+         color: #BBBBBB;
+         background: transparent;
+         }
+         .md-expand.md-image>.md-meta {
+         color: #DDD;
+         }
+         #write>h3:before,
+         #write>h4:before,
+         #write>h5:before,
+         #write>h6:before {
+         border: none;
+         border-radius: 0px;
+         color: #888;
+         text-decoration: underline;
+         left: -1.4rem;
+         top: 0.2rem;
+         }
+         #write>h3.md-focus:before {
+         top: 2px;
+         }
+         #write>h4.md-focus:before {
+         top: 2px;
+         }
+         .md-toc-item {
+         color: #A8C2DC;
+         }
+         #write div.md-toc-tooltip {
+         background-color: #363B40;
+         }
+         .dropdown-menu .btn:hover,
+         .dropdown-menu .btn:focus,
+         .md-toc .btn:hover,
+         .md-toc .btn:focus {
+         color: white;
+         background: black;
+         }
+         #toc-dropmenu {
+         background: rgba(50, 54, 59, 0.93);
+         border: 1px solid rgba(253, 253, 253, 0.15);
+         }
+         #toc-dropmenu .divider {
+         background-color: #9b9b9b;
+         }
+         .outline-expander:before {
+         top: 2px;
+         }
+         #typora-sidebar {
+         box-shadow: none;
+         border-right: 1px dashed;
+         border-right: none;
+         }
+         .sidebar-tabs {
+         border-bottom:0;
+         }
+         #typora-sidebar:hover .outline-title-wrapper {
+         border-left: 1px dashed;
+         }
+         .outline-title-wrapper .btn {
+         color: inherit;
+         }
+         .outline-item:hover {
+         border-color: #363B40;
+         background-color: #363B40;
+         color: white;
+         }
+         h1.md-focus .md-attr,
+         h2.md-focus .md-attr,
+         h3.md-focus .md-attr,
+         h4.md-focus .md-attr,
+         h5.md-focus .md-attr,
+         h6.md-focus .md-attr,
+         .md-header-span .md-attr {
+         color: #8C8E92;
+         display: inline;
+         }
+         .md-comment {
+         color: #5a95e3;
+         opacity: 1;
+         }
+         .md-inline-math g,
+         .md-inline-math svg {
+         stroke: #b8bfc6 !important;
+         fill: #b8bfc6 !important;
+         }
+         [md-inline='inline_math'] {
+         color: #9CB2E9;
+         }
+         #math-inline-preview .md-arrow:after {
+         background: black;
+         }
+         .modal-content {
+         background: var(--bg-color);
+         border: 0;
+         }
+         .modal-title {
+         font-size: 1.5em;
+         }
+         .modal-content input {
+         background-color: rgba(26, 21, 21, 0.51);
+         color: white;
+         }
+         .modal-content .input-group-addon {
+         background-color: rgba(0, 0, 0, 0.17);
+         color: white;
+         }
+         .modal-backdrop {
+         background-color: rgba(174, 174, 174, 0.7);
+         }
+         .modal-content .btn-primary {
+         border-color: var(--primary-color);
+         }
+         .md-table-resize-popover {
+         background-color: #4B535A;
+         }
+         .form-inline .input-group .input-group-addon {
+         color: white;
+         }
+         #md-searchpanel {
+         border-bottom: 1px dashed grey;
+         }
+         /** UI for electron */
+         .context-menu {
+         background-color: #42464A;
+         }
+         .context-menu.dropdown-menu .divider {
+         background-color: #777777;
+         }
+         footer {
+         color: inherit;
+         }
+         @media (max-width: 1000px) {
+         footer {
+         border-top: none;
+         }
+         footer:hover {
+         color: inherit;
+         }
+         }
+         #file-info-file-path .file-info-field-value:hover {
+         background-color: #555;
+         color: #dedede;
+         }
+         .megamenu-content,
+         .megamenu-opened header {
+         background: var(--bg-color);
+         }
+         .megamenu-menu-panel h2,
+         .megamenu-menu-panel h1,
+         .long-btn {
+         color: inherit;
+         }
+         .megamenu-menu-panel input[type='text'] {
+         background: inherit;
+         border: 0;
+         border-bottom: 1px solid;
+         }
+         #recent-file-panel-action-btn {
+         background: inherit;
+         border: 1px grey solid;
+         }
+         .megamenu-menu-panel .btn:hover, 
+         .megamenu-menu-panel .btn:focus, 
+         .megamenu-menu-panel .btn.focus {
+         color: white;
+         }
+         .megamenu-menu-panel .dropdown-menu > li > a {
+         color: inherit;
+         background-color: #2F353A;
+         text-decoration: none;
+         }
+         .megamenu-menu-panel table td:nth-child(1) {
+         color: inherit;
+         font-weight: bold;
+         }
+         .megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+         color: white;
+         }
+         .modal-footer .btn-default, 
+         .modal-footer .btn-primary,
+         .modal-footer .btn-default:not(:hover) {
+         border: 1px solid;
+         border-color: transparent;
+         }
+         .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+         color: white;
+         border: 1px solid #ddd;
+         background-color: inherit;
+         }
+         .modal-header {
+         border-bottom: 0;
+         }
+         .modal-footer {
+         border-top: 0;
+         }
+         #recent-file-panel tbody tr:nth-child(2n-1) {
+         background-color: transparent !important;
+         }
+         .megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+         color: inherit;
+         }
+         .megamenu-menu-panel .btn {
+         border: 1px solid #eee;
+         background: transparent;
+         }
+         .mouse-hover .toolbar-icon.btn:hover,
+         #w-full.mouse-hover,
+         #w-pin.mouse-hover {
+         background-color: inherit;
+         }
+         .typora-node::-webkit-scrollbar {
+         width: 5px;
+         }
+         .typora-node::-webkit-scrollbar-thumb:vertical {
+         background: rgba(250, 250, 250, 0.3);
+         }
+         .typora-node::-webkit-scrollbar-thumb:vertical:active {
+         background: rgba(250, 250, 250, 0.5);
+         }
+         #w-unpin {
+         background-color: #4182c4;
+         }
+         #top-titlebar, #top-titlebar * {
+         color: var(--item-hover-text-color);
+         }
+         .typora-sourceview-on #toggle-sourceview-btn,
+         #footer-word-count:hover,
+         .show-word-count #footer-word-count {
+         background: #333333;
+         }
+         #toggle-sourceview-btn:hover {
+         color: #eee;
+         background: #333333;
+         }
+         /** focus mode */
+         .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+         color: #686868 !important;
+         }
+         .on-focus-mode .md-end-block:not(.md-focus) img,
+         .on-focus-mode .task-list-item:not(.md-focus-container)>input {
+         opacity: #686868 !important;
+         }
+         .on-focus-mode li[cid]:not(.md-focus-container){
+         color: #686868;
+         }
+         .on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+         .on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+         color: #686868 !important;
+         }
+         .on-focus-mode .md-focus,
+         .on-focus-mode .md-focus-container {
+         color: #fff;
+         }
+         .on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+         color: #686868 !important;
+         }
+         /*diagrams*/
+         #write .md-focus .md-diagram-panel {
+         border: 1px solid #ddd;
+         margin-left: -30px;
+         }
+         .md-diagram-panel-error {
+         color: #f1908e;
+         }
+         .active-tab-files #info-panel-tab-file,
+         .active-tab-files #info-panel-tab-file:hover,
+         .active-tab-outline #info-panel-tab-outline,
+         .active-tab-outline #info-panel-tab-outline:hover {
+         color: #eee;
+         }
+         .sidebar-footer-item:hover,
+         .footer-item:hover {
+         background: inherit;
+         color: white;
+         }
+         .ty-side-sort-btn.active,
+         .ty-side-sort-btn:hover,
+         .selected-folder-menu-item a:after {
+         color: white;
+         }
+         #sidebar-files-menu {
+         border:solid 1px;
+         box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+         background-color: var(--bg-color);
+         }
+         .file-list-item {
+         border-bottom:none;
+         }
+         .file-list-item-summary {
+         opacity: 1;
+         }
+         .file-list-item.active:first-child {
+         border-top: none;
+         }
+         .sidebar-footer {
+         border-top: 1px solid #555;
+         }
+         .file-node-background {
+         height: 32px;
+         }
+         .file-library-node.active>.file-node-content,
+         .file-list-item.active {
+         color: white;
+         color: var(--active-file-text-color);
+         }
+         .file-library-node.active>.file-node-background{
+         background-color: rgb(34, 34, 34);
+         background-color: var(--active-file-bg-color);
+         }
+         .file-list-item.active {
+         background-color: rgb(34, 34, 34);
+         background-color: var(--active-file-bg-color);
+         }
+         #ty-tooltip {
+         background-color: black;
+         color: #eee;
+         }
+      </style>
+	  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113460032-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113460032-1');
+</script>
+   </head>
+   <body class='typora-export' >
+      <div  id='write'  class = 'is-mac show-fences-line-number'>
+         <h3><a name='header-n16' class='md-header-anchor '></a>EthPyramid -  A no-bullshit, transparent, self-sustaining pyramid scheme.</h3>
+         <p><img src="https://beta.ethpyramid.com/images/BannerLogo.png"></p>
+         <p><strong>[TRANSLATION TO SPANISH COMPLETE, PENDING UPLOAD]</strong></p>
+		 <p></p>
+         <p><strong>WE&#39;RE DUMB, AND YOU MIGHT BE TOO</strong></p>
+         <p>Have you ever wanted to build an entire pyramid structure by hand, with no tools? We haven't either. That's why we are calling upon all of you out there in the cryptosphere to help us build this wonder together. And keep building. Until we reach the moon. Until you can stand atop a pile of your own dividends with a smile on your face as large as Carlos Matos' on that fateful day. Any place you want to dream of, where your soul is free - that is where this pyramid of love can take you. That, or a nice comfy place under the bridge.</p>
+         <p><strong>SYNERGY</strong></p>
+         <p>Our team is composed of approximately a dozen of the most enthusiastically greedy and unhinged code-monkeys that happened to be around at the time. They play together, work together, build together. They truly are the best we could find. Best at what, we aren't quite sure, but everybody is good at something. Even if that something is losing money. By utilizing the synergy and blithe indifference of the crypto community, in their desperate pursuit for a car that gets 6 miles per gallon (burning beautiful, clean coal), they have harnessed the true power of the Ethereum network and smart contract platform to give you ETHPYRAMID.</p>
+         <p><strong>HIGH TECHNOLOGY</strong></p>
+         <p>EthPyramid is an innovative new solution to a preeminent problem of modern blockchain functionality; that of a lack of sufficient allowance for the re-splitting of Yakubian hypercube manifold tokens when exposed to meta-tether dithering ratios after the input transaction, with included support for tesseract omni-quantification perplexion algorithms. It even solves the oracle problem, in that nobody in their right mind could've predicted anyone would put real money into this clusterf**k.</p>
+         <p><strong>UNBRIDLED TEMERITY</strong></p>
+         <p>We're confident that EthPyramid is the pinnacle in affordable, repeatable, unreliable pseudo-investment opportunities for the gullible and over-rich. What if you had just one shot, one opportunity to make it big? Shouldn't your narcotic-addled, sleep deprived mind jump at the chance to completely ignore it in order to throw your virtual internet money at a few lines of code instead? If you were a pothead who stumbled onto a fortune of Bitcoin in 2012, after surfing the silk road for the newest synthetic MDMA derivative fresh out of a Chinese sweat shop, why not try one last time to squander the only shred of dignity you have left! You're only human after all.</p>
+         <p><strong>ECONOMIC MASTERY</strong></p>
+         <p>EthPyramid is irrefutably (and irremutably?) the apex of virtual money burning strategy technologies, put together in a dark room by at least several semi-skilled semi-professionals with a lot of time on their hands. No sane individual would see this for anything but what it is - a completely guarantee-free, risk-heavy, fools bargain for the desperate and the idiotic. Featuring everything from competitive interest rates to a dynamic "Get rich quick, lose it all even quicker" philosophy, there is literally no reason to not delude yourself into thinking playing this game would be a good idea. Turns out we aren't afraid of our own shadow, and we let our platform speak for itself. EthPyramid is the game that just keeps giving. And taking away. And giving again...</p>
+         <p><strong>WELCOME TO THE ETHPYRAMID</strong></p>
+         <p>Warren Buffett says that cryptocurrency is destined to fail. Maybe so. Perhaps you'll be one of those lucky few souls who will be able to tell their grandchildren that they were involved in the very instrument of its complete and utter annihilation. So join us today - and shield your eyes. Prepare to shove your last few remaining scraps of Ether upon the pyre of reckless madness that is ETHPYRAMID. Together we can build this thing so high that it's just too darned big to fail.</p>
+         <p>Get in, or stay poor.</p>
+         <hr />
+         <p><strong>FREQUENTLY ASKED QUESTIONS</strong></p>
+         <p><strong>Q: Is this a real thing?</strong>
+            A: Yes, EthPyramid tokens are built on the Ethereum blockchain. They have no value outside of engaging in the EP game with our Math Robot though and you SHOULD NOT consider them a real investment or asset class with any intrinsic value OF ANY FORM. 
+         </p>
+         <p><strong>Q: Wasn't there something similar to this earlier?</strong>
+            A: Yes, there are several variations of ponzis, pyramids, and other schemes; EthPyramid is the next step forward with convertible dividends and 10% redistribution on sell. Our (diverse and international) team has worked around the clock to prevent any bugs, errors and mistakes that other teams failed to spot in the contract code.
+         </p>
+         <p><strong>Q: So what do I need to help build this Pyramid?</strong>
+            A: You will need to have some Ether in a browser plugin called MetaMask. This application seamlessly handles transfers from your generated wallet into the smart contract. Follow the directions on their site:  https://metamask.io/. There are many exchanges that you can purchase Ether from, depending on what country you live in. Some popular exchanges for FIAT transfers include:  Coinbase, Gemini, Quadrigacx, Bittylicious, etc.
+         </p>
+         <p><strong>Q: Is this coin pre-mined?</strong>
+            A: No, nor are there any loopholes in the code that allow us to take ETH out of the contract in any ways that you yourself are not capable of. This is a grassroots developed, fraud-and-exploitation-free, self-sustaining pyramid model that rewards and promotes long-term stability - and therefore a completely new (and utterly worthless) asset class.
+         </p>
+         <p><strong>Q: So exactly what happens with the tokens that I buy?</strong>
+            A: Every time somebody buys or sell an EthPyramid token, the price changes - 0.25% higher upon buy, 0.25% lower upon sell. If you keep your tokens where they are, you receive 10% from every buy OR sell transaction based upon your current share of tokens. You can convert your current token stash into Ether where it will sit in your dividends pool - your dividends are stored in ETH, not in tokens, so their value remains stable (as long as the ETH price itself remains stable.) However once you've converted your tokens, you won't be gaining any dividends - and if you want back in you'll need to either purchase more or simply convert your dividends pool straight back into tokens.
+         </p>
+         <p><strong>Q: Why should I participate in this smart contract?</strong>
+            A: EthPyramid encourages holding more than other platforms with a similar theme. Every BUY and SELL on the contract will net 10% dividends redistributed back to current token holders – encouraging STRONG HANDS. You can even directly convert your dividends without having to withdraw them to another wallet; preventing excessive and unnecessary transaction fees. We are aiming for longevity; a system whereby repeated pumps, dumps, crashes and moon missions will benefit those who simply want to sit back and watch the dividends roll in.
+         </p>
+         <p><strong>Q: Hmm, sounds interesting. Can you tell me more?</strong>
+            A: Our system mitigates the risk of fast dumping by penalizing sellers for doing so.  If there is a sell off period, you will still be collecting dividends, as well as gain a larger portion of the total token market share in the process. If a buy/sell cycle occurs, the token holders will still collect dividends off the sales, in addition to gaining a larger portion of the total token market share in the process. This way, those who attempt to time the market and perform swing trades; selling high and re-buying low, will be risking a lot - and losing out on soaking up all those precious divvies. If you'd prefer to sit back and play it safe you will profit off of the madness of the greedy whales and weak-handed alike.
+         </p>
+         <p><strong>Q: So I should definitely get into credit card debt to play this game?</strong>
+            A: NO. You most certainly should not be putting anything you can't afford to lose on this. PLEASE do not consider this to be anything other than what it intends to be: an insane proof of concept turned global prisoners dilemma. It is a joke, and should be treated as such. Do not put anything in here that you are not immediately willing to treat as lost.
+         </p>
+         <p><strong>Q: So what is that you guarantee exactly?</strong>
+            A: Nothing. Seriously. Pyramid schemes are, by definition, a zero sum game. The risk is entirely yours. Tread carefully. Good luck and have fun! And remember, it's internet monopoly money. Don't do anything you'll lose sleep (or your family) over.
+         </p>
+         <p><strong>IMPORTANT:</strong></p>
+         <p>At any time you can escape the contract and withdraw all your Ether by opening up a transaction through MetaMask, sending 0 Ether with a 150,000 gas-limit to the contract and inputting "0xb1e35242" under additional data. This is the getMeOutOfHere() function on the contract and will cash you out of all tokens and dividends.</p>
+         <p><strong>BORING DEV STUFF:</strong></p>
+         <p>At its core, EthPyramid is based off of Dr Jochen Hoenicke's original published work and is an improvement upon the general concept, as well as rectifying several flaws and exploits that were discovered.PoWH's extraneous features and unnecessary functions were removed and the original code was also scrutinized heavily. We added safemath operations, ensuring that no underflow/overflow bug can occur. Attack vectors are very low, with almost no functions allowing for custom input of data. As such, the exploit that caused PoWH's downfall has no effect on our contract because, quite simply, the function it requires doesn't exist.</p>
+         <p>We had over 4,000 ETH of inflow/outflow during stress-testing on the beta site  (<a href='https://beta.ethpyramid.com/' target='_blank' >https://beta.ethpyramid.com/</a>) and no bugs have occurred. The full smart contract was released before launch and will always be able to view from our site. Our contract is well documented and clean, with no redundant code. Once the official contract is deployed, you may compare the difference between the pre-released code and the published contract for yourself!</p>
+         <p><img src="https://beta.ethpyramid.com/images/sneky.png"></p>
+      </div>
+   </body>
+</html>
