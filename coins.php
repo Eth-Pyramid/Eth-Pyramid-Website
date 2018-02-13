@@ -20,6 +20,7 @@ include('include/head.php');
                                 style="color:white"><?php __('EthPyramid<span class="trademark">TM</span> Tokens'); ?></h2>
                             <span class="period float-right"><?php __('Contract Balance:'); ?> <span
                                         class="current-distribution-period">0.00</span> ETH</span>
+                            <div id="eth-address" style="display: none">Not Set</div>
                         </div>
                         <div class="row top-row clearfix">
                             <div class="col-4">
@@ -182,6 +183,10 @@ include('include/head.php');
                 <div id="metamask-not-found" style="padding: 15px; display: none">
                     <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
                     <h3><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></h3>
+                </div>
+                <div id="metamask-not-logged-in" style="padding: 15px; display: none">
+                    <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
+                    <h3><?php __('You must login to MetaMask to continue'); ?></h3>
                 </div>
             </div>
             <div class="chat-box">
