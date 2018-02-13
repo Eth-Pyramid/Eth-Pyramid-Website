@@ -42,11 +42,13 @@
 			<div class="flagBits">
 				<a href="?lang=us"><img src="images/UK.jpg"></a>
 				<a href="?lang=au"><img src="images/AU.jpg"></a>
+				<a href="https://imgur.com/a/s7W4o"><img src="images/SA.jpg"></a>
 				<a href="?lang=cn"><img src="images/CN.jpg"></a>
 				<a href="?lang=fr"><img src="images/FR.jpg"></a>
 				<a href="?lang=de"><img src="images/DE.jpg"></a>
 				<a href="?lang=sp"><img src="images/SP.jpg"></a>
 				<a href="?lang=kr"><img src="images/KR.jpg"></a>
+				<a href="https://imgur.com/a/zcm3f"><img src="images/RU.jpg"></a>
 			</div>
 			<div class="socialBits">
 				<a href="https://twitter.com/ethpyramid" target="_blank"><i class="fab fa-twitter-square"
