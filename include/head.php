@@ -71,7 +71,7 @@
 							<li><a href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"
 							       target="_blank"><?php __('Smart Contract'); ?></a></li>
 							<li><a href="coins.html"><?php __('My Coins'); ?></a></li>
-							<li><a href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a></li>
+							<li><a href="stats.html"><?php __('Stats'); ?></a></li>
 							<li><a href="whitepaper.html"><?php __('Whitepaper'); ?></a></li>
 						</ul>
 					</div>
