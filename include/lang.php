@@ -1,7 +1,6 @@
 <?php
 
-$languages = ['us'];
-$lang      = null;
+$lang = null;
 $texts = [];
 
 function useLanguage($code)
@@ -15,6 +14,7 @@ function useLanguage($code)
 function getDefaultCurrency()
 {
 	global $lang;
+
 	return $lang['default_currency'];
 }
 
@@ -69,7 +69,7 @@ function __($text)
 	}
 	else
 	{
-		if( !in_array( $text, $texts ) )
+		if (!in_array($text, $texts))
 			$texts[] = $text;
 
 		echo $text;
@@ -86,19 +86,23 @@ else if (isset($_COOKIE['lang']))
 {
 	useLanguage($_COOKIE['lang']);
 }
+else
+{
+	useLanguage('us');
+}
 
 if (isset($_GET['out']))
 {
-	ob_start( function( $data ){
+	ob_start(function ($data) {
 		global $texts;
 
 		$ret = [];
 
-		foreach( $texts as $text )
+		foreach ($texts as $text)
 		{
-			$ret[ $text ] = $text;
+			$ret[$text] = $text;
 		}
 
-		return var_export( $ret, true );
+		return var_export($ret, true);
 	});
 }
