@@ -14,12 +14,12 @@ include('include/head.php');
 
     <div style="width: 850px; margin: 25px auto; background: white; padding: 25px;">
         <h3>Top 20 Token Holders</h3>
-        <p>Aliases of known dev team are shown in place of address if known.</p>
+        <p>Aliases of dev team members are shown in place of address if known.</p>
         <canvas id="top-holders" width="800" height="700" style="margin-top: 25px;"></canvas>
     </div>
 
     <div style="width: 850px; margin: 25px auto; background: white; padding: 25px;">
-        <h3>Daily Volume (Last 30 days)</h3>
+        <h3>Daily Volume in ETH (Last 5 days)</h3>
         <canvas id="daily-volume" width="800" height="700" style="margin-top: 25px;"></canvas>
     </div>
 
