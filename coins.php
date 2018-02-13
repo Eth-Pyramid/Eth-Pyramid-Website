@@ -3,6 +3,9 @@ include('include/lang.php');
 $main_class = 'faq-main';
 include('include/head.php');
 ?>
+
+<script type="text/javascript" src="js/quote.js"></script>
+
 <div class="faq-main-content">
     <div class="faq-header text-center">
         <h2 style="color:#d69361"><?php __('Purchase EthPyramid Tokens'); ?></h2>
