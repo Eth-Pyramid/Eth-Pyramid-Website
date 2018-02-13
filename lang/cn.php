@@ -8,6 +8,7 @@ return [
 	'flag' => 'CN.jpg',
 	'text' => [
 		'EthPyramid' => 'EthPyramid',
+		'Stats' => '統計',
 		'A self-sustaining, secure and transparent pyramid scheme.' => '可自我持续、安全、透明的金字塔计划.',
 		'Smart Contract' => '智能合约',
 		'My Coins' => '我的令牌',
