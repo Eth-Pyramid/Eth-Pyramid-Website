@@ -28,7 +28,7 @@
                         <div class="sections">
                             <h4 id="6"><?php __('Q: So exactly what happens with the tokens that I buy?'); ?></h4>
                             <p>
-								<?php __('A: Every time somebody buys or sell an EthPyramid token, the price changes - 0.25% higher upon buy, 0.25% lower upon sell. If you keep your tokens where they are, you receive 10% from every buy OR sell transaction based upon your current share of tokens. You can convert your current token stash into Ether where it will sit in your dividends pool - your dividends are stored in ETH, not in tokens, so their value remains stable (as long as the ETH price itself remains stable.) However once you\'ve converted your tokens, you won\'t be gaining any dividends - and if you want back in you\'ll need to either purchase more or simply convert your dividends pool straight back into tokens.'); ?>
+								<?php __('A: Every time somebody buys or sell an EthPyramid token, the price changes - 0.2% higher upon buy, 0.2% lower upon sell. If you keep your tokens where they are, you receive 10% from every buy OR sell transaction based upon your current share of tokens. You can convert your current token stash into Ether where it will sit in your dividends pool - your dividends are stored in ETH, not in tokens, so their value remains stable (as long as the ETH price itself remains stable.) However once you\'ve converted your tokens, you won\'t be gaining any dividends - and if you want back in you\'ll need to either purchase more or simply convert your dividends pool straight back into tokens.'); ?>
                             </p>
                         </div>
                         <div class="sections">
