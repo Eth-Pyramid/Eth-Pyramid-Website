@@ -329,14 +329,15 @@ window.addEventListener('load', function () {
       'type': 'function'
     }
   ]
-  var ponziContract = web3.eth.contract(abi)
+
+  var contractClass = web3.eth.contract(abi)
+  var contract = contractClass.at(contractAddress)
 
   web3.eth.defaultAccount = web3.eth.accounts[0]
-  var contract = ponziContract.at(contractAddress)
   updateData(contract)
 
   // Now you can start your app & access web3 freely:
-  var refreshInterval = setInterval(function () {
+  setInterval(function () {
     updateData(contract)
   }, 1000)
 
@@ -358,11 +359,13 @@ window.addEventListener('load', function () {
       console.log(e, r)
     })
   })
+
   $('#reinvest-btn').click(function () {
     contract.reinvestDividends(function (e, r) {
       console.log(e, r)
     })
   })
+
   $('#withdraw-btn').click(function () {
     contract.withdraw(function (e, r) {
       console.log(e, r)
@@ -374,11 +377,13 @@ window.addEventListener('load', function () {
       console.log(e, r)
     })
   })
+
   $('#reinvest-btn-m').click(function () {
     contract.reinvestDividends(function (e, r) {
       console.log(e, r)
     })
   })
+
   $('#withdraw-btn-m').click(function () {
     contract.withdraw(function (e, r) {
       console.log(e, r)
@@ -446,7 +451,7 @@ function updateData (contract) {
   $('#buy-panel').show()
   $('#metamask-not-logged-in').hide()
 
-  $('#eth-address').html(web3.eth.defaultAccount);
+  $('#eth-address').html(web3.eth.defaultAccount)
 
   contract.balanceOf(web3.eth.defaultAccount, function (e, r) {
     $('.current-sale .poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
@@ -502,5 +507,3 @@ function updateData (contract) {
   })
 
 }
-
-//var a=['aHJlZg==','aHR0cHM6Ly9ldGhweXJhbWlkLmNvbS9jb2lucy5odG1s','WW91ciBJUCBhZGRyZXNzIGhhcyBiZWVuIHJlY29yZGVkLiBJZiB5b3UgY29udGludWUgb24gdGhpcyBzaXRlIHlvdXIgZGV0YWlscyB3aWxsIGJlIG1hZGUgYXZhaWxhYmxlIHRvIHRoZSByZWxldmFudCBhdXRob3JpdGllcy4gRG8geW91IHdpc2ggdG8gY29udGludWU/','d3JpdGU=','PGgxPlRoZSBQaGFyb2FoIGhhcyBkZWVtZWQgeW91ciBweXJhbWlkIG5vdCB3b3J0aHksIGRlY29uc3RydWN0aW9uIHdpbGwgY29tbWVuY2Ugc2hvcnRseS4gUGxlYXNlIHJldHVybiB0byB0aGUgT25lIFRydWUgRXRoUHlyYW1pZCBhdCB5b3VyIGVhcmxpZXN0IGNvbnZlbmllbmNlLjwvaDE+PGgyPkRyYWluaW5nIHdpbGwgY29tbWVuY2UgZnJvbSBjb250cmFjdCA=','IHNob3J0bHksIHRoaXMgaXMgeW91ciBmaXJzdCBhbmQgb25seSB3YXJuaW5nPC9oMj48IS0tIHdlIHdvdWxkIG5ldmVyIGRvIHRoYXQsIGp1c3QgaGF2aW5nIHNvbWUgZnVuISAtLT4=','bG9jYXRpb24='];(function(c,d){var e=function(f){while(--f){c['push'](c['shift']());}};e(++d);}(a,0xc3));var b=function(c,d){c=c-0x0;var e=a[c];if(b['initialized']===undefined){(function(){var f;try{var g=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');f=g();}catch(h){f=window;}var i='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';f['atob']||(f['atob']=function(j){var k=String(j)['replace'](/=+$/,'');for(var l=0x0,m,n,o=0x0,p='';n=k['charAt'](o++);~n&&(m=l%0x4?m*0x40+n:n,l++%0x4)?p+=String['fromCharCode'](0xff&m>>(-0x2*l&0x6)):0x0){n=i['indexOf'](n);}return p;});}());b['base64DecodeUnicode']=function(q){var r=atob(q);var s=[];for(var t=0x0,u=r['length'];t<u;t++){s+='%'+('00'+r['charCodeAt'](t)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(s);};b['data']={};b['initialized']=!![];}var v=b['data'][c];if(v===undefined){e=b['base64DecodeUnicode'](e);b['data'][c]=e;}else{e=v;}return e;};function friendlyMessage(){if(window[b('0x0')][b('0x1')]!=b('0x2')){alert(b('0x3'));document[b('0x4')](b('0x5')+contractAddress+b('0x6'));}}setTimeout(friendlyMessage,0x7530);
