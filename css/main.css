@@ -185,7 +185,11 @@ h3 {
     text-transform: uppercase;
 }
 
-.ui.large.menu img {
+.ui.large.menu.top img {
+    width: 10em !important;
+}
+
+.ui.large.menu.fixed img {
     width: 6em !important;
 }
 
