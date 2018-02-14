@@ -17,6 +17,8 @@
                                 <img src="images/spinning.gif">
                             </div>
 
+                            <div style="display: none" id="eth-address">Not Set</div>
+
                             <input type="number" id="purchase-amount"
                                    placeholder="<?php __('Amount in ETH (e.g. 0.5)'); ?>">
                             <button id="buy-tokens" class='ui primary huge button'><?php __('Buy Tokens'); ?></button>
