@@ -1,0 +1,160 @@
+#token-sale {
+    background: #3f4045;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    color: #ffffff;
+}
+
+#token-sale .heading-container {
+    text-align: center;
+}
+
+#token-sale .heading-container h2 {
+    color: #d69361;
+}
+
+#buy-panel {
+    background: #2f2f32;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#buy-panel .inner {
+    padding: 1em;
+}
+
+#value-panel {
+    background: #363639;
+    border-radius: 0px 15px 15px 0px;
+}
+
+#value-panel .grid {
+    padding: 1em;
+}
+
+.spinning-logo img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+}
+
+#purchase-amount {
+    width: 100%;
+    display: block;
+    padding: 1em;
+    background: #3f4045;
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+#purchase-amount.error {
+    border-color: red;
+}
+
+#currency-selector {
+    margin: 2em 0 2em 0;
+}
+
+#currency-selector select {
+    padding: 0.4em 1em;
+    margin-left: 1em;
+}
+
+#buy-tokens {
+    width: 100%;
+    display: block;
+    margin-bottom: 2em;
+}
+
+.price-box {
+    text-align: center;
+    padding: 1.8em;
+    background: #404040;
+    height: 132px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px #0000001a;
+}
+
+.price-box.token-balance {
+    padding: 2.7em 1.8em;
+}
+
+.price-box.blue {
+    background-color: #384b57;
+}
+
+.price-box.green {
+    background: #3e596b;
+}
+
+.price-box .title {
+    color: #d69361 !important;
+    font-size: 1.2em;
+}
+
+.price-box .value {
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: 700;
+    transition: color 0.5s ease;
+    margin: 0.5em 0 0.3em 0;
+}
+
+.price-box .value-usd {
+    color: #b7b7b7;
+}
+
+.poh-value {
+    transition: color 0.5s ease;
+}
+
+.poh-value.up {
+    color: #80e080;
+}
+
+.poh-value.down {
+    color: #e08080;
+}
+
+.traffic-message {
+    font-size: 0.8em;
+    color: #999999;
+}
+
+#token-sale .methods {
+    margin-top: 4em;
+}
+
+#token-sale .method.button {
+    margin-bottom: 1em;
+    min-width: 220px;
+}
+
+#token-sale .methods p {
+    color: #999999;
+}
+
+#token-sale .inverted.dimmer * {
+    color: #444444 !important;
+}
+
+#token-sale .dimmer .inner {
+    text-align: center;
+    padding-top: 10em;
+}
+
+#token-sale .interface {
+    border-radius: 20px;
+}
+
+.contract-balance-container {
+    text-align: right;
+}
+
+@media only screen and (max-width: 700px) {
+    .contract-balance-container, .toggle-chat-container {
+        text-align: center;
+    }
+}

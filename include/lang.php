@@ -7,8 +7,10 @@ function useLanguage($code)
 {
 	global $lang;
 
-	if (file_exists('lang/' . $code . '.php'))
-		$lang = include('lang/' . $code . '.php');
+	$file = __DIR__ . '/../lang/' . $code . '.php';
+
+	if ($file)
+		$lang = include($file);
 }
 
 function getDefaultCurrency()
