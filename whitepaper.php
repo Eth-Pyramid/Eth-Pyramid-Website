@@ -52,10 +52,10 @@ include('include/head.php');
         </p>
         <h3 class="ui header"><?php __('Boring Dev Stuff'); ?></h3>
         <p>
-			<?php __('At its core, EthPyramid is based off of Dr Jochen Hoenicke\'s original published work and is an improvement upon the general concept, as well as rectifying several flaws and exploits that were discovered. PoWH\'s extraneous features and unnecessary functions were removed and the original code was also scrutinized heavily. We added safemath operations, ensuring that no underflow/overflow bug can occur. Attack vectors are very low, with almost no functions allowing for custom input of data. As such, the exploit that caused PoWH\'s downfall has no effect on our contract because, quite simply, the function it requires doesn\'t exist.'); ?>
+			<?php __('At its core, EthPyramid is based off of Dr Jochen Hoenicke\'s original published work and is an improvement upon the general concept, as well as rectifying several flaws and exploits that were discovered. All extraneous features and unnecessary functions were removed and the original code was also scrutinized heavily. We added safemath operations, ensuring that no underflow/overflow bug can occur. Attack vectors are very low, with almost no functions allowing for custom input of data. As such, the exploit that caused the downfall of previous iterations has no effect on our contract because, quite simply, the function it requires doesn\'t exist.'); ?>
         </p>
         <p>
-			<?php __('We had over 4,000 ETH of inflow/outflow during stress-testing on the beta site (<a href=\'https://beta.ethpyramid.com/\' target=\'_blank\'>https://beta.ethpyramid.com/</a>) and no bugs have occurred. The full smart contract was released before launch and will always be able to view from our site. Our contract is well documented and clean, with no redundant code. Once the official contract is deployed, you may compare the difference between the pre-released code and the published contract for yourself!'); ?>
+			<?php __('We had over 4,000 ETH of inflow/outflow during stress-testing on the beta site (<a href=\'https://beta.ethpyramid.com/\' target=\'_blank\'>https://beta.ethpyramid.com/</a>) and no bugs were observed. The full smart contract was released before launch and will always be able to view from our site. Our contract is well documented and clean, with no redundant code.'); ?>
         </p>
     </div>
 </div>
