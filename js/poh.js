@@ -2,15 +2,13 @@ var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200'
 
 window.addEventListener('load', function () {
 
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  $('#metamask-detecting').dimmer('hide');
+
   if (typeof web3 !== 'undefined') {
-    // Use Mist/MetaMask's provider
     web3js = new Web3(web3.currentProvider)
   } else {
     console.log('No web3? You should consider trying MetaMask!')
-    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    $('#buy-panel').hide()
-    $('#metamask-not-found').show()
+    $('#metamask-not-found').dimmer('show');
   }
 
   let abi = [
@@ -429,16 +427,12 @@ var dividendValue = 0
 var tokenBalance = 0
 
 function updateData (contract) {
-  // Populate data
-  // console.log(contract)
   if (!web3.eth.defaultAccount) {
-    $('#buy-panel').hide()
-    $('#metamask-not-logged-in').show()
+    $('#metamask-not-logged-in').dimmer('show');
     return
   }
 
-  $('#buy-panel').show()
-  $('#metamask-not-logged-in').hide()
+  $('#metamask-not-logged-in').dimmer('hide');
 
   $('#eth-address').html(web3.eth.defaultAccount)
 

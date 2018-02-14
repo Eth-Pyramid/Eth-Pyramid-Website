@@ -98,6 +98,10 @@
     margin-bottom: 1em;
 }
 
+#token-sale .inverted.dimmer * {
+   color: #444444 !important;
+}
+
 .contract-balance-container {
     text-align: right;
 }
