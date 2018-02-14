@@ -9,7 +9,7 @@
 
     <div class="ui container">
         <div class="ui stackable grid">
-            <div class="ui sixteen wide column interface blurring">
+            <div class="ui sixteen wide column interface">
                 <div class="ui stackable grid">
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
