@@ -2,6 +2,7 @@ var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200';
 
 window.addEventListener('load', function () {
 
+<<<<<<< HEAD
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
         // Use Mist/MetaMask's provider
@@ -12,6 +13,16 @@ window.addEventListener('load', function () {
         $('#buy-panel').hide();
         $('#metamask-not-found').show()
     }
+=======
+  $('#metamask-detecting').dimmer('hide')
+
+  if (typeof web3 !== 'undefined') {
+    web3js = new Web3(web3.currentProvider)
+  } else {
+    console.log('No web3? You should consider trying MetaMask!')
+    $('#metamask-not-found').dimmer('show')
+  }
+>>>>>>> master
 
     let abi = [
         {
@@ -352,6 +363,7 @@ window.addEventListener('load', function () {
                 console.log(e, r)
             })
         }
+<<<<<<< HEAD
     });
 
     $('#sell-tokens-btn').click(function () {
@@ -390,6 +402,131 @@ window.addEventListener('load', function () {
         })
     })
 });
+=======
+      ],
+      'name': 'withdrawOld',
+      'outputs': [],
+      'payable': false,
+      'stateMutability': 'nonpayable',
+      'type': 'function'
+    },
+    {
+      'inputs': [],
+      'payable': false,
+      'stateMutability': 'nonpayable',
+      'type': 'constructor'
+    },
+    {
+      'constant': false,
+      'inputs': [],
+      'name': 'withdraw',
+      'outputs': [],
+      'payable': false,
+      'stateMutability': 'nonpayable',
+      'type': 'function'
+    },
+    {
+      'constant': false,
+      'inputs': [],
+      'name': 'sellMyTokens',
+      'outputs': [],
+      'payable': false,
+      'stateMutability': 'nonpayable',
+      'type': 'function'
+    },
+    {
+      'payable': true,
+      'stateMutability': 'payable',
+      'type': 'fallback'
+    },
+    {
+      'constant': false,
+      'inputs': [],
+      'name': 'getMeOutOfHere',
+      'outputs': [],
+      'payable': false,
+      'stateMutability': 'nonpayable',
+      'type': 'function'
+    },
+    {
+      'constant': false,
+      'inputs': [],
+      'name': 'fund',
+      'outputs': [],
+      'payable': true,
+      'stateMutability': 'payable',
+      'type': 'function'
+    }
+  ]
+
+  var contractClass = web3.eth.contract(abi)
+  var contract = contractClass.at(contractAddress)
+
+  web3.eth.defaultAccount = web3.eth.accounts[0]
+  updateData(contract)
+
+  setInterval(function () {
+    updateData(contract)
+  }, 1000)
+
+  // Buy token click handler
+  $('#buy-tokens').click(function () {
+    let amount = $('#purchase-amount').val().trim()
+    if (amount <= 0 || !isFinite(amount) || amount === '') {
+      $('#purchase-amount').addClass('error').popup({
+        title: 'Invalid Input',
+        content: 'Please input a valid non-negative, non-zero value.'
+      }).popup('show')
+    } else {
+      $('#purchase-amount').removeClass('error').popup('destroy')
+      contract.fund({
+        value: convertEthToWei(amount)
+      }, function (e, r) {
+        console.log(e, r)
+      })
+    }
+  })
+
+  // Sell token click handler
+  $('#sell-tokens-btn').click(function () {
+    contract.sellMyTokens(function (e, r) {
+      console.log(e, r)
+    })
+  })
+
+  // Reinvest click handler
+  $('#reinvest-btn').click(function () {
+    contract.reinvestDividends(function (e, r) {
+      console.log(e, r)
+    })
+  })
+
+  // Withdraw click handler
+  $('#withdraw-btn').click(function () {
+    contract.withdraw(function (e, r) {
+      console.log(e, r)
+    })
+  })
+
+  $('#sell-tokens-btn-m').click(function () {
+    contract.sellMyTokens(function (e, r) {
+      console.log(e, r)
+    })
+  })
+
+  $('#reinvest-btn-m').click(function () {
+    contract.reinvestDividends(function (e, r) {
+      console.log(e, r)
+    })
+  })
+
+  $('#withdraw-btn-m').click(function () {
+    contract.withdraw(function (e, r) {
+      console.log(e, r)
+    })
+  })
+})
+>>>>>>> master
 
 function convertEthToWei (e) {
   return 1e18 * e
@@ -421,6 +558,7 @@ $(function () {
         updateEthPrice()
     });
 
+<<<<<<< HEAD
     let chaton = false;
 
     $('#chat-toggle').click(function (e) {
@@ -433,6 +571,9 @@ $(function () {
         chaton = !chaton
     });
 });
+=======
+})
+>>>>>>> master
 
 updateEthPrice();
 
@@ -440,9 +581,8 @@ let dividendValue = 0;
 let tokenBalance = 0;
 
 function updateData (contract) {
-  // Populate data
-  // console.log(contract)
   if (!web3.eth.defaultAccount) {
+<<<<<<< HEAD
       $('#buy-panel').hide();
       $('#metamask-not-logged-in').show();
     return
@@ -505,10 +645,64 @@ function updateData (contract) {
         }
     });
 
+=======
+    $('#metamask-not-logged-in').dimmer('show')
+    return
+  }
+
+  $('#metamask-not-logged-in').dimmer('hide')
+
+  $('#eth-address').html(web3.eth.defaultAccount)
+
+  contract.balanceOf(web3.eth.defaultAccount, function (e, r) {
+    $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
+    contract.getEtherForTokens(r, function (e, r) {
+      let bal = convertWeiToEth(r * 0.9)
+      $('.poh-value').text(bal.toFixed(4) + ' ETH')
+      $('.poh-value-usd').text('(' + (convertWeiToEth(r * 0.9) * ethPrice).toFixed(4) + ' ' + currency + ')')
+      if (tokenBalance !== 0) {
+        if (bal > tokenBalance) {
+          $('.poh-value').addClass('up').removeClass('down')
+          setTimeout(function () {
+            $('.poh-value').removeClass('up')
+          }, 3000)
+        }
+        else if (bal < tokenBalance) {
+          $('.poh-value').addClass('down').removeClass('up')
+          setTimeout(function () {
+            $('.poh-value').removeClass('down')
+          }, 3000)
+        }
+      }
+      tokenBalance = bal
+    })
+  })
+
+  contract.buyPrice(function (e, r) {
+    let buyPrice = (1 / (convertWeiToEth(r) * .9) / 1000000)
+    $('.poh-buy').text(buyPrice.toFixed(6) + ' ETH')
+    $('.poh-buy-usd').text('(' + (buyPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
+  })
+
+  contract.sellPrice(function (e, r) {
+    let sellPrice = convertWeiToEth(r)
+    $('.poh-sell').text(sellPrice.toFixed(6) + ' ETH')
+    $('.poh-sell-usd').text('(' + (sellPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
+  })
+
+  contract.dividends(web3.eth.defaultAccount, function (e, r) {
+    let div = convertWeiToEth(r).toFixed(6)
+
+    $('.poh-div').text(div + ' ETH')
+    $('.poh-div-usd').text('(' + (convertWeiToEth(r) * ethPrice).toFixed(4) + ' ' + currency + ')')
+
+    if (dividendValue != div) {
+      $('.poh-div').fadeTo(100, 0.3, function () { $(this).fadeTo(250, 1.0) })
+>>>>>>> master
 
 
   web3.eth.getBalance(contract.address, function (e, r) {
-    $('.current-distribution-period').text(convertWeiToEth(r).toFixed(4))
+    $('.contract-balance').text(convertWeiToEth(r).toFixed(4))
   })
 
 }
