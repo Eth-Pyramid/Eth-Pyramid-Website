@@ -454,13 +454,13 @@ function updateData (contract) {
           $('.poh-value').addClass('up').removeClass('down')
           setTimeout(function () {
             $('.poh-value').removeClass('up')
-          }, 2000)
+          }, 3000)
         }
         else if (bal < tokenBalance) {
           $('.poh-value').addClass('down').removeClass('up')
           setTimeout(function () {
             $('.poh-value').removeClass('down')
-          }, 2000)
+          }, 3000)
         }
       }
       tokenBalance = bal
