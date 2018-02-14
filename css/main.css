@@ -1,3 +1,46 @@
+.ui.huge.primary.button {
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: none;
+    background: #d69361 none;
+    border-radius: 30px;
+    border: 2px solid;
+    width: 210px;
+}
+
+.ui.huge.default.button {
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: none;
+    background: #00000026 none;
+    border-radius: 30px;
+    border: 2px solid;
+    width: 210px;
+}
+
+.ui.huge.primary.button:hover {
+    background-color: #efa46d;
+}
+
+.ui.huge.default.button:hover {
+    background-color: #ffffff2b;
+}
+
+.ui.method.button.big.secondary {
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: none;
+    background: #00000026 none;
+    border-radius: 30px;
+    border: 2px solid;
+    margin: 15px;
+    width: 210px;
+}
+
+.ui.method.button.big.secondary:hover {
+    background-color: #ffffff2b;
+}
+
 .hidden.menu {
     display: none;
 }
@@ -184,11 +227,15 @@ h3 {
     color: #000000 !important;
 }
 
-.jumbotron a.button {
-    margin-bottom: 1em;
-}
-
 .jumbotron .logo {
     max-width: 100%;
     height: auto;
+}
+
+.jumbotron .button {
+    margin: 1em;
+}
+
+.dropdown .menu {
+    z-index: 1000000 !important;
 }
