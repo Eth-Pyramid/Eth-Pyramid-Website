@@ -40,10 +40,16 @@
     border: none;
     border-bottom: 1px solid #ffffff;
     margin-bottom: 1em;
+    text-align: center;
 }
 
 #currency-selector {
     margin: 2em 0 2em 0;
+}
+
+#currency-selector select {
+    padding: 0.4em 1em;
+    margin-left: 1em;
 }
 
 #buy-tokens {
