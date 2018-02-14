@@ -100,5 +100,8 @@ return [
 		'You must login to MetaMask to continue' => 'Du musst in MetaMask angemeldet sein um fortzufahren',
 		'Detecting MetaMask' => 'Suche MetaMask',
 		'Please wait while we try to load MetaMask' => 'Warte bitte, während wir versuchen, uns mit MetaMask verbinden',
+		'Social' => 'Links',
+		'Disclaimer' => 'Haftungsausschluss',
+		'This game is intended for entertainment purposes only. Do not send any ETH you do not want to or cannot afford to lose. There is zero guarantee that you will make ETH playing this game. And more importantly, zero guarantee that you won\'t lose any ETH you play with. Play at your own risk and do not attempt to pressure friends, family or strangers into playing too. In fact, you shouldn\'t even play yourself.' => 'Dieses Spiel dient ausschließlich dem Zwecke der Unterhaltung. Sende keine Ethereum, die Du nicht bereit bist zu verlieren. Es ist nicht gerantiert, dass Du durch dieses Spiel Ethereum verdienen wirst. Noch wichtiger: es ist nicht garantiert, dass Du Deinen ETH-Einsatz nicht verlieren wirst. Spiele auf eigene Gefahr und versuche nicht, Freunde, Verwandte oder Fremde zum Mitspielen zu verleiten. Am Besten machst Du selbst gar nicht erst mit.',
 	]
 ];
