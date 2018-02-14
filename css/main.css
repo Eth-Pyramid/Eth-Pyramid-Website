@@ -106,10 +106,7 @@ h3 {
 }
 
 .masthead {
-    background: url("../images/BG.jpg") !important;
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    background: url("../images/BG.jpg") no-repeat scroll center center !important;
     background-size: cover !important;
     margin-bottom: 3em !important;
 }
