@@ -96,7 +96,6 @@
         <a href="index.html" class="logo header item">
             <img src="images/minilogo.png">
         </a>
-        <a class="item" href="index.html"><?php __('Home'); ?></a>
         <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
         <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
         <a class="item" href="stats.html"><?php __('Stats'); ?></a>
@@ -128,7 +127,6 @@
                 <a href="index.html" class="logo header item">
                     <img src="images/minilogo.png">
                 </a>
-                <a class="item" href="index.html"><?php __('Home'); ?></a>
                 <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
                 <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
                 <a class="item" href="stats.html"><?php __('Stats'); ?></a>

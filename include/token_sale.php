@@ -1,6 +1,6 @@
 <script type="text/javascript" src="js/quote.js"></script>
 
-<div id="token-sale">
+<div id="token-sale" class="ui blurring">
     <div class="ui container center align vertical stripe heading-container">
         <h2><?php __('Purchase EthPyramid Tokens'); ?></h2>
         <div id="quoteDisplay"></div>
@@ -16,6 +16,8 @@
                             <div class="spinning-logo">
                                 <img src="images/spinning.gif">
                             </div>
+
+                            <div style="display: none" id="eth-address">Not Set</div>
 
                             <input type="number" id="purchase-amount"
                                    placeholder="<?php __('Amount in ETH (e.g. 0.5)'); ?>">
@@ -135,14 +137,25 @@
         </div>
     </div>
 
-    <div id="metamask-not-found" style="padding: 15px; display: none">
-        <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
-        <h3><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></h3>
+    <div id="metamask-not-found" class="ui inverted dimmer">
+		<div class="inner">
+            <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
+            <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
+        </div>
     </div>
 
-    <div id="metamask-not-logged-in" style="padding: 15px; display: none">
-        <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
-        <h3><?php __('You must login to MetaMask to continue'); ?></h3>
+    <div id="metamask-not-logged-in" class="ui inverted dimmer">
+        <div class="inner">
+            <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
+            <p><?php __('You must login to MetaMask to continue'); ?></p>
+        </div>
+    </div>
+
+    <div id="metamask-detecting" class="ui inverted dimmer">
+		<div class="inner">
+            <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
+            <p><?php __('Please wait while we try to load MetaMask'); ?></p>
+        </div>
     </div>
 </div>
 
@@ -164,6 +177,11 @@
         $('.interface').removeClass('eleven wide').addClass('sixteen wide')
       }
     })
+
+    $('#metamask-detecting').dimmer({closable: false})
+    $('#metamask-not-found').dimmer({closable: false})
+    $('#metamask-not-logged-in').dimmer({closable: false})
+    $('#metamask-detecting').dimmer('show')
   })
 </script>
 <script type="text/javascript" src="js/poh.js"></script>

@@ -6,7 +6,7 @@ include('include/head.php');
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
 <div class="ui container vertical stripe">
-	<h2 class="ui horizontal divider"><?php __('EthPyramid Statistics'); ?></h2>
+	<h3 class="ui horizontal divider"><?php __('EthPyramid Statistics'); ?></h3>
 
     <div id="charts" class="ui stackable grid">
         <div class="ui eight wide column">
