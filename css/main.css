@@ -236,3 +236,21 @@ h3 {
 .dropdown .menu {
     z-index: 1000000 !important;
 }
+
+.lang_au .jumbotron img, .lang_au .menu.secondary, .lang_au .spinning-logo img, .lang_au .lang-selector {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+}
+
+.lang_au .masthead {
+    background-image: url("../images/BG-AU.jpg") !important;
+}
+
+.lang_cn .masthead {
+    background-image: url("../images/BG-CN.jpg") !important;
+}
+
+.lang_de .masthead {
+    background-image: url("../images/BG-DE.jpg") !important;
+}

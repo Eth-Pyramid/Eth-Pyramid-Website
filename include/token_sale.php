@@ -81,20 +81,20 @@
                                 </div>
                             </div>
                             <div class="ui eight wide column">
-                                <div class="price-box">
+                                <div class="price-box blue token-balance">
                                     <div class="title"><?php __('EthPyramid Token Balance:'); ?></div>
                                     <div class="poh-balance value"></div>
                                 </div>
                             </div>
                             <div class="ui eight wide column">
-                                <div class="price-box">
+                                <div class="price-box blue">
                                     <div class="title"><?php __('Dividends:'); ?></div>
                                     <div class="poh-div value"></div>
                                     <div class="poh-div-usd value-usd"></div>
                                 </div>
                             </div>
                             <div class="ui sixteen wide column">
-                                <div class="price-box">
+                                <div class="price-box green">
                                     <div class="title"><?php __('Estimated Value of Tokens:'); ?></div>
                                     <div class="poh-value value"></div>
                                     <div class="poh-value-usd value-usd"></div>
