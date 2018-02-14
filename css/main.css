@@ -106,7 +106,6 @@ h3 {
 }
 
 .masthead {
-    background-size: cover !important;
     background: url("../images/BG.jpg") no-repeat fixed center center !important;
     margin-bottom: 3em !important;
 }
