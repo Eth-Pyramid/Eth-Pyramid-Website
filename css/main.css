@@ -38,7 +38,7 @@
 
 .masthead.segment {
     min-height: 700px;
-    padding: 1em 0em 8em 0em;
+    padding: 1em 0em 12em 0em;
 }
 
 .masthead .logo.item img {
@@ -61,9 +61,10 @@
 }
 
 .masthead h2 {
-    font-size: 1.7em;
+    font-size: 1.4em;
     font-weight: normal;
     color: #ffffff;
+    margin-top: 0;
 }
 
 .ui.vertical.stripe {
@@ -216,6 +217,10 @@ h3 {
 
 .lang-selector .menu .item a {
     color: #000000 !important;
+}
+
+.jumbotron {
+    margin-top: 5em;
 }
 
 .jumbotron .logo {
