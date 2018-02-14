@@ -421,17 +421,6 @@ $(function () {
     updateEthPrice()
   })
 
-  var chaton = false
-
-  $('#chat-toggle').click(function (e) {
-    e.preventDefault()
-    if (chaton) {
-      $('#token-sale').removeClass('chat').addClass('nochat')
-    } else {
-      $('#token-sale').removeClass('nochat').addClass('chat')
-    }
-    chaton = !chaton
-  })
 })
 
 updateEthPrice()
@@ -454,22 +443,22 @@ function updateData (contract) {
   $('#eth-address').html(web3.eth.defaultAccount)
 
   contract.balanceOf(web3.eth.defaultAccount, function (e, r) {
-    $('.current-sale .poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
+    $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
     contract.getEtherForTokens(r, function (e, r) {
       let bal = convertWeiToEth(r * 0.9)
-      $('.current-sale .poh-value').text(bal.toFixed(4) + ' ETH')
-      $('.current-sale .usd-value').text('(' + (convertWeiToEth(r * 0.9) * ethPrice).toFixed(4) + ' ' + currency + ')')
+      $('.poh-value').text(bal.toFixed(4) + ' ETH')
+      $('.poh-value-usd').text('(' + (convertWeiToEth(r * 0.9) * ethPrice).toFixed(4) + ' ' + currency + ')')
       if (tokenBalance !== 0) {
         if (bal > tokenBalance) {
-          $('.current-sale .poh-value').addClass('up').removeClass('down')
+          $('.poh-value').addClass('up').removeClass('down')
           setTimeout(function () {
-            $('.current-sale .poh-value').removeClass('up')
+            $('.poh-value').removeClass('up')
           }, 2000)
         }
         else if (bal < tokenBalance) {
-          $('.current-sale .poh-value').addClass('down').removeClass('up')
+          $('.poh-value').addClass('down').removeClass('up')
           setTimeout(function () {
-            $('.current-sale .poh-value').removeClass('down')
+            $('.poh-value').removeClass('down')
           }, 2000)
         }
       }
@@ -479,31 +468,31 @@ function updateData (contract) {
 
   contract.buyPrice(function (e, r) {
     let buyPrice = (1 / (convertWeiToEth(r) * .9) / 1000000)
-    $('.current-sale .poh-buy').text(buyPrice.toFixed(6) + ' ETH')
-    $('.current-sale .usd-buy').text('(' + (buyPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
+    $('.poh-buy').text(buyPrice.toFixed(6) + ' ETH')
+    $('.poh-buy-usd').text('(' + (buyPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
   })
 
   contract.sellPrice(function (e, r) {
     let sellPrice = convertWeiToEth(r)
-    $('.current-sale .poh-sell').text(sellPrice.toFixed(6) + ' ETH')
-    $('.current-sale .usd-sell').text('(' + (sellPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
+    $('.poh-sell').text(sellPrice.toFixed(6) + ' ETH')
+    $('.poh-sell-usd').text('(' + (sellPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
   })
 
   contract.dividends(web3.eth.defaultAccount, function (e, r) {
     let div = convertWeiToEth(r).toFixed(6)
 
-    $('.current-sale .poh-div').text(div + ' ETH')
-    $('.current-sale .usd-div').text('(' + (convertWeiToEth(r) * ethPrice).toFixed(4) + ' ' + currency + ')')
+    $('.poh-div').text(div + ' ETH')
+    $('.poh-div-usd').text('(' + (convertWeiToEth(r) * ethPrice).toFixed(4) + ' ' + currency + ')')
 
     if (dividendValue != div) {
-      $('.current-sale .poh-div').fadeTo(100, 0.3, function () { $(this).fadeTo(250, 1.0) })
+      $('.poh-div').fadeTo(100, 0.3, function () { $(this).fadeTo(250, 1.0) })
 
       dividendValue = div
     }
   })
 
   web3.eth.getBalance(contract.address, function (e, r) {
-    $('.current-distribution-period').text(convertWeiToEth(r).toFixed(4))
+    $('.contract-balance').text(convertWeiToEth(r).toFixed(4))
   })
 
 }

@@ -1,0 +1,185 @@
+.hidden.menu {
+    display: none;
+}
+
+.masthead.segment {
+    min-height: 700px;
+    padding: 1em 0em 8em 0em;
+}
+
+.masthead .logo.item img {
+    margin-right: 1em;
+}
+
+.ui.menu.top .logo {
+    margin: 0 1em;
+}
+
+.masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+}
+
+.masthead h1.ui.header {
+    margin-top: 3em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.ui.vertical.stripe {
+    padding: 3em 0em;
+}
+
+h3 {
+    font-size: 1.5em !important;
+    text-transform: uppercase;
+}
+
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+}
+
+.ui.vertical.stripe .floated.image {
+    clear: both;
+}
+
+.ui.vertical.stripe p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+.ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+}
+
+.quote.stripe.segment {
+    padding: 0em;
+}
+
+.quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.footer.segment {
+    padding: 5em 0em;
+}
+
+.top.menu .toc.item {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+        display: none !important;
+    }
+
+    .top.menu .item,
+    .top.menu .menu {
+        display: none !important;
+    }
+
+    .top.menu .toc.item, .top.menu .logo {
+        display: block !important;
+    }
+
+    .masthead.segment {
+        min-height: 350px;
+    }
+
+    .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+    }
+
+    .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+    }
+}
+
+.masthead {
+    background-size: cover !important;
+    background: url("../images/BG.jpg") no-repeat fixed center center !important;
+    margin-bottom: 3em !important;
+}
+
+.features .line {
+    height: 4px;
+    width: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: #8991A5;
+}
+
+.features .icon-main {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #d69361;
+    margin: 0 auto 20px;
+    font-size: 39px;
+    color: white;
+}
+
+.social-bits {
+    font-size: 2.0em;
+}
+
+.menu.fixed .social-bits {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+
+.ui.large.menu {
+    font-size: 1.1em !important;
+}
+
+.ui.large.menu a {
+    text-transform: uppercase;
+}
+
+.ui.large.menu img {
+    width: 6em !important;
+}
+
+.faq {
+    background: url("../images/product-timeline.jpg") no-repeat center center !important;
+    background-size: cover !important;
+    padding: 3em 0;
+}
+
+.faq .segment {
+    padding: 2em !important;
+}
+
+.faq p {
+    font-size: 1.1em !important;
+}
+
+.faq h4 {
+    font-size: 1.3em !important;
+}
+
+#home .main-menu {
+    margin-bottom: 4em;
+}
+
+.lang-selector {
+    padding: 1em;
+    margin-left: 1em;
+}
+
+.lang-selector .menu .item a {
+    color: #000000 !important;
+}

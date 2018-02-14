@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/token_sale.css">
 
-    <!-- Home Page Script -->
+    <!-- Menu Script -->
     <script>
       $(document)
         .ready(function () {
@@ -44,6 +44,12 @@
           // create sidebar and attach to menu open
           $('.ui.sidebar')
             .sidebar('attach events', '.toc.item')
+
+          // language selector dropdown
+          $('.ui.dropdown')
+            .dropdown({
+              action: 'hide'
+            })
         })
     </script>
 
@@ -64,7 +70,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<body class="lang_<?php echo getLangCode(); ?>">
+<body class="lang_<?php echo getLangCode(); ?> home">
 <!-- Google Tag Manager (noscript) -->
 <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2FJV5S"
@@ -107,11 +113,6 @@
                     <i class="fab fa-discord"
                        style="color:white"></i></a>
             </div>
-            <div class="lang-selector">
-                <a href="#">
-                    <i class="us flag"></i>
-                </a>
-            </div>
         </div>
     </div>
 </div>
@@ -131,6 +132,7 @@
                 <a class="item" href="whitepaper.html"><?php __('Whitepaper'); ?></a>
 
                 <div class="right item">
+                    <!-- Social Icons -->
                     <div class="social-bits">
                         <a href="https://twitter.com/ethpyramid" target="_blank">
                             <i class="fab fa-twitter-square"
@@ -142,15 +144,28 @@
                             <i class="fab fa-discord"
                                style="color:white"></i></a>
                     </div>
-                    <div class="lang-selector">
-                        <a href="#">
-                            <i class="us flag"></i>
+
+                    <!-- Language Selector -->
+                    <div class="ui inline dropdown lang-selector">
+                        <a href="#" class="text">
+                            <i class="<?php echo getLangCode(); ?> flag"></i>
                         </a>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item"><a href="?lang=us" class="text"><i class="us flag"></i> English</a></div>
+                            <div class="item"><a href="?lang=au" class="text"><i class="au flag"></i> Australian</a></div>
+                            <div class="item"><a href="?lang=cn" class="text"><i class="cn flag"></i> Chinese</a></div>
+                            <div class="item"><a href="?lang=fr" class="text"><i class="fr flag"></i> French</a></div>
+                            <div class="item"><a href="?lang=de" class="text"><i class="de flag"></i> German</a></div>
+                            <div class="item"><a href="?lang=kr" class="text"><i class="kr flag"></i> Korean</a></div>
+                            <div class="item"><a href="?lang=es" class="text"><i class="es flag"></i> Spanish</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Jumbotron -->
         <div class="ui text container">
             <img width="350" height="350" class="logo" src="images/BannerLogo.png" alt="EthPyramid Logo">
             <h2><?php __('A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> pyramid scheme.'); ?></h2>

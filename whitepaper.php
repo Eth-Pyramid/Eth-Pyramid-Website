@@ -1,18 +1,15 @@
 <?php
 include('include/lang.php');
-$main_class = 'faq-main';
 include('include/head.php');
 ?>
+
 <div class="faq-main-content whitepaper">
-    <div class="container" style="padding: 50px 0;">
+    <div class="ui container vertical stripe">
         <h2><?php __('EthPyramid - A no-bullshit, transparent, self-sustaining pyramid scheme.'); ?></h2>
-        <p style="text-align: center;">
-            <img src="https://beta.ethpyramid.com/images/BannerLogo.png">
-        </p>
-		<p style="text-align: center;">
+        <p style="text-align: center; margin: 3em;">
             <img src="https://beta.ethpyramid.com/images/sneky.png">
         </p>
-        <h3><?php __('We\'re dumb, and you might be too'); ?></h3>
+        <h3 class="ui horizontal divider"><?php __('We\'re dumb, and you might be too'); ?></h3>
         <p>
 			<?php __('Have you ever wanted to build an entire pyramid structure by hand, with no tools? We haven\'t either. That\'s why we are calling upon all of you out there in the cryptosphere to help us build this wonder together. And keep building. Until we reach the moon. Until you can stand atop a pile of your own dividends with a smile on your face as large as Carlos Matos\' on that fateful day. Any place you want to dream of, where your soul is free - that is where this pyramid of love can take you. That, or a nice comfy place under the bridge.'); ?>
         </p>
@@ -39,16 +36,21 @@ include('include/head.php');
         <p>
 			<?php __('Get in, or stay poor.'); ?>
         </p>
+    </div>
 
-        <h3><?php __('Frequently Asked Questions'); ?></h3>
-		<?php include('include/faq.php'); ?>
+    <div class="faq">
+        <div class="ui container">
+            <h1 class="ui header inverted center aligned"><?php __('Frequently Asked Questions'); ?></h1>
+			<?php include('include/faq.php'); ?>
+        </div>
+    </div>
 
-        <h4><?php __('Important'); ?></h4>
+    <div class="ui container vertical stripe">
+		<h3 class="ui header"><?php __('Important'); ?></h3>
         <p>
 			<?php __('At any time you can escape the contract and withdraw all your Ether by opening up a transaction through MetaMask, sending 0 Ether with a 150,000 gas-limit to the contract and inputting "0xb1e35242" under additional data. This is the getMeOutOfHere() function on the contract and will cash you out of all tokens and dividends.'); ?>
         </p>
-
-        <h4><?php __('Boring Dev Stuff'); ?></h4>
+        <h3 class="ui header"><?php __('Boring Dev Stuff'); ?></h3>
         <p>
 			<?php __('At its core, EthPyramid is based off of Dr Jochen Hoenicke\'s original published work and is an improvement upon the general concept, as well as rectifying several flaws and exploits that were discovered. PoWH\'s extraneous features and unnecessary functions were removed and the original code was also scrutinized heavily. We added safemath operations, ensuring that no underflow/overflow bug can occur. Attack vectors are very low, with almost no functions allowing for custom input of data. As such, the exploit that caused PoWH\'s downfall has no effect on our contract because, quite simply, the function it requires doesn\'t exist.'); ?>
         </p>

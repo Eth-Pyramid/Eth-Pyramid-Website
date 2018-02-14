@@ -1,0 +1,103 @@
+#token-sale {
+    background: #3f4045;
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+    color: #ffffff;
+}
+
+#token-sale .heading-container {
+    text-align: center;
+}
+
+#token-sale .heading-container h2 {
+    color: #d69361;
+}
+
+#buy-panel {
+    background: rgba(14, 14, 15, 0.34);
+}
+
+#buy-panel .inner {
+    padding: 1em;
+}
+
+#value-panel {
+    background: #45474c;
+}
+
+.spinning-logo img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+}
+
+#purchase-amount {
+    width: 100%;
+    display: block;
+    padding: 1em;
+    background: #3f4045;
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 1em;
+}
+
+#currency-selector {
+    margin: 2em 0 2em 0;
+}
+
+#buy-tokens {
+    width: 100%;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.price-box {
+    text-align: center;
+    background: #4c4e53;
+    padding: 10px;
+    min-height: 107px;
+}
+
+.price-box .title {
+    color: #d69361 !important;
+    font-size: 1.2em;
+}
+
+.price-box .value {
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: 700;
+    transition: color 0.5s ease;
+    margin: 0.4em 0 0.25em 0;
+}
+
+.price-box .value-usd {
+    color: #b7b7b7;
+}
+
+.traffic-message {
+    background-color: rgb(56, 75, 87);
+    border-radius: 1px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+}
+
+#token-sale .methods {
+    margin-top: 4em;
+}
+
+#token-sale .method.button {
+    margin-bottom: 1em;
+}
+
+.contract-balance-container {
+    text-align: right;
+}
+
+@media only screen and (max-width: 700px) {
+    .contract-balance-container, .toggle-chat-container {
+        text-align: center;
+    }
+}
