@@ -1,6 +1,6 @@
 <script type="text/javascript" src="js/quote.js"></script>
 
-<div id="token-sale" class="ui blurring">
+<div id="token-sale">
     <div class="ui container center align vertical stripe heading-container">
         <h2><?php __('Purchase EthPyramid Tokens'); ?></h2>
         <div id="quoteDisplay"></div>
@@ -9,7 +9,7 @@
 
     <div class="ui container">
         <div class="ui stackable grid">
-            <div class="ui sixteen wide column interface">
+            <div class="ui sixteen wide column interface blurring">
                 <div class="ui stackable grid">
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
@@ -128,19 +128,19 @@
                         <p><?php __('Withdraw your dividends balance back into your Ethereum wallet.'); ?></p>
                     </div>
                 </div>
-                <div id="metamask-not-found" class="ui inverted dimmer">
+                <div id="metamask-not-found" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
                         <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
                     </div>
                 </div>
-                <div id="metamask-not-logged-in" class="ui inverted dimmer">
+                <div id="metamask-not-logged-in" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
                         <p><?php __('You must login to MetaMask to continue'); ?></p>
                     </div>
                 </div>
-                <div id="metamask-detecting" class="ui inverted dimmer">
+                <div id="metamask-detecting" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
                         <p><?php __('Please wait while we try to load MetaMask'); ?></p>
