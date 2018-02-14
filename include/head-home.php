@@ -96,7 +96,6 @@
         <a href="index.html" class="logo header item">
             <img src="images/minilogo.png">
         </a>
-        <a class="item" href="index.html"><?php __('Home'); ?></a>
         <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
         <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
         <a class="item" href="stats.html"><?php __('Stats'); ?></a>
@@ -125,7 +124,6 @@
                 <a class="toc item">
                     <i class="sidebar icon"></i>
                 </a>
-                <a class="item" href="index.html"><?php __('Home'); ?></a>
                 <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
                 <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
                 <a class="item" href="stats.html"><?php __('Stats'); ?></a>
@@ -166,7 +164,7 @@
         </div>
 
         <!-- Jumbotron -->
-        <div class="ui text container">
+        <div class="ui text container jumbotron">
             <img width="350" height="350" class="logo" src="images/BannerLogo.png" alt="EthPyramid Logo">
             <h2><?php __('A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> pyramid scheme.'); ?></h2>
             <a href="coins.html" class="ui huge primary button"><?php __('Buy In'); ?> <i class="right arrow icon"></i></a>

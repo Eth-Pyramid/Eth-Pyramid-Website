@@ -134,6 +134,7 @@ h3 {
 
 .social-bits {
     font-size: 2.0em;
+    padding-right: 1em;
 }
 
 .menu.fixed .social-bits {
@@ -177,9 +178,17 @@ h3 {
 
 .lang-selector {
     padding: 1em;
-    margin-left: 1em;
 }
 
 .lang-selector .menu .item a {
     color: #000000 !important;
+}
+
+.jumbotron a.button {
+    margin-bottom: 1em;
+}
+
+.jumbotron .logo {
+    max-width: 100%;
+    height: auto;
 }
