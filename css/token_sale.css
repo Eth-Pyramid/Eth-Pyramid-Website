@@ -43,6 +43,10 @@
     text-align: center;
 }
 
+#purchase-amount.error {
+    border-color: red;
+}
+
 #currency-selector {
     margin: 2em 0 2em 0;
 }
@@ -61,8 +65,8 @@
 .price-box {
     text-align: center;
     background: #4c4e53;
-    padding: 10px;
-    min-height: 107px;
+    padding: 2em;
+    min-height: 132px;
 }
 
 .price-box .title {
@@ -83,11 +87,8 @@
 }
 
 .traffic-message {
-    background-color: rgb(56, 75, 87);
-    border-radius: 1px;
-    font-size: 11px;
-    color: white;
-    text-align: center;
+    font-size: 0.8em;
+    color: #999999;
 }
 
 #token-sale .methods {
@@ -96,6 +97,11 @@
 
 #token-sale .method.button {
     margin-bottom: 1em;
+    min-width: 220px;
+}
+
+#token-sale .methods p {
+    color: #999999;
 }
 
 #token-sale .inverted.dimmer * {

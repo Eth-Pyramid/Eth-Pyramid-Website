@@ -19,7 +19,7 @@
 
                             <div style="display: none" id="eth-address">Not Set</div>
 
-                            <input type="number" id="purchase-amount"
+                            <input type="number" id="purchase-amount" min="0" step="0.01"
                                    placeholder="<?php __('Amount in ETH (e.g. 0.5)'); ?>">
                             <button id="buy-tokens" class='ui primary huge button'><?php __('Buy Tokens'); ?></button>
 
@@ -61,7 +61,7 @@
                                 </select>
                             </div>
 
-                            <a href="#" class="ui button" id="chat-toggle"><?php __('Toggle Chat'); ?></a>
+                            <a href="#" id="chat-toggle"><?php __('Toggle Chat'); ?></a>
                         </div>
                     </div>
                     <div class="ui eleven wide column" id="value-panel">
@@ -100,12 +100,11 @@
                                     <div class="poh-value-usd value-usd"></div>
                                 </div>
                             </div>
-                            <div class="ui sixteen wide column">
-                                <div class="traffic-message">
-                                    <i class="alert-icon"></i><?php __('Depending on the Ethereum network traffic, figures may be delayed.'); ?>
-                                </div>
+                            <div class="ui ten wide column traffic-message">
+								<i class="fas fa-exclamation-circle"></i>
+								<?php __('Depending on the Ethereum network traffic, figures may be delayed.'); ?>
                             </div>
-                            <div class="ui sixteen wide column contract-balance-container">
+                            <div class="ui six wide column contract-balance-container">
 								<?php __('Contract Balance:'); ?>
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
@@ -138,7 +137,7 @@
     </div>
 
     <div id="metamask-not-found" class="ui inverted dimmer">
-		<div class="inner">
+        <div class="inner">
             <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
             <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
         </div>
@@ -152,7 +151,7 @@
     </div>
 
     <div id="metamask-detecting" class="ui inverted dimmer">
-		<div class="inner">
+        <div class="inner">
             <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
             <p><?php __('Please wait while we try to load MetaMask'); ?></p>
         </div>

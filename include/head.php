@@ -153,14 +153,13 @@
                         </a>
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <div class="item"><a href="?lang=us" class="text"><i class="us flag"></i> English</a></div>
-                            <div class="item"><a href="?lang=au" class="text"><i class="au flag"></i> Australian</a>
-                            </div>
-                            <div class="item"><a href="?lang=cn" class="text"><i class="cn flag"></i> Chinese</a></div>
-                            <div class="item"><a href="?lang=fr" class="text"><i class="fr flag"></i> French</a></div>
-                            <div class="item"><a href="?lang=de" class="text"><i class="de flag"></i> German</a></div>
-                            <div class="item"><a href="?lang=kr" class="text"><i class="kr flag"></i> Korean</a></div>
-                            <div class="item"><a href="?lang=es" class="text"><i class="es flag"></i> Spanish</a></div>
+                            <a href="?lang=us" class="item text"><i class="us flag"></i> English</a>
+                            <a href="?lang=au" class="item text"><i class="au flag"></i> Australian</a>
+                            <a href="?lang=cn" class="item text"><i class="cn flag"></i> Chinese</a>
+                            <a href="?lang=fr" class="item text"><i class="fr flag"></i> French</a>
+                            <a href="?lang=de" class="item text"><i class="de flag"></i> German</a>
+                            <a href="?lang=kr" class="item text"><i class="kr flag"></i> Korean</a>
+                            <a href="?lang=es" class="item text"><i class="es flag"></i> Spanish</a>
                         </div>
                     </div>
                 </div>

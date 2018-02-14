@@ -2,13 +2,13 @@ var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200'
 
 window.addEventListener('load', function () {
 
-  $('#metamask-detecting').dimmer('hide');
+  $('#metamask-detecting').dimmer('hide')
 
   if (typeof web3 !== 'undefined') {
     web3js = new Web3(web3.currentProvider)
   } else {
     console.log('No web3? You should consider trying MetaMask!')
-    $('#metamask-not-found').dimmer('show');
+    $('#metamask-not-found').dimmer('show')
   }
 
   let abi = [
@@ -334,16 +334,20 @@ window.addEventListener('load', function () {
   web3.eth.defaultAccount = web3.eth.accounts[0]
   updateData(contract)
 
-  // Now you can start your app & access web3 freely:
   setInterval(function () {
     updateData(contract)
   }, 1000)
 
+  // Buy token click handler
   $('#buy-tokens').click(function () {
-    let amount = $('#purchase-amount').val()
-    if (amount == 0) {
-      alert('Error: You can\'t fund 0 ETH. The value input is above the button.')
+    let amount = $('#purchase-amount').val().trim()
+    if (amount <= 0 || !isFinite(amount) || amount === '') {
+      $('#purchase-amount').addClass('error').popup({
+        title: 'Invalid Input',
+        content: 'Please input a valid non-negative, non-zero value.'
+      }).popup('show')
     } else {
+      $('#purchase-amount').removeClass('error').popup('destroy')
       contract.fund({
         value: convertEthToWei(amount)
       }, function (e, r) {
@@ -352,18 +356,21 @@ window.addEventListener('load', function () {
     }
   })
 
+  // Sell token click handler
   $('#sell-tokens-btn').click(function () {
     contract.sellMyTokens(function (e, r) {
       console.log(e, r)
     })
   })
 
+  // Reinvest click handler
   $('#reinvest-btn').click(function () {
     contract.reinvestDividends(function (e, r) {
       console.log(e, r)
     })
   })
 
+  // Withdraw click handler
   $('#withdraw-btn').click(function () {
     contract.withdraw(function (e, r) {
       console.log(e, r)
@@ -428,11 +435,11 @@ var tokenBalance = 0
 
 function updateData (contract) {
   if (!web3.eth.defaultAccount) {
-    $('#metamask-not-logged-in').dimmer('show');
+    $('#metamask-not-logged-in').dimmer('show')
     return
   }
 
-  $('#metamask-not-logged-in').dimmer('hide');
+  $('#metamask-not-logged-in').dimmer('hide')
 
   $('#eth-address').html(web3.eth.defaultAccount)
 
