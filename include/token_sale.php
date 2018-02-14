@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="ui ten wide column traffic-message">
-								<i class="fas fa-exclamation-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
 								<?php __('Depending on the Ethereum network traffic, figures may be delayed.'); ?>
                             </div>
                             <div class="ui six wide column contract-balance-container">
@@ -128,6 +128,24 @@
                         <p><?php __('Withdraw your dividends balance back into your Ethereum wallet.'); ?></p>
                     </div>
                 </div>
+                <div id="metamask-not-found" class="ui inverted dimmer">
+                    <div class="inner">
+                        <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
+                        <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
+                    </div>
+                </div>
+                <div id="metamask-not-logged-in" class="ui inverted dimmer">
+                    <div class="inner">
+                        <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
+                        <p><?php __('You must login to MetaMask to continue'); ?></p>
+                    </div>
+                </div>
+                <div id="metamask-detecting" class="ui inverted dimmer">
+                    <div class="inner">
+                        <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
+                        <p><?php __('Please wait while we try to load MetaMask'); ?></p>
+                    </div>
+                </div>
             </div>
             <div class="ui five wide column chat-box" style="display: none;">
                 <iframe src="https://titanembeds.com/embed/408119545379815434?defaultchannel=408119545379815438"
@@ -136,26 +154,6 @@
         </div>
     </div>
 
-    <div id="metamask-not-found" class="ui inverted dimmer">
-        <div class="inner">
-            <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
-            <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
-        </div>
-    </div>
-
-    <div id="metamask-not-logged-in" class="ui inverted dimmer">
-        <div class="inner">
-            <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
-            <p><?php __('You must login to MetaMask to continue'); ?></p>
-        </div>
-    </div>
-
-    <div id="metamask-detecting" class="ui inverted dimmer">
-        <div class="inner">
-            <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
-            <p><?php __('Please wait while we try to load MetaMask'); ?></p>
-        </div>
-    </div>
 </div>
 
 

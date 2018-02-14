@@ -133,6 +133,10 @@
     padding-top: 10em;
 }
 
+#token-sale .interface {
+    border-radius: 20px;
+}
+
 .contract-balance-container {
     text-align: right;
 }
