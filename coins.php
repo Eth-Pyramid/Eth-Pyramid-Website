@@ -205,7 +205,7 @@ include('include/head.php');
             <div class="text-center" style="padding-top:30px;">
                 <h2 style="color:#d69361"><?php __('EthPyramid - Historical Chart (Sell Price)'); ?></h2>
             </div>
-            <iframe src="https://powhchart.com/graph_hotlink.html?assetId=ethpyramid&yaxis_min=0.05"
+            <iframe src="https://powhchart.com/graph_hotlink.html?assetId=ethpyramid&yaxis_min=0.06"
                     style="width:100%; height:575px; overflow:hidden;" scrolling="no"></iframe>
             <span style="font-weight:100;"><?php __('Created by:'); ?></span> <a
                     href="https://www.reddit.com/user/JuiceInNuggets/" style="color:green;" target="_blank">/u/JuiceInNuggets</a>
