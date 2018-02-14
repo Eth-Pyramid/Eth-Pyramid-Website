@@ -138,29 +138,23 @@
     </div>
 
     <div id="metamask-not-found" class="ui inverted dimmer">
-        <div class="content">
-            <div class="center">
-                <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
-                <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
-            </div>
+		<div class="inner">
+            <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
+            <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
         </div>
     </div>
 
     <div id="metamask-not-logged-in" class="ui inverted dimmer">
-        <div class="content">
-            <div class="center">
-                <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
-                <p><?php __('You must login to MetaMask to continue'); ?></p>
-            </div>
+        <div class="inner">
+            <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
+            <p><?php __('You must login to MetaMask to continue'); ?></p>
         </div>
     </div>
 
     <div id="metamask-detecting" class="ui inverted dimmer">
-        <div class="content">
-            <div class="center">
-                <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
-                <p><?php __('Please wait while we try to load MetaMask'); ?></p>
-            </div>
+		<div class="inner">
+            <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
+            <p><?php __('Please wait while we try to load MetaMask'); ?></p>
         </div>
     </div>
 </div>

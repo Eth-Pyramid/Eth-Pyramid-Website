@@ -102,6 +102,11 @@
    color: #444444 !important;
 }
 
+#token-sale .dimmer .inner {
+    text-align: center;
+    padding-top: 10em;
+}
+
 .contract-balance-container {
     text-align: right;
 }

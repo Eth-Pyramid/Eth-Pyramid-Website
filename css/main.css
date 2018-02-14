@@ -1,21 +1,18 @@
-.ui.huge.primary.button {
+.ui.button {
     font-size: 1.1em;
-    color: #fff;
-    text-shadow: none;
-    background: #d69361 none;
     border-radius: 30px;
     border: 2px solid;
-    width: 210px;
+    text-shadow: none;
+}
+
+.ui.huge.primary.button {
+    color: #fff;
+    background: #d69361 none;
 }
 
 .ui.huge.default.button {
-    font-size: 1.1em;
     color: #fff;
-    text-shadow: none;
     background: #00000026 none;
-    border-radius: 30px;
-    border: 2px solid;
-    width: 210px;
 }
 
 .ui.huge.primary.button:hover {
@@ -27,14 +24,8 @@
 }
 
 .ui.method.button.big.secondary {
-    font-size: 1.1em;
     color: #fff;
-    text-shadow: none;
     background: #00000026 none;
-    border-radius: 30px;
-    border: 2px solid;
-    margin: 15px;
-    width: 210px;
 }
 
 .ui.method.button.big.secondary:hover {
@@ -234,6 +225,7 @@ h3 {
 
 .jumbotron .button {
     margin: 1em;
+    width: 210px;
 }
 
 .dropdown .menu {
