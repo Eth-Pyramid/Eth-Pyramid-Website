@@ -14,7 +14,7 @@ return [
 		'Blog' => 'Blog',
 		'Whitepaper' => 'Whitepaper',
 		'A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> pyramid scheme.' => 'Ein <b>selbsterhaltendes</b>, <b>sicheres</b> und <b>transparentes</b> Pyramidenschema.',
-		'Buy In' => 'Tokens kaufen',
+		'Buy In' => 'EPY kaufen',
 		'Strong Hands Only' => 'Nur Für Starke Hände',
 		'The Most Powerful & Decentralized Pyramid Yet' => 'Die bisher mächtigste und dezentralisierteste Pyramide',
 		'Pyramid Technology' => 'Pyramiden-Technologie',
