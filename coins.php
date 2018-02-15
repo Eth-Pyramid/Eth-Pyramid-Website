@@ -7,12 +7,7 @@ include('include/head.php');
 
 <div class="ui container">
     <h3 class="ui horizontal divider"><?php __('EthPyramid - Historical Chart (Sell Price)'); ?></h3>
-    <iframe src="https://powhchart.com/graph_hotlink.html?assetId=ethpyramid&yaxis_min=0.06"
-            style="width:100%; height:575px; overflow:hidden;" scrolling="no" frameborder="0"></iframe>
-    <span style="font-weight:100;"><?php __('Created by:'); ?></span> <a
-            href="https://www.reddit.com/user/JuiceInNuggets/" style="color:green;"
-            target="_blank">/u/JuiceInNuggets</a>
-    - <?php __('Donate ETH:'); ?> 0xEfFcc2Db685C04276153Bb91Ca3FC4297a44f04D
+	<?php include('include/chart.php'); ?>
 </div>
 
 <div class="ui container vertical stripe">
