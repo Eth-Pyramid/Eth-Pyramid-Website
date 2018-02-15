@@ -255,6 +255,10 @@ h3 {
     background-image: url("../images/BG-CN.jpg") !important;
 }
 
+.lang_es .masthead {
+    background-image: url("../images/BG-ES.jpg") !important;
+}
+
 .lang_de .masthead {
     background-image: url("../images/BG-DE.jpg") !important;
 }
