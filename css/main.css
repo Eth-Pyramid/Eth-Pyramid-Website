@@ -258,3 +258,7 @@ h3 {
 .lang_de .masthead {
     background-image: url("../images/BG-DE.jpg") !important;
 }
+
+.ui.statistic .value {
+    font-size: 3em !important;
+}
