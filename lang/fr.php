@@ -12,7 +12,7 @@ return [
 		'Smart Contract' => 'Smart Contract',
 		'My Coins' => 'Mes Jetons',
 		'Blog' => 'Blog',
-		'Whitepaper' => 'Libre Blanc',
+		'Whitepaper' => 'Livre Blanc',
 		'A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> pyramid scheme.' => 'Une pyramide <b>sécurisée</b>, <b>transparente</b> et <b>autonome</b>.',
 		'Buy In' => 'Acheter',
 		'Strong Hands Only' => 'Mains Fortes Seulement',
