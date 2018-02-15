@@ -70,9 +70,12 @@
 
 .price-box {
     text-align: center;
+    height: 132px;
+}
+
+.price-box, #transaction-history-container {
     padding: 1.8em;
     background: #404040;
-    height: 132px;
     border-radius: 20px;
     box-shadow: 0px 10px 10px #0000001a;
 }
@@ -157,4 +160,18 @@
     .contract-balance-container, .toggle-chat-container {
         text-align: center;
     }
+}
+
+#transaction-history {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#transaction-history .record {
+    line-height: 1.8em;
+}
+
+#transaction-history .time {
+    color: #999999;
+    margin-right: 1em;
 }

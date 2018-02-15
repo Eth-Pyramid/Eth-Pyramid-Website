@@ -61,7 +61,8 @@
                                 </select>
                             </div>
 
-                            <a href="#" id="chat-toggle"><?php __('Toggle Chat'); ?></a>
+                            <a href="#" id="chat-toggle"><?php __('Toggle Chat'); ?></a> /
+                            <a href="#" id="history-toggle"><?php __('Toggle Transactions'); ?></a>
                         </div>
                     </div>
                     <div class="ui eleven wide column" id="value-panel">
@@ -108,6 +109,13 @@
 								<?php __('Contract Balance:'); ?>
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
+                            <div class="ui sixteen wide column">
+                                <div id="transaction-history-container" style="display: none">
+                                    <h2><?php __('Transaction History'); ?></h2>
+                                    <div id="transaction-history">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,6 +160,7 @@
                         height="700" width="100%" frameborder="0"></iframe>
             </div>
         </div>
+
     </div>
 
 </div>
@@ -173,6 +182,11 @@
         $('.chat-box').hide()
         $('.interface').removeClass('eleven wide').addClass('sixteen wide')
       }
+    })
+
+    $('#history-toggle').click(function (e) {
+      e.preventDefault()
+      $('#transaction-history-container').slideToggle()
     })
 
     $('#metamask-detecting').dimmer({closable: false})
