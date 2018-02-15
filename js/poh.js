@@ -433,10 +433,52 @@ updateEthPrice()
 var dividendValue = 0
 var tokenBalance = 0
 
+function updateTransactionHistory () {
+  if (!web3.eth.defaultAccount) {
+    return
+  }
+
+  $.getJSON('https://api.ethpyramid.io/history.php?address=' + web3.eth.defaultAccount, function (data) {
+    $('#transaction-history').empty()
+
+    for (let i = 0; i < data.length; i++) {
+      let $record = $('<div class="record"/>')
+
+      let date_string = '<span class="time">' + data[i].time.replace(/(\d{4})\-(\d{2})\-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, '$1-$2-$3 $4:$5') + '</span>'
+
+      switch (data[i].method) {
+        case 'fund':
+          $record.html(date_string + 'Sent ' + data[i].value.toFixed(6) + ' ETH and received ' + data[i].balance_change.toFixed(6) + ' EPY')
+          break
+        case 'reinvestDividends':
+          $record.html(date_string + 'Re-invested and received ' + data[i].balance_change.toFixed(6) + ' EPY')
+          break
+        case 'withdraw':
+          $record.html(date_string + 'Withdrew dividends')
+          break
+        case 'sellMyTokens':
+          $record.html(date_string + 'Sold ' + (-data[i].balance_change.toFixed(6)) + ' EPY')
+          break
+      }
+
+      $record.prependTo($('#transaction-history'))
+    }
+  })
+}
+
+var currentAccount = null
+
+setInterval(updateTransactionHistory, 1000 * 60 * 5)
+
 function updateData (contract) {
   if (!web3.eth.defaultAccount) {
     $('#metamask-not-logged-in').dimmer('show')
     return
+  }
+
+  if (web3.eth.defaultAccount !== currentAccount) {
+    currentAccount = web3.eth.defaultAccount
+    updateTransactionHistory()
   }
 
   $('#metamask-not-logged-in').dimmer('hide')
