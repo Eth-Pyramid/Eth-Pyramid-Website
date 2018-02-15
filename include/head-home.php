@@ -157,6 +157,7 @@
                             <a href="?lang=de" class="item text"><i class="de flag"></i> German</a>
                             <a href="?lang=kr" class="item text"><i class="kr flag"></i> Korean</a>
                             <a href="?lang=es" class="item text"><i class="es flag"></i> Spanish</a>
+                            <a href="?lang=ru" class="item text"><i class="ru flag"></i> Russian</a>
                         </div>
                     </div>
                 </div>
