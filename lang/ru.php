@@ -9,7 +9,7 @@ return [
 	'text' => [
 		'EthPyramid' => 'EthPyramid',
 		'A self-sustaining, secure and transparent pyramid scheme.' => 'Самодостаточная, безопасная и прозрачная схема пирамиды.',
-		'Smart Contract' => 'Смарт-контракт',
+		'Smart Contract' => 'Смарт контракт',
 		'My Coins' => 'Мои монеты',
 		'Stats' => 'Статистика'
 		'Blog' => 'Блог',
