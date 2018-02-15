@@ -54,7 +54,7 @@ include('include/head.php');
         </div>
 
         <div class="ui eight wide column">
-            <h3>Daily Volume (Last 5 days)</h3>
+            <h3>Daily Volume (Last 7 days)</h3>
             <p>Volume is in ETH and timezone is UTC.</p>
             <canvas id="daily-volume" width="800" height="700" style="margin-top: 25px;"></canvas>
         </div>
