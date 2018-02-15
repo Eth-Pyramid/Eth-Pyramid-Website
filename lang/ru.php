@@ -11,6 +11,7 @@ return [
 		'A self-sustaining, secure and transparent pyramid scheme.' => 'Самодостаточная, безопасная и прозрачная схема пирамиды.',
 		'Smart Contract' => 'Смарт-контракт',
 		'My Coins' => 'Мои монеты',
+		'Stats' => 'Статистика'
 		'Blog' => 'Блог',
 		'Whitepaper' => 'Белая книга',
 		'A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> pyramid scheme.' => '<b>Самодостаточная</b>, <b>безопасная</b> и <b>прозрачная</b> схема пирамиды.',
