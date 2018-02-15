@@ -14,7 +14,7 @@ include('include/head.php');
             <div class="ui equal width stackablet grid">
                 <div class="ui statistic column">
                     <div class="label">
-						<?php __('Total Supply'); ?>
+						<?php __('Current Supply'); ?>
                     </div>
                     <div class="value" id="epy-supply">
                         0 EPY
