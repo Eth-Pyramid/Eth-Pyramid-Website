@@ -7,6 +7,9 @@ function useLanguage($code)
 {
 	global $lang;
 
+	if( strlen( $code ) !== 2 )
+		return;
+
 	$file = __DIR__ . '/../lang/' . $code . '.php';
 
 	if ($file)
