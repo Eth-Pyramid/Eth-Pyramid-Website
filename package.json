@@ -1,0 +1,27 @@
+{
+  "name": "Eth-Pyramid-Website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eth-Pyramid/Eth-Pyramid-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eth-Pyramid/Eth-Pyramid-Website/issues"
+  },
+  "homepage": "https://github.com/Eth-Pyramid/Eth-Pyramid-Website#readme",
+  "dependencies": {
+    "events": "^2.0.0",
+    "net-browserify": "^0.2.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  }
+}
