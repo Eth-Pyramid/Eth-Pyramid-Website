@@ -160,6 +160,10 @@
     .contract-balance-container, .toggle-chat-container {
         text-align: center;
     }
+
+    #meta-mask-ui.dimmed {
+        max-height: 350px;
+    }
 }
 
 #transaction-history {

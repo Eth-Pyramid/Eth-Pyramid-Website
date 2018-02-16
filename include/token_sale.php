@@ -9,7 +9,7 @@
 
     <div class="ui container">
         <div class="ui stackable grid">
-            <div class="ui sixteen wide column interface">
+            <div class="ui sixteen wide column interface" id="meta-mask-ui">
                 <div class="ui stackable grid">
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
@@ -165,7 +165,6 @@
 
 </div>
 
-
 <script type="text/javascript">
   var default_currency = '<?php echo getDefaultCurrency(); ?>'
 
@@ -194,5 +193,13 @@
     $('#metamask-not-logged-in').dimmer({closable: false})
     $('#metamask-detecting').dimmer('show')
   })
+</script>
+<script type="text/javascript">
+  var lang = {
+    fund: "<?php __('Sent {0} ETH and received {1} EPY'); ?>",
+    reinvest: "<?php __('Sold dividends for {0} EPY'); ?>",
+    withdraw: "<?php __('Withdrew dividends'); ?>",
+    sold: "<?php __('Sold {0} EPY'); ?>"
+  }
 </script>
 <script type="text/javascript" src="js/poh.js"></script>

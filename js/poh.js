@@ -1,5 +1,17 @@
 var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200'
 
+if (!String.prototype.format) {
+  String.prototype.format = function () {
+    var args = arguments
+    return this.replace(/{(\d+)}/g, function (match, number) {
+      return typeof args[number] !== 'undefined'
+        ? args[number]
+        : match
+
+    })
+  }
+}
+
 window.addEventListener('load', function () {
 
   $('#metamask-detecting').dimmer('hide')
@@ -448,16 +460,16 @@ function updateTransactionHistory () {
 
       switch (data[i].method) {
         case 'fund':
-          $record.html(date_string + 'Sent ' + data[i].value.toFixed(6) + ' ETH and received ' + data[i].balance_change.toFixed(6) + ' EPY')
+          $record.html(date_string + lang.fund.format(data[i].value.toFixed(6), data[i].balance_change.toFixed(6)))
           break
         case 'reinvestDividends':
-          $record.html(date_string + 'Re-invested and received ' + data[i].balance_change.toFixed(6) + ' EPY')
+          $record.html(date_string + lang.reinvest.format(data[i].balance_change.toFixed(6)))
           break
         case 'withdraw':
-          $record.html(date_string + 'Withdrew dividends')
+          $record.html(date_string + lang.withdraw)
           break
         case 'sellMyTokens':
-          $record.html(date_string + 'Sold ' + (-data[i].balance_change.toFixed(6)) + ' EPY')
+          $record.html(date_string + lang.sold.format((-data[i].balance_change.toFixed(6))))
           break
       }
 
