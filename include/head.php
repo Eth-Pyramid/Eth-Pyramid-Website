@@ -25,6 +25,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/token_sale.css">
 
+    <?php
+        // Yes, I'm debugging on prod. Got a problem with that?
+
+        if( isset( $_GET['remote_console'] ) ){
+            echo '<script src="http://jsconsole.com/js/remote.js?6fcbc314-d27a-42f1-873a-2d0abad64786"></script>';
+        }
+
+    ?>
+
     <!-- Menu Script -->
     <script>
       $(document)
