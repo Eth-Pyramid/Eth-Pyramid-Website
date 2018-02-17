@@ -37,7 +37,7 @@
     max-width: 250px;
 }
 
-#purchase-amount {
+#purchase-amount, #donate-amount {
     width: 100%;
     display: block;
     padding: 1em;
@@ -49,7 +49,21 @@
     text-align: center;
 }
 
-#purchase-amount.error {
+#donate-amount {
+    max-width: 300px;
+    margin: 2em auto;
+}
+
+#donate-dimmer p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#donate-dimmer .actions {
+    margin-bottom: 2em;
+}
+
+#purchase-amount.error, #donate-amount.error {
     border-color: red;
 }
 
@@ -70,9 +84,12 @@
 
 .price-box {
     text-align: center;
+    height: 132px;
+}
+
+.price-box, #transaction-history-container {
     padding: 1.8em;
     background: #404040;
-    height: 132px;
     border-radius: 20px;
     box-shadow: 0px 10px 10px #0000001a;
 }
@@ -157,4 +174,22 @@
     .contract-balance-container, .toggle-chat-container {
         text-align: center;
     }
+
+    #meta-mask-ui.dimmed {
+        max-height: 350px;
+    }
+}
+
+#transaction-history {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#transaction-history .record {
+    line-height: 1.8em;
+}
+
+#transaction-history .time {
+    color: #999999;
+    margin-right: 1em;
 }
