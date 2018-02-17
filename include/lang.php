@@ -119,7 +119,7 @@ else if (isset($_COOKIE['lang']))
 else
 {
 	// set language to default
-	$header_lang_string = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	$header_lang_string = strtolower( $_SERVER['HTTP_ACCEPT_LANGUAGE'] );
 
 	$langs            = explode(',', $header_lang_string);
 	$language_country = $langs[0];
