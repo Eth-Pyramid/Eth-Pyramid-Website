@@ -9,6 +9,7 @@ var quotes = [
   'Just like social security. But slightly safer.',
   'Powered by beautiful, clean coal.',
   'Now mineable in Minecraft.',
+  'Hello EvilCorp! We are 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsociety.',
   'What the hell else are you going to do?',
   'Press ffffffffffffffffffffffffffffffffffff to pay respects (and receive Ether).',
   'Bitconnect? Tronix? Hold my beer.',
