@@ -59,6 +59,10 @@
     margin: 0 auto;
 }
 
+#donate-dimmer .actions {
+    margin-bottom: 2em;
+}
+
 #purchase-amount.error, #donate-amount.error {
     border-color: red;
 }
