@@ -121,33 +121,42 @@ else
 	// set language to default
 	$header_lang_string = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
-	$langs    = explode(',', $header_lang_string);
+	$langs            = explode(',', $header_lang_string);
 	$language_country = $langs[0];
-	$language = explode('-', $language_country)[0];
+	$language         = explode('-', $language_country)[0];
 
 	$found = false;
 
 	// Match on full language-country value first
 	foreach (getLanguages() as $value)
 	{
-		if( $language_country == $value['iso_code'] . '-' . $value['iso_country'] )
+		if ($language_country == $value['iso_code'] . '-' . $value['iso_country'])
 		{
-			useLanguage( $value['code'] );
+			useLanguage($value['code']);
 			$found = true;
 			break;
 		}
 	}
 
 	// Fallback to just language
-	if( !$found )
+	if (!$found)
 	{
-		foreach (getLanguages() as $value)
+		// Default english to US
+		if ($language == 'en')
 		{
-			if ($language == $value['iso_code'])
+			useLanguage('us');
+			$found = true;
+		}
+		else
+		{
+			foreach (getLanguages() as $value)
 			{
-				useLanguage($value['code']);
-				$found = true;
-				break;
+				if ($language == $value['iso_code'])
+				{
+					useLanguage($value['code']);
+					$found = true;
+					break;
+				}
 			}
 		}
 	}
