@@ -76,10 +76,10 @@ return [
         'coins.network-notice' => 'Depending on the Ethereum network traffic, figures may be delayed.',
         'coins.contract-balance' => 'Contract Balance:',
 
-        'coins.history.log.sent-eth' => 'Bought {1} EPY for {0} ETH',
-        'coins.history.log.sent-div' => 'Bought {0} EPY using dividends',
-        'coins.history.log.withdrew' => 'Withdrew dividends',
-        'coins.history.log.sold-epy' => 'Sold {0} EPY'
+        'coins.history.log.sent-eth' => '{1} EPY bought for {0} ETH',
+        'coins.history.log.sent-div' => '{0} EPY bought using dividends',
+        'coins.history.log.withdrew' => 'Dividends withdrawn',
+        'coins.history.log.sold-epy' => '{0} EPY sold'
 
         'coins.actions.cash-out.button' => 'Sell Tokens',
         'coins.actions.cash-out.comment' => 'Your tokens will be sold at the sell-price and will be converted into Ether dividends.',
