@@ -76,11 +76,6 @@ return [
         'coins.network-notice' => 'Depending on the Ethereum network traffic, figures may be delayed.',
         'coins.contract-balance' => 'Contract Balance:',
 
-        'coins.history.log.sent-eth' => '{1} EPY bought for {0} ETH',
-        'coins.history.log.sent-div' => '{0} EPY bought using dividends',
-        'coins.history.log.withdrew' => 'Dividends withdrawn',
-        'coins.history.log.sold-epy' => '{0} EPY sold'
-
         'coins.actions.cash-out.button' => 'Sell Tokens',
         'coins.actions.cash-out.comment' => 'Your tokens will be sold at the sell-price and will be converted into Ether dividends.',
         'coins.actions.pay-divs.button' => 'Buy With Dividends',
@@ -94,6 +89,7 @@ return [
 	    'donate.heading' => 'Donate to the EthPyramid Marketing Fund',
 	    'donate.description' => 'The donation address is a multi-sig wallet that requires two core developers to approve any withdrawals. Funds will be used solely for the purpose of advertising EthPyramid.',
 	    'donate.address' => 'If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb" target="_blank">0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb</a>',
+
 
         'chart.heading' => 'Sell Price Chart',
 
@@ -112,8 +108,9 @@ return [
         'stats.total-volume' => 'Total Volume',
         'stats.eth-balance' => 'Contract Balance',
         'stats.total-divs' => 'Total Dividends',
+
         'stats.top25.heading' => 'Top 25 Token Holders',
-        'stats.top25.comment' => 'Aliases of dev team members are shown in place of address if known.',
+        'stats.top25.comment' => 'Top 25 Token Holders',
         'stats.daily.heading' => 'Daily Volume (Last 7 days)',
         'stats.daily.comment' => 'Volume is in ETH and timezone is UTC.',
 

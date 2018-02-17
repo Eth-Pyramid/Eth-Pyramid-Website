@@ -10,30 +10,19 @@ return [
 	'text' => [
 		'meta.title' => 'EthPyramid',
 		'meta.description' => 'Ein selbsterhaltendes, sicheres und transparentes Pyramidenschema.',
-
+		'index.header.contract' => 'Smart-Contract',
 		'menu.coins' => 'Meine Tokens',
 		'menu.blog' => 'Blog',
 		'menu.whitepaper' => 'Whitepaper',
-		'menu.home' => 'Startseite',
-		'menu.stats' => 'Statistiken',
-
-		'index.heading' => 'Die bisher mächtigste und dezentralisierteste Pyramide',
 		'index.header.title' => 'Ein <b>selbsterhaltendes</b>, <b>sicheres</b> und <b>transparentes</b> Pyramidenschema.',
 		'index.header.buy-in' => 'EPY kaufen',
-		'index.header.contract' => 'Smart-Contract',
-
-		'footer.social' => 'Links',
-		'footer.disclaimer.heading' => 'Haftungsausschluss',
-		'footer.disclaimer.content' => 'Dieses Spiel dient ausschließlich dem Zwecke der Unterhaltung. Sende keine Ethereum, die Du nicht bereit bist zu verlieren. Es ist nicht gerantiert, dass Du durch dieses Spiel Ethereum verdienen wirst. Noch wichtiger: es ist nicht garantiert, dass Du Deinen ETH-Einsatz nicht verlieren wirst. Spiele auf eigene Gefahr und versuche nicht, Freunde, Verwandte oder Fremde zum Mitspielen zu verleiten. Am Besten machst Du selbst gar nicht erst mit.'
-
+		'index.heading' => 'Die bisher mächtigste und dezentralisierteste Pyramide',
 		'index.pyramids.heading' => 'Pyramiden-Technologie',
 		'index.pyramids.content' => 'Wenn jemand EthPyramid Tokens (EPY) kauft oder verkauft, werden 10% des Preises auf alle EPY-Halter aufgeteilt und als Dividenden (in Ethereum) gutgeschrieben. Je mehr EPY man besitzt, desto höher der Anteil an Dividenden. Gesammelte Dividenden sind nicht mehr abhängig vom EPY-Preis.',
 		'index.dividends.heading' => 'Dividenden',
 		'index.dividends.content' => 'Token-Halter erhalten als Belohnung 10% jedes <strong>Kaufes und Verkaufes</strong>. Starke Hände werden mit jedem Steigen und Fallen des Kurses belohnt. Unser Smart-Contract erlaubt als erster, Tokens direkt mit Dividenden zu kaufen.',
 		'index.forever.heading' => 'Für Immer',
 		'index.forever.content' => 'Im Ernst, keine Verteilung vor dem Start der Seite, keine Selbstzerstörung, kein Betrug mit Hintertüren für die Entwickler. Der Vertrag schwingt auf und ab und wird bis ans Ende des Ethereumnetzwerkes Dividenden auszahlen. Du kannst jederzeit deine Münzen zum aktuellen Verkaufspreis verkaufen oder deine gesammelten Dividenden auszahlen/zu Tokens konvertieren lassen.',
-
-		'faq.heading' => 'FAQ',
 		'faq.realshit.q' => 'Q: Ist das echt?',
 		'faq.realshit.a' => 'A: Ja, EthPyramid Tokens (EPY) bauen auf der Ethereum-Blockchain auf. Sie haben aber keinen Wert außerhalb der Teilnahme am EP-Spiel mit unserem Mathe-Roboter und du solltest sie NICHT als Investition oder Anlage mit echtem Wert ansehen.',
 		'faq.similar.q' => 'Q: Moment, gabs das nicht schonmal?',
@@ -52,13 +41,10 @@ return [
 		'faq.play-safe.a' => 'A: AUF KEINEN FALL solltest du mehr in EthPyramid stecken, als du die leisten kannst zu verlieren. BITTE halte das nicht für irgenetwas anderes als was es sein soll: ein irrer konzeptioneller Beweis als Gefangenendilemma. Es ist ein Witz und sollte als solcher behandelt werden. Steck hier kein Geld rein, dass du nicht bereit bist, sofort als verloren anzusehen.',
 		'faq.guarantee.q' => 'Q: Was genau garantiert ihr mir?',
 		'faq.guarantee.a' => 'A: Gar nichts. Ernsthaft. Pyramiden sind per Definition ein Nullsummenspiel. Das Risiko liegt ganz bei dir. Viel Glück, hab Spaß! Aber denk dran, es ist Internet-Monopoly-Geld. Tuh nichts, wodurch du Schlaf (oder deine Familie) verlierst.',
-
 		'coins.heading' => 'EthPyramid-Tokens kaufen',
+		'coins.contract-balance' => 'Contract-Guthaben:',
 		'coins.eth-amount' => 'Menge in ETH (z.B. 0.5)',
 		'coins.buy-tokens' => 'Tokens kaufen',
-		'coins.chat.toggle' => 'Chat&nbsp;ein-/ausblenden',
-		'coins.history.toggle' => 'Transaktionsverlauf&nbsp;ein-/ausblenden',
-		'coins.history.heading' => 'Transaktionsverlauf',
 		'coins.select-currency' => 'Währung:',
 		'coins.buy-price' => 'Kaufpreis',
 		'coins.sell-price' => 'Verkaufspreis',
@@ -66,36 +52,18 @@ return [
 		'coins.dividends' => 'Dividenden:',
 		'coins.estimated-value' => 'Geschätzter Wert der Tokens:',
 		'coins.network-notice' => 'Bei hoher Auslastung des Ethereum-Netzwerkes kann die Aktualisierung der Werte länger dauern.',
-		'coins.contract-balance' => 'Contract-Guthaben:',
-
-        'coins.history.log.sent-eth' => '{1} EPY für {0} ETH gekauft',
-        'coins.history.log.sent-div' => '{0} EPY mit Dividenden gekauft',
-        'coins.history.log.withdrew' => 'Dividenden abgehoben',
-        'coins.history.log.sold-epy' => '{0} EPY verkauft'
-
+		'coins.discord.toggle' => 'Chat&nbsp;ein-/ausblenden',
+		'coins.history.toggle' => 'Transaktionsverlauf&nbsp;ein-/ausblenden',
+		'coins.history.heading' => 'Transaktionsverlauf',
 		'coins.actions.cash-out.button' => 'Tokens Verkaufen',
 		'coins.actions.cash-out.comment' => 'Tokens zum aktuellen Verkaufspreis tauschen und zu Dividenden hinzufügen',
 		'coins.actions.pay-divs.button' => 'Mit Dividenden Kaufen',
 		'coins.actions.pay-divs.comment' => 'Gesammelte Dividenden zum aktuellen Kaufpreis gegen Tokens tauschen',
 		'coins.actions.withdraw.button' => 'Abheben',
 		'coins.actions.withdraw.comment' => 'Dividenden an deine MetaMask-Wallet senden',
-
-        'donate.open-button' => 'An&nbsp;Projekt&nbsp;spenden',
-        'donate.heading' => 'Spende zur Förderung des EthPyramid-Marketings',
-        'donate.description' => 'Die Spendenadresse ist eine Multi-Signatur-Wallet, dessen Verwendung zwei Entwickler zustimmen müssen. Spenden werden ausschließlich zur weiteren Publizierung von EthPyramid verwendet.',
-        'donate.action-button' => 'Nimm mein ETH',
-        'donate.close-button' => 'Lieber doch nicht',
-        'donate.address' => 'Falls du es bevorzugst, kannst du Spenden auch direkt an 0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb senden',
-
 		'metamask.not-found.status' => 'MetaMask Nicht Gefunden',
 		'metamask.not-found.comment' => 'Um mit dem Netzwerk zu interagieren musst du <a href="https://metamask.io/">MetaMask</a> installiert und eingerichtet haben.',
-		'metamask.plz-login.status' => 'Bitte log ich in in MetaMask ein',
-		'metamask.plz-login.comment' => 'Du musst in MetaMask angemeldet sein um fortzufahren',
-		'metamask.detecting.status' => 'Suche MetaMask',
-		'metamask.detecting.comment' => 'Warte bitte, während wir versuchen, uns mit MetaMask verbinden',
-
 		'chart.heading' => 'EthPyramid - Historie (Verkaufspreis)',
-
 		'instructions.heading' => 'Anleitung für jene, die beim Bau der großen Pyramide von Ether helfen wollen:',
 		'instructions.metamask' => 'Installiere zuerst <a href="https://metamask.io/">MetaMask</a> und leg etwas Ether an (separat erhältlich).',
 		'instructions.purchase' => 'Um EthPyramid Tokens (EPY) zu kaufen, gibst du einfach ein, wieviel Ethereum du zum aktuellen Preis tauschen willst und klickst dann auf "Tokens&nbsp;kaufen". Wenn du die Transaktion in MetaMask bestätigst, denk dran genug GAS zu geben, damit sich der Preis während der Transaktion nicht drastisch ändert. Empfohlene GAS-Preise findest du auf <a href="https://ethgasstation.info/">EthGasstation</a>. Tokens zu kaufen erhöht sowohl den Kauf- als auch den Verkaufspreis um 0,2% für jeden gekauften Token, sobald die Transaktion abgeschlossen ist.',
@@ -105,17 +73,6 @@ return [
 		'instructions.pay-divs' => 'Du kannst mit deinen Dividenden auch direkt mehr EPY kaufen. Klick dazu auf "Mit&nbsp;Dividenden&nbsp;kaufen" und bestätige den Kauf in MetaMask.',
 		'instructions.withdraw' => 'Um dir deine Tokens in Ether auszahlen zu lassen, klick auf "Abheben" und folge den Anweisungen.',
 		'instructions.getmeout' => '<b>SPEICHERE DIESEN HINWEIS AN EINEM SICHEREN ORT:</b> Falls diese Seite aus irgendeinem Grund nicht mehr erreichbar ist, kannst du eine Transaktion über MetaMask starten und 0 Ethereum mit einem 150000 GAS-Limit und "0xb1e35242" als zusätzliche Transaktionsdaten an die Contract-Adresse "0x2fa0ac498d01632f959d3c18e38f4390b005e200" schicken. Dies weist den Contract durch Aufruf der Funktion getMeOutOfHere() an, sofort deine Tokens zu verkaufen und zusammen mit deinen Dividenden an dein MetaMask-Wallet zu überweisen.',
-
-		'stats.heading' => 'EthPyramid-Statistiken',
-		'stats.token-supply' => 'EPY im Umlauf',
-		'stats.total-volume' => 'Gesamtvolumen',
-		'stats.eth-balance' => 'ETH im Contract',
-		'stats.total-divs' => 'Summe von Dividenden',
-        'stats.top25.heading' => 'Top 25 Token-Halter',
-        'stats.top25.comment' => 'Pseudonyme von Teammitgliedern werden, wenn bekannt, anstelle der Adresse angezeigt.',
-        'stats.daily.heading' => 'Tägliches Volumen (letzte 7 Tage)',
-        'stats.daily.comment' => 'Volumen ist in ETH, Zeitzone ist UTC.',
-
 		'wpaper.heading' => 'EthPyramid - <strong>Kein Scheiß</strong>, ein <strong>transparentes</strong> und <strong>selbsterhaltendes</strong> Pyramidenschema.',
 		'wpaper.content.preface.head' => 'Wir sind dumm, und du vielleicht auch',
 		'wpaper.content.preface.text' => 'Wolltest du jemals eine ganze Pyramide bauen, per Hand, ohne Werkzeug? Wir auch nicht. Darum ersuchen wir euch alle in der Cryptosphäre, uns bei der Errichtung dieses Weltwunders zu helfen. Und immer weiter zu bauen. Bis zum Mond. Bis ihr mit einem Grinsen im Gesicht auf einem Berg von Dividenden steht. Jeder Ort, den du dir vorstellen kannst, an dem deine Seele frei ist - diese Pyramide der Liebe kann dich dorthin bringen. Das, oder an einen gemütlichen Platz unter einer Brücke.',
@@ -130,10 +87,20 @@ return [
 		'wpaper.content.welcome.head' => 'Willkommen bei EthPyramid',
 		'wpaper.content.welcome.text' => 'Warren Buffett sagt, Cryptohandel sei zum Scheitern verurteilt. Vielleicht hat er Recht. Vielleicht wirst du einer der wenigen Überlebenden sein, die noch ihren Enkelkindern davon erzählen können, Teil dessen kompletter und restloser Vernichtung gewesen zu sein. Mach heute mit - und halt dich fest. Sei bereit, deine letzten Ether-Reste in diesen Scheiterhaufen gedenkenlosen Wahnsinns namens ETHPYRAMID zu stopfen. Zusammen können wir dieses Ding so hoch bauen, dass es einfach zu groß zum Scheitern wird.',
 		'wpaper.closing' => 'Besser Arm ab als arm dran.',
+		'faq.heading' => 'FAQ',
 		'wpaper.footer.exit.heading' => 'Wichtig',
 		'wpaper.footer.exit.content' => 'Falls diese Seite aus irgendeinem Grund nicht mehr erreichbar ist, oder du einfach ganz schnell an dein Geld willst, kannst du eine Transaktion über MetaMask starten und 0 Ethereum mit einem 150000 GAS-Limit und "0xb1e35242" als zusätzliche Transaktionsdaten an die Contract-Adresse "0x2fa0ac498d01632f959d3c18e38f4390b005e200" schicken. Dies weist den Contract durch Aufruf der Funktion getMeOutOfHere() an, sofort deine Tokens zu verkaufen und zusammen mit gesammelten Dividenden and dein MetaMask-Wallet zu überweisen.',
 		'wpaper.footer.dev-stuff.heading' => 'Langweiliges Zeug für Entwickler',
 		'wpaper.footer.dev-stuff.content' => 'Im Kern ist EthPyramid eine Erweiterung des Konzeptes einer ursprünglich von Jochen Hoenicke publizierten Arbeit, und berichtigt die Fehler und Schwachstellen, die in vorherigen Implementationen gefunden wurden. Unser Smart Contract beinhaltet keine dessen überflüssiger und unsicherer Funktionen. Wir haben Safemath-Operationen hinzugefügt, um sicher zu gehen, dass es zu keinen Over- oder Underflow-Bugs kommen kann. Es gibt kaum Angriffsfläche, da keine Funktionen Nutzern die Möglichkeit gibt, ungefiltert Daten einzugeben. In diesem Sinne, hat der für den Untergang vorheriger Iterationen verantwortliche Exploit keinen Effekt auf unseren Contract, die dazu nötige Funktion existiert hier gar nicht.',
 		'wpaper.footer.dev-stuff.testing' => 'Über 4.000 ETH flossen beim Stresstest auf unserer Beta-Seite ein und aus, ohne Fehler. Der volle Smart-Contract furde vor Start veröffentlicht und ist stets über unsere Webseite auffindbar. Unser Contract ist wohldokumentiert und sauber, ohne Redundanzen.',
+		'menu.home' => 'Startseite',
+		'menu.stats' => 'Statistiken',
+		'metamask.plz-login.status' => 'Bitte log ich in in MetaMask ein',
+		'metamask.plz-login.comment' => 'Du musst in MetaMask angemeldet sein um fortzufahren',
+		'metamask.detecting.status' => 'Suche MetaMask',
+		'metamask.detecting.comment' => 'Warte bitte, während wir versuchen, uns mit MetaMask verbinden',
+		'footer.social' => 'Links',
+		'footer.disclaimer.heading' => 'Haftungsausschluss',
+		'footer.disclaimer.content' => 'Dieses Spiel dient ausschließlich dem Zwecke der Unterhaltung. Sende keine Ethereum, die Du nicht bereit bist zu verlieren. Es ist nicht gerantiert, dass Du durch dieses Spiel Ethereum verdienen wirst. Noch wichtiger: es ist nicht garantiert, dass Du Deinen ETH-Einsatz nicht verlieren wirst. Spiele auf eigene Gefahr und versuche nicht, Freunde, Verwandte oder Fremde zum Mitspielen zu verleiten. Am Besten machst Du selbst gar nicht erst mit.'
 	]
 ];
