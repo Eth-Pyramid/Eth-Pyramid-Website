@@ -6,7 +6,7 @@ include('include/head.php');
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
 <div class="ui container vertical stripe">
-    <h3 class="ui horizontal divider"><?php __('EthPyramid Statistics'); ?></h3>
+    <h3 class="ui horizontal divider"><?php __('stats.heading'); ?></h3>
 
     <div id="charts" class="ui stackable grid">
 
@@ -14,7 +14,7 @@ include('include/head.php');
             <div class="ui equal width stackablet grid">
                 <div class="ui statistic column">
                     <div class="label">
-						<?php __('Current Supply'); ?>
+						<?php __('stats.token-supply'); ?>
                     </div>
                     <div class="value" id="epy-supply">
                         0 EPY
@@ -22,7 +22,7 @@ include('include/head.php');
                 </div>
                 <div class="ui statistic column">
                     <div class="label">
-						<?php __('Total Volume'); ?>
+						<?php __('stats.total-volume'); ?>
                     </div>
                     <div class="value" id="total-volume">
                         0 ETH
@@ -30,7 +30,7 @@ include('include/head.php');
                 </div>
                 <div class="ui statistic column">
                     <div class="label">
-						<?php __('Contract Balance'); ?>
+						<?php __('stats.eth-balance'); ?>
                     </div>
                     <div class="value" id="contract-balance">
                         0 EPY
@@ -38,7 +38,7 @@ include('include/head.php');
                 </div>
                 <div class="ui statistic column">
                     <div class="label">
-						<?php __('Total Dividends'); ?>
+						<?php __('stats.total-divs'); ?>
                     </div>
                     <div class="value" id="total-dividends">
                         0 ETHt s
@@ -48,14 +48,14 @@ include('include/head.php');
         </div>
 
         <div class="ui eight wide column">
-            <h3>Top 25 Token Holders</h3>
-            <p>Aliases of dev team members are shown in place of address if known.</p>
+            <h3><?php __('stats.top25.heading'); ?></h3>
+            <p><?php __('stats.top25.comment'); ?></p>
             <canvas id="top-holders" width="800" height="700" style="margin-top: 25px;"></canvas>
         </div>
 
         <div class="ui eight wide column">
-            <h3>Daily Volume (Last 7 days)</h3>
-            <p>Volume is in ETH and timezone is UTC.</p>
+            <h3><?php __('stats.daily.heading'); ?></h3>
+            <p><?php __('stats.daily.comment'); ?></p>
             <canvas id="daily-volume" width="800" height="700" style="margin-top: 25px;"></canvas>
         </div>
     </div>

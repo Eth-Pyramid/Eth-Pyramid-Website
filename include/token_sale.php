@@ -2,7 +2,7 @@
 
 <div id="token-sale">
     <div class="ui container center align vertical stripe heading-container">
-        <h2><?php __('Purchase EthPyramid Tokens'); ?></h2>
+        <h2><?php __('coins.heading'); ?></h2>
         <div id="quoteDisplay"></div>
         <script>newQuote()</script>
     </div>
@@ -20,11 +20,11 @@
                             <div style="display: none" id="eth-address">Not Set</div>
 
                             <input type="number" id="purchase-amount" min="0" step="0.01"
-                                   placeholder="<?php __('Amount in ETH (e.g. 0.5)'); ?>">
-                            <button id="buy-tokens" class='ui primary huge button'><?php __('Buy Tokens'); ?></button>
+                                   placeholder="<?php __('coins.eth-amount'); ?>">
+                            <button id="buy-tokens" class='ui primary huge button'><?php __('coins.buy-tokens'); ?></button>
 
                             <div id="currency-selector">
-								<?php __('Select your currency:'); ?>
+								<?php __('coins.select-currency'); ?>
                                 <select id="currency">
                                     <option>USD</option>
                                     <option>AUD</option>
@@ -61,57 +61,57 @@
                                 </select>
                             </div>
 
-                            <a href="#" id="chat-toggle"><?php __('Toggle Chat'); ?></a> /
-                            <a href="#" id="history-toggle"><?php __('Toggle Transactions'); ?></a>
+                            <a href="#" id="chat-toggle"><?php __('coins.chat.toggle'); ?></a><br>
+                            <a href="#" id="history-toggle"><?php __('coins.history.toggle'); ?></a>
                         </div>
                     </div>
                     <div class="ui eleven wide column" id="value-panel">
                         <div class="ui stackable relaxed grid">
                             <div class="ui eight wide column">
                                 <div class="price-box">
-                                    <div class="title"><?php __('Buy Price'); ?></div>
+                                    <div class="title"><?php __('coins.buy-price'); ?></div>
                                     <div class="poh-buy value"></div>
                                     <div class="poh-buy-usd value-usd"></div>
                                 </div>
                             </div>
                             <div class="ui eight wide column">
                                 <div class="price-box">
-                                    <div class="title"><?php __('Sell Price'); ?></div>
+                                    <div class="title"><?php __('coins.sell-price'); ?></div>
                                     <div class="poh-sell value"></div>
                                     <div class="poh-sell-usd value-usd"></div>
                                 </div>
                             </div>
                             <div class="ui eight wide column">
                                 <div class="price-box blue token-balance">
-                                    <div class="title"><?php __('EthPyramid Token Balance:'); ?></div>
+                                    <div class="title"><?php __('coins.epy-balance'); ?></div>
                                     <div class="poh-balance value"></div>
                                 </div>
                             </div>
                             <div class="ui eight wide column">
                                 <div class="price-box blue">
-                                    <div class="title"><?php __('Dividends:'); ?></div>
+                                    <div class="title"><?php __('coins.dividends'); ?></div>
                                     <div class="poh-div value"></div>
                                     <div class="poh-div-usd value-usd"></div>
                                 </div>
                             </div>
                             <div class="ui sixteen wide column">
                                 <div class="price-box green">
-                                    <div class="title"><?php __('Estimated Value of Tokens:'); ?></div>
+                                    <div class="title"><?php __('coins.estimated-value'); ?></div>
                                     <div class="poh-value value"></div>
                                     <div class="poh-value-usd value-usd"></div>
                                 </div>
                             </div>
                             <div class="ui ten wide column traffic-message">
                                 <i class="fas fa-exclamation-circle"></i>
-								<?php __('Depending on the Ethereum network traffic, figures may be delayed.'); ?>
+								<?php __('coins.network-notice'); ?>
                             </div>
                             <div class="ui six wide column contract-balance-container">
-								<?php __('Contract Balance:'); ?>
+								<?php __('coins.contract-balance'); ?>
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
                             <div class="ui sixteen wide column">
                                 <div id="transaction-history-container" style="display: none">
-                                    <h2><?php __('Transaction History'); ?></h2>
+                                    <h2><?php __('coins.history.heading'); ?></h2>
                                     <div id="transaction-history">
                                     </div>
                                 </div>
@@ -122,36 +122,36 @@
                 <div class="ui three column stackable grid center aligned methods">
                     <div class="column">
                         <button id="sell-tokens-btn"
-                                class='ui method button big secondary'><?php __('Sell Tokens'); ?></button>
-                        <p><?php __('Your tokens will be sold at the sell-price and will be converted into Ether dividends.'); ?></p>
+                                class='ui method button big secondary'><?php __('coins.actions.cash-out.button'); ?></button>
+                        <p><?php __('coins.actions.cash-out.comment'); ?></p>
                     </div>
                     <div class="column">
                         <button id="reinvest-btn"
-                                class='ui method button big secondary'><?php __('Buy With Dividends'); ?></button>
-                        <p><?php __('Uses your dividend balance to buy more tokens at the current rate.'); ?></p>
+                                class='ui method button big secondary'><?php __('coins.actions.pay-divs.button'); ?></button>
+                        <p><?php __('coins.actions.pay-divs.comment'); ?></p>
                     </div>
                     <div class="column">
                         <button id="withdraw-btn"
-                                class='ui method button big secondary'><?php __('Withdraw'); ?></button>
-                        <p><?php __('Withdraw your dividends balance back into your Ethereum wallet.'); ?></p>
+                                class='ui method button big secondary'><?php __('coins.actions.withdraw.button'); ?></button>
+                        <p><?php __('coins.actions.withdraw.comment'); ?></p>
                     </div>
                 </div>
                 <div id="metamask-not-found" class="ui dimmer">
                     <div class="inner">
-                        <h2 class="float-left"><?php __('MetaMask Not Found'); ?></h2></br>
-                        <p><?php __('To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.'); ?></p>
+                        <h2 class="float-left"><?php __('metamask.not-found.status'); ?></h2></br>
+                        <p><?php __('metamask.not-found.comment'); ?></p>
                     </div>
                 </div>
                 <div id="metamask-not-logged-in" class="ui dimmer">
                     <div class="inner">
-                        <h2 class="float-left"><?php __('Please login to MetaMask'); ?></h2></br>
-                        <p><?php __('You must login to MetaMask to continue'); ?></p>
+                        <h2 class="float-left"><?php __('metamask.plz-login.status'); ?></h2></br>
+                        <p><?php __('metamask.plz-login.comment'); ?></p>
                     </div>
                 </div>
                 <div id="metamask-detecting" class="ui dimmer">
                     <div class="inner">
-                        <h2 class="float-left"><?php __('Detecting MetaMask'); ?></h2></br>
-                        <p><?php __('Please wait while we try to load MetaMask'); ?></p>
+                        <h2 class="float-left"><?php __('metamask.detecting.status'); ?></h2></br>
+                        <p><?php __('metamask.detecting.comment'); ?></p>
                     </div>
                 </div>
             </div>

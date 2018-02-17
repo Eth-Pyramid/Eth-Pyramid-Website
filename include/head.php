@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <meta name="title" content="<?php __('EthPyramid'); ?>">
-    <meta name="description" content="<?php __('A self-sustaining, secure and transparent pyramid scheme.') ?>">
+    <meta name="title" content="<?php __('meta.title'); ?>">
+    <meta name="description" content="<?php __('meta.description') ?>">
     <meta name="author" content="">
     <link rel="shortcut icon" href="favicon.ico">
-    <title><?php __('EthPyramid'); ?></title>
+    <title><?php __('meta.title'); ?></title>
 
     <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -80,11 +80,11 @@
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-    <a class="item" href="index.html"><?php __('Home'); ?></a>
-    <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
-    <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
-    <a class="item" href="stats.html"><?php __('Stats'); ?></a>
-    <a class="item" href="whitepaper.html"><?php __('Whitepaper'); ?></a>
+    <a class="item" href="index.html"><?php __('menu.home'); ?></a>
+    <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
+    <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
+    <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
+    <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
 </div>
 
 <!-- Following Menu -->
@@ -96,10 +96,10 @@
         <a href="index.html" class="logo header item">
             <img src="images/minilogo.png">
         </a>
-        <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
-        <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
-        <a class="item" href="stats.html"><?php __('Stats'); ?></a>
-        <a class="item" href="whitepaper.html"><?php __('Whitepaper'); ?></a>
+        <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
+        <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
+        <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
+        <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
         <div class="right menu">
             <div class="social-bits">
                 <a href="https://twitter.com/ethpyramid" target="_blank">
@@ -127,10 +127,10 @@
                 <a href="index.html" class="logo header item">
                     <img src="images/minilogo.png">
                 </a>
-                <a class="item" href="coins.html"><?php __('My Coins'); ?></a>
-                <a class="item" href="https://ethpyramid.wordpress.com"><?php __('Blog'); ?></a>
-                <a class="item" href="stats.html"><?php __('Stats'); ?></a>
-                <a class="item" href="whitepaper.html"><?php __('Whitepaper'); ?></a>
+                <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
+                <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
+                <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
+                <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
 
                 <div class="right item">
                     <!-- Social Icons -->
@@ -153,8 +153,8 @@
                         </a>
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="?lang=us" class="item text"><i class="us flag"></i> English</a>
-                            <a href="?lang=au" class="item text"><i class="au flag"></i> Australian</a>
+                            <a href="?lang=us" class="item text"><i class="us flag"></i> English (US)</a>
+                            <a href="?lang=au" class="item text"><i class="au flag"></i> English (AU)</a>
                             <a href="?lang=cn" class="item text"><i class="cn flag"></i> Chinese</a>
                             <a href="?lang=fr" class="item text"><i class="fr flag"></i> French</a>
                             <a href="?lang=de" class="item text"><i class="de flag"></i> German</a>
