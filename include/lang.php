@@ -97,12 +97,36 @@ if (isset($_GET['lang'])) {
 	setcookie('lang', $_GET['lang']);
 	useLanguage($_GET['lang']);
 }
-else if (isset($_COOKIE['lang']))
-	// set lang based on cookie
-	useLanguage($_COOKIE['lang']);
-else
-	// set language to default
-	$lang = $default_lang;
+else if (isset($_COOKIE['lang'])) {
+    // set lang based on cookie
+    useLanguage($_COOKIE['lang']);
+} else {
+    // set language to default
+    $headerLangString = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
+    $langs = explode( ',', $headerLangString);
+    $language = explode('-',$langs[0])[0];
+
+    $found = false;
+    foreach (getLanguages() as $value) {
+         if ($language == $value['iso_code']) {;
+             useLanguage($language);
+             $found = true;
+         }
+    }
+    if (!$found) {
+        $lang = $default_lang;
+    }
+
+}
+
+function debug_to_console( $data ) {
+    $output = $data;
+    if ( is_array( $output ) )
+        $output = implode( ',', $output);
+
+    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+}
 
 // output missing translations as pairs of key and default translation
 if (isset($_GET['out'])) {
