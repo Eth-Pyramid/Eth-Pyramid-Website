@@ -60,7 +60,7 @@ return [
         'coins.eth-amount' => 'Amount in ETH (e.g. 0.5)',
         'coins.buy-tokens' => 'Buy Tokens',
         'coins.select-currency' => 'Select your currency:',
-        'coins.discord.toggle' => 'Toggle Chat',
+        'coins.chat.toggle' => 'Toggle Chat',
         'coins.history.toggle' => 'Toggle Transactions',
         'coins.history.heading' => 'Transaction History',
         'coins.history.log.sent-eth' => 'Bought {1} EPY for {0} ETH',
@@ -81,6 +81,12 @@ return [
         'coins.actions.pay-divs.comment' => 'Uses your dividend balance to buy more tokens at the current rate.',
         'coins.actions.withdraw.button' => 'Withdraw',
         'coins.actions.withdraw.comment' => 'Withdraw your dividends balance back into your Ethereum wallet.',
+
+	    'donate.open-button' => 'Donate to Project',
+	    'donate.close-button' => 'Actually, Never Mind',
+	    'donate.action-button' => 'Take my ETH',
+	    'donate.heading' => 'Donate to the EthPyramid Marketing Fund',
+	    'donate.description' => 'The donation address is a multi-sig wallet that requires two core developers to approve any withdrawals. Funds will be used solely for the purpose of advertising EthPyramid.',
 
         'chart.heading' => 'EthPyramid - Historical Chart (Sell Price)',
 

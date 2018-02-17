@@ -14,7 +14,9 @@ if (!String.prototype.format) {
 
 window.addEventListener('load', function () {
 
-  $('#metamask-detecting').dimmer('hide')
+  if ($('#metamask-detecting').hasClass('visible')) {
+    $('#metamask-detecting').dimmer('hide')
+  }
 
   if (typeof web3 !== 'undefined') {
     web3js = new Web3(web3.currentProvider)
@@ -368,6 +370,35 @@ window.addEventListener('load', function () {
     }
   })
 
+  $('#donate-action').click(function () {
+    let amount = $('#donate-amount').val().trim()
+    if (amount <= 0 || !isFinite(amount) || amount === '') {
+      $('#donate-amount').addClass('error').popup({
+        title: 'Invalid Input',
+        content: 'Please input a valid non-negative, non-zero value.'
+      }).popup('show')
+    } else {
+      $('#donate-amount').removeClass('error').popup('destroy')
+      web3.eth.sendTransaction({
+        to: '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb',
+        value: convertEthToWei(amount)
+      }, function (e, r) {
+        $('#donate-amount').val('')
+        $('#donate-dimmer').dimmer('hide')
+        console.log(e, r)
+      })
+    }
+  })
+
+  $('#donate-open').click(function (e) {
+    e.preventDefault()
+    $('#donate-dimmer').dimmer('show')
+  })
+
+  $('#donate-close').click(function () {
+    $('#donate-dimmer').dimmer('hide')
+  })
+
   // Sell token click handler
   $('#sell-tokens-btn').click(function () {
     contract.sellMyTokens(function (e, r) {
@@ -493,7 +524,8 @@ function updateData (contract) {
     updateTransactionHistory()
   }
 
-  $('#metamask-not-logged-in').dimmer('hide')
+  if ($('#metamask-not-logged-in').hasClass('visible'))
+    $('#metamask-not-logged-in').dimmer('hide')
 
   $('#eth-address').html(web3.eth.defaultAccount)
 

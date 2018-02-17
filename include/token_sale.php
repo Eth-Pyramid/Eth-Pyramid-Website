@@ -21,7 +21,8 @@
 
                             <input type="number" id="purchase-amount" min="0" step="0.01"
                                    placeholder="<?php __('coins.eth-amount'); ?>">
-                            <button id="buy-tokens" class='ui primary huge button'><?php __('coins.buy-tokens'); ?></button>
+                            <button id="buy-tokens"
+                                    class='ui primary huge button'><?php __('coins.buy-tokens'); ?></button>
 
                             <div id="currency-selector">
 								<?php __('coins.select-currency'); ?>
@@ -63,6 +64,10 @@
 
                             <a href="#" id="chat-toggle"><?php __('coins.chat.toggle'); ?></a><br>
                             <a href="#" id="history-toggle"><?php __('coins.history.toggle'); ?></a>
+
+                            <div>
+                                <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
+                            </div>
                         </div>
                     </div>
                     <div class="ui eleven wide column" id="value-panel">
@@ -154,6 +159,20 @@
                         <p><?php __('metamask.detecting.comment'); ?></p>
                     </div>
                 </div>
+                <div id="donate-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left"><?php __('donate.heading'); ?></h2></br>
+                        <p><?php __('donate.description'); ?></p>
+                        <div class="center aligned">
+                            <input type="number" id="donate-amount" min="0" step="0.1"
+                                   placeholder="<?php __('coins.eth-amount'); ?>"/>
+                            <button id="donate-action"
+                                    class="ui primary huge button"><?php __('donate.action-button'); ?></button>
+                            <button id="donate-close"
+                                    class="ui huge default button"><?php __('donate.close-button'); ?></button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="ui five wide column chat-box" style="display: none;">
                 <iframe src="https://titanembeds.com/embed/408119545379815434?defaultchannel=408119545379815438"
@@ -183,6 +202,7 @@
       }
     })
 
+
     $('#history-toggle').click(function (e) {
       e.preventDefault()
       $('#transaction-history-container').slideToggle()
@@ -191,6 +211,7 @@
     $('#metamask-detecting').dimmer({closable: false})
     $('#metamask-not-found').dimmer({closable: false})
     $('#metamask-not-logged-in').dimmer({closable: false})
+    $('#donate-dimmer').dimmer({closable: true})
     $('#metamask-detecting').dimmer('show')
   })
 </script>
