@@ -8,6 +8,7 @@
                     <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
                     <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
                     <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
+                    <a class="item" href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"><?php __('index.header.contract'); ?></a>
                 </div>
             </div>
 
