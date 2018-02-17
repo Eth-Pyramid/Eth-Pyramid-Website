@@ -19,39 +19,12 @@
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <script src="/js/common.js"></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/token_sale.css">
-
-    <!-- Menu Script -->
-    <script>
-      $(document)
-        .ready(function () {
-          // fix menu when passed
-          $('.main-menu')
-            .visibility({
-              once: false,
-              onBottomPassed: function () {
-                $('.fixed.menu').transition('fade in')
-              },
-              onBottomPassedReverse: function () {
-                $('.fixed.menu').transition('fade out')
-              }
-            })
-
-          // create sidebar and attach to menu open
-          $('.ui.sidebar')
-            .sidebar('attach events', '.toc.item')
-
-          // language selector dropdown
-          $('.ui.dropdown')
-            .dropdown({
-              action: 'hide'
-            })
-        })
-    </script>
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
