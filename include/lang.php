@@ -9,10 +9,11 @@ $default_lang = loadLanguage('us');
 // gets filled with requested strings that can't be found in $lang
 $missing = [];
 
-function loadLanguage($code) {
+function loadLanguage($code)
+{
 	global $default_lang;
 
-	if( strlen( $code ) !== 2 )
+	if (strlen($code) !== 2)
 		return;
 
 	$file = __DIR__ . '/../lang/' . $code . '.php';
@@ -24,10 +25,12 @@ function loadLanguage($code) {
 }
 
 // sets $lang to content of lang/($code).php
-function useLanguage($code) {
+function useLanguage($code)
+{
 	global $lang, $default_lang;
 
-	if (strlen($code) != 2) {
+	if (strlen($code) != 2)
+	{
 		$lang = $default_lang;
 		return;
 	}
@@ -35,35 +38,42 @@ function useLanguage($code) {
 	$lang = loadLanguage($code);
 }
 
-function getDefaultCurrency() {
+function getDefaultCurrency()
+{
 	global $lang;
 
 	return $lang['default_currency'];
 }
 
-function getLangCode() {
+function getLangCode()
+{
 	global $lang;
 	return $lang['code'];
 }
 
-function getLangIsoCode() {
+function getLangIsoCode()
+{
 	global $lang;
 	return $lang['iso_code'];
 }
 
-function getLanguages() {
+function getLanguages()
+{
 	$d = opendir('lang');
 
 	$langs = [];
 
-	while ($dir = readdir($d)) {
+	while ($dir = readdir($d))
+	{
 		if ($dir == '.' || $dir == '..')
 			continue;
 
-		if (is_file('lang/' . $dir)) {
+		if (is_file('lang/' . $dir))
+		{
 			$lang = include('lang/' . $dir);
 
-			if (is_array($lang)) {
+			if (is_array($lang))
+			{
 				$langs[] = $lang;
 			}
 		}
@@ -74,11 +84,14 @@ function getLanguages() {
 
 // when a language is set, echoes the translation if present or adds the key to $missing if no translation is found
 // if no translation is found, tries to echo the default translation, echoes the key itself if even that fails, god forbid
-function __($text) {
+function __($text)
+{
 	global $lang, $missing, $default_lang;
 
-	if ($lang != null) {
-		if (isset($lang['text'][$text])) {
+	if ($lang != null)
+	{
+		if (isset($lang['text'][$text]))
+		{
 			echo $lang['text'][$text];
 			return;
 		}
@@ -92,50 +105,52 @@ function __($text) {
 		echo $text;
 }
 
-if (isset($_GET['lang'])) {
+if (isset($_GET['lang']))
+{
 	// set lang based on request
 	setcookie('lang', $_GET['lang']);
 	useLanguage($_GET['lang']);
 }
-else if (isset($_COOKIE['lang'])) {
-    // set lang based on cookie
-    useLanguage($_COOKIE['lang']);
-} else {
-    // set language to default
-    $headerLangString = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-
-    $langs = explode( ',', $headerLangString);
-    $language = explode('-',$langs[0])[0];
-
-    $found = false;
-    foreach (getLanguages() as $value) {
-         if ($language == $value['iso_code']) {;
-             useLanguage($language);
-             $found = true;
-         }
-    }
-    if (!$found) {
-        $lang = $default_lang;
-    }
-
+else if (isset($_COOKIE['lang']))
+{
+	// set lang based on cookie
+	useLanguage($_COOKIE['lang']);
 }
+else
+{
+	// set language to default
+	$header_lang_string = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
+	$langs    = explode(',', $header_lang_string);
+	$language = explode('-', $langs[0])[0];
 
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+	$found = false;
+
+	foreach (getLanguages() as $value)
+	{
+		if ($language == $value['iso_code'])
+		{
+			useLanguage($value['code']);
+			$found = true;
+		}
+	}
+
+	if (!$found)
+	{
+		$lang = $default_lang;
+	}
 }
 
 // output missing translations as pairs of key and default translation
-if (isset($_GET['out'])) {
+if (isset($_GET['out']))
+{
 	ob_start(function ($data) {
 		global $missing, $default_lang;
 
 		$ret = [];
 
-		foreach ($missing as $text) {
+		foreach ($missing as $text)
+		{
 			$ret[$text] = $default_lang['text'][$text];
 		}
 
