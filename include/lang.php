@@ -12,6 +12,9 @@ $missing = [];
 function loadLanguage($code) {
 	global $default_lang;
 
+	if( strlen( $code ) !== 2 )
+		return;
+
 	$file = __DIR__ . '/../lang/' . $code . '.php';
 
 	if ($file)

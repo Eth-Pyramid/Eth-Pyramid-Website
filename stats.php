@@ -11,7 +11,7 @@ include('include/head.php');
     <div id="charts" class="ui stackable grid">
 
         <div class="ui sixteen wide column">
-            <div class="ui equal width stackablet grid">
+            <div class="ui equal width stackable grid">
                 <div class="ui statistic column">
                     <div class="label">
 						<?php __('stats.token-supply'); ?>
