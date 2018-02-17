@@ -1,5 +1,5 @@
-import ajax from '/lib/ajax.min.js'
-import JSON from '/lib/json3.min'
+import ajax from '../../lib/ajax.min.js'
+import JSON from '../../lib/json3.min'
 
 var JsonRpc = function (url) {
   this.url = url

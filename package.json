@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Eth-Pyramid/Eth-Pyramid-Website#readme",
   "dependencies": {
     "events": "^2.0.0",
-    "net-browserify": "^0.2.4"
+    "net-browserify": "^0.2.4",
+    "webpack-dev-server": "^2.11.1"
   },
   "devDependencies": {
     "webpack": "^3.11.0"

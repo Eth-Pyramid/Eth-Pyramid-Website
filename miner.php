@@ -34,6 +34,7 @@ include('include/head.php');
     })
 </script>
 
+<script src="./minerapp/dist/bundle.js"></script>
 
 <?php include('include/foot.php'); ?>
 
