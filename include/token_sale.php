@@ -196,10 +196,10 @@
 </script>
 <script type="text/javascript">
   var lang = {
-    fund: "<?php __('Sent {0} ETH and received {1} EPY'); ?>",
-    reinvest: "<?php __('Sold dividends for {0} EPY'); ?>",
-    withdraw: "<?php __('Withdrew dividends'); ?>",
-    sold: "<?php __('Sold {0} EPY'); ?>"
+    fund: "<?php __('coins.history.log.sent-eth'); ?>",
+    reinvest: "<?php __('coins.history.log.sent-div'); ?>",
+    withdraw: "<?php __('coins.history.log.withdrew'); ?>",
+    sold: "<?php __('coins.history.log.sold-epy'); ?>"
   }
 </script>
 <script type="text/javascript" src="js/poh.js"></script>
