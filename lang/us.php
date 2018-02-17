@@ -91,7 +91,7 @@ return [
 	    'donate.address' => 'If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb" target="_blank">0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb</a>',
 
 
-        'chart.heading' => 'EthPyramid - Historical Chart (Sell Price)',
+        'chart.heading' => 'Sell Price Chart',
 
         'instructions.heading' => 'Instructions for those who want to help build the great pyramid of Ether:',
         'instructions.metamask' => 'First of all, install MetaMask <a href="https://metamask.io/">here</a> and put some Ether in it.',
