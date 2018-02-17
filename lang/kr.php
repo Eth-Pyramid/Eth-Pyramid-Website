@@ -4,6 +4,7 @@ return [
 	'name' => 'Korean',
 	'code' => 'kr',
 	'iso_code' => 'kr',
+	'iso_country' => 'kr',
 	'default_currency' => 'USD',
 	'flag' => 'KR.jpg',
 	'text' => [

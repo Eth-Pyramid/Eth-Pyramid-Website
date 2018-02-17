@@ -2,6 +2,7 @@
 return [
     'code' => 'us',
     'iso_code' => 'en',
+    'iso_country' => 'us',
     'default_currency' => 'USD',
     'text' => [
         'meta.title' => 'EthPyramid',

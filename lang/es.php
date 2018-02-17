@@ -4,6 +4,7 @@ return [
 	'name' => 'Spanish',
 	'code' => 'es',
 	'iso_code' => 'es',
+	'iso_country' => 'es',
 	'default_currency' => 'USD',
 	'flag' => 'ES.jpg',
 	'text' => [

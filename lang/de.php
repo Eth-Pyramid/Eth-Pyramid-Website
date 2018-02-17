@@ -4,6 +4,7 @@ return [
 	'name' => 'German',
 	'code' => 'de',
 	'iso_code' => 'de',
+	'iso_country' => 'de',
 	'default_currency' => 'EUR',
 	'flag' => 'DE.jpg',
 	'text' => [

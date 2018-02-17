@@ -4,6 +4,7 @@ return [
 	'name' => 'Russian',
 	'code' => 'ru',
 	'iso_code' => 'ru',
+	'iso_country' => 'ru',
 	'default_currency' => 'RUB',
 	'flag' => 'RU.jpg',
 	'text' => [

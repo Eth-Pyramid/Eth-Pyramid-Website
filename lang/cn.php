@@ -3,7 +3,8 @@
 return [
 	'name' => '中文',
 	'code' => 'cn',
-	'iso_code' => 'cn',
+	'iso_code' => 'zh',
+	'iso_country' => 'cn',
 	'default_currency' => 'CNY',
 	'flag' => 'CN.jpg',
 	'text' => [

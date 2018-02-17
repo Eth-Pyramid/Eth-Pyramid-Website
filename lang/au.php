@@ -4,6 +4,7 @@ return [
 	'name' => 'English (AU)',
 	'code' => 'au',
 	'iso_code' => 'en',
+	'iso_country' => 'au',
 	'default_currency' => 'AUD',
 	'flag' => 'AU.jpg',
 	'text' => [

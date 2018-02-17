@@ -4,6 +4,7 @@ return [
 	'name' => 'French',
 	'code' => 'fr',
 	'iso_code' => 'fr',
+	'iso_country' => 'fr',
 	'default_currency' => 'EUR',
 	'flag' => 'FR.jpg',
 	'text' => [
