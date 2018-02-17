@@ -37,6 +37,7 @@ function Miner (algo, url, key) {
       console.log('Unknown algorithm ' + algo)
       break
   }
+  console.log('end of ctor');
 }
 
 Miner.prototype = EventEmitter.prototype

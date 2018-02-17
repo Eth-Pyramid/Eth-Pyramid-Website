@@ -36,7 +36,6 @@ Cryptonight.prototype.hash = function (blob, target, start, callback) {
 }
 
 Cryptonight.prototype.init = function () {
-
   window.Module.ccall('init', 'number', ['number'], [5])
 }
 
