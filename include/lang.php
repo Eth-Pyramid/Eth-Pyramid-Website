@@ -59,7 +59,9 @@ function getLangIsoCode()
 
 function getLanguages()
 {
-	$d = opendir('lang');
+	$lang_dir = __DIR__ . '/../lang';
+
+	$d = opendir($lang_dir);
 
 	$langs = [];
 
@@ -68,9 +70,9 @@ function getLanguages()
 		if ($dir == '.' || $dir == '..')
 			continue;
 
-		if (is_file('lang/' . $dir))
+		if (is_file($lang_dir . '/' . $dir))
 		{
-			$lang = include('lang/' . $dir);
+			$lang = include($lang_dir . '/' . $dir);
 
 			if (is_array($lang))
 			{
