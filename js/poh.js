@@ -215,7 +215,7 @@ function detectWeb3 () {
 
 window.addEventListener('load', function () {
 
-  detectWeb3()
+  setTimeout( detectWeb3, 500 );
 
   let abi = [
     {
