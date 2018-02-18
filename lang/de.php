@@ -67,10 +67,10 @@ return [
 		'coins.network-notice' => 'Bei hoher Auslastung des Ethereum-Netzwerkes kann die Aktualisierung der Werte länger dauern.',
 		'coins.contract-balance' => 'Contract-Guthaben:',
 
-        'coins.history.log.sent-eth' => '{1} EPY für {0} ETH gekauft',
-        'coins.history.log.sent-div' => '{0} EPY mit Dividenden gekauft',
-        'coins.history.log.withdrew' => 'Dividenden abgehoben',
-        'coins.history.log.sold-epy' => '{0} EPY verkauft'
+		'coins.history.log.sent-eth' => '{1} EPY für {0} ETH gekauft',
+		'coins.history.log.sent-div' => '{0} EPY mit Dividenden gekauft',
+		'coins.history.log.withdrew' => 'Dividenden abgehoben',
+		'coins.history.log.sold-epy' => '{0} EPY verkauft'
 
 		'coins.actions.cash-out.button' => 'Tokens Verkaufen',
 		'coins.actions.cash-out.comment' => 'Tokens zum aktuellen Verkaufspreis tauschen und zu Dividenden hinzufügen',
@@ -79,12 +79,12 @@ return [
 		'coins.actions.withdraw.button' => 'Abheben',
 		'coins.actions.withdraw.comment' => 'Dividenden an deine MetaMask-Wallet senden',
 
-        'donate.open-button' => 'An&nbsp;Projekt&nbsp;spenden',
-        'donate.heading' => 'Spende zur Förderung des EthPyramid-Marketings',
-        'donate.description' => 'Die Spendenadresse ist eine Multi-Signatur-Wallet, dessen Verwendung zwei Entwickler zustimmen müssen. Spenden werden ausschließlich zur weiteren Publizierung von EthPyramid verwendet.',
-        'donate.action-button' => 'Nimm mein ETH',
-        'donate.close-button' => 'Lieber doch nicht',
-        'donate.address' => 'Falls du es bevorzugst, kannst du Spenden auch direkt an 0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb senden',
+		'donate.open-button' => 'An&nbsp;Projekt&nbsp;spenden',
+		'donate.heading' => 'Spende zur Förderung des EthPyramid-Marketings',
+		'donate.description' => 'Die Spendenadresse ist eine Multi-Signatur-Wallet, dessen Verwendung zwei Entwickler zustimmen müssen. Spenden werden ausschließlich zur weiteren Publizierung von EthPyramid verwendet.',
+		'donate.action-button' => 'Nimm mein ETH',
+		'donate.close-button' => 'Lieber doch nicht',
+		'donate.address' => 'Falls du es bevorzugst, kannst du Spenden auch direkt an 0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb senden',
 
 		'metamask.not-found.status' => 'MetaMask Nicht Gefunden',
 		'metamask.not-found.comment' => 'Um mit dem Netzwerk zu interagieren musst du <a href="https://metamask.io/">MetaMask</a> installiert und eingerichtet haben.',
@@ -110,10 +110,10 @@ return [
 		'stats.total-volume' => 'Gesamtvolumen',
 		'stats.eth-balance' => 'ETH im Contract',
 		'stats.total-divs' => 'Summe von Dividenden',
-        'stats.top25.heading' => 'Top 25 Token-Halter',
-        'stats.top25.comment' => 'Pseudonyme von Teammitgliedern werden, wenn bekannt, neben der Adresse angezeigt.',
-        'stats.daily.heading' => 'Tägliches Volumen (letzte 7 Tage)',
-        'stats.daily.comment' => 'Volumen ist in ETH, Zeitzone ist UTC.',
+		'stats.top25.heading' => 'Top 25 Token-Halter',
+		'stats.top25.comment' => 'Pseudonyme von Teammitgliedern werden, wenn bekannt, neben der Adresse angezeigt.',
+		'stats.daily.heading' => 'Tägliches Volumen (letzte 7 Tage)',
+		'stats.daily.comment' => 'Volumen ist in ETH, Zeitzone ist UTC.',
 
 		'wpaper.heading' => 'EthPyramid - <strong>Kein Scheiß</strong>, ein <strong>transparentes</strong> und <strong>selbsterhaltendes</strong> Pyramidenschema.',
 		'wpaper.content.preface.head' => 'Wir sind dumm, und du vielleicht auch',
