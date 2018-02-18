@@ -69,7 +69,7 @@
                                 <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
                             </div>
 
-                            <div class="when-logged-in-direct" style="display: none;">
+                            <div class="when-wallet-web">
                                 <a href="#" id="wallet-open">Wallet Management</a>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                     <div class="poh-value-usd value-usd"></div>
                                 </div>
                             </div>
-                            <div class="ui sixteen wide column when-logged-out" style="display: none;">
+                            <div class="ui sixteen wide column when-logged-out">
                                 <div class="login-box green">
                                     <div class="value">Not Logged In</div>
                                     <div class="value-usd">
@@ -155,7 +155,7 @@
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
                             <div class="ui sixteen wide column">
-                                <div id="eth-address-container">
+                                <div id="eth-address-container" class="when-logged-in">
                                     <strong>Account:</strong> <span id="eth-address">Not Set</span>
                                 </div>
                             </div>

@@ -256,3 +256,15 @@
     display: none;
     text-align: center;
 }
+
+#meta-mask-ui.logged-out .when-logged-in {
+    display: none;
+}
+
+#meta-mask-ui.logged-in .when-logged-out {
+    display: none;
+}
+
+#meta-mask-ui.wallet-mm .when-wallet-web {
+    display: none;
+}

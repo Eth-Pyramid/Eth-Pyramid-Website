@@ -4,6 +4,7 @@ var donationAddress = '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb'
 
 // GLOBALS
 var web3Mode = null
+var walletMode = null
 var currentAddress = null
 var keystore = null
 var dividendValue = 0
@@ -86,7 +87,8 @@ function generateWallet () {
       $('#wallet-address').html(address)
       $('#seed-dimmer').dimmer('show')
 
-      web3js.eth.defaultAccount = address
+      currentAddress = address
+      walletMode = 'web'
       updateData(contract)
     })
   })
@@ -119,7 +121,8 @@ function loadWallet () {
   useWallet(function (pwDerivedKey) {
     try {
       keystore.generateNewAddress(pwDerivedKey, 1)
-      web3js.eth.defaultAccount = keystore.getAddresses()[0]
+      currentAddress = keystore.getAddresses()[0]
+      walletMode = 'web'
       updateData()
     } catch (err) {
       console.log(err)
@@ -156,8 +159,8 @@ function recoverWallet () {
         if (err) throw err
 
         keystore.generateNewAddress(pwDerivedKey, 1)
-        var address = keystore.getAddresses()[0]
-        web3js.eth.defaultAccount = address
+        currentAddress = keystore.getAddresses()[0]
+        walletMode = 'web'
         updateData()
       })
     })
@@ -549,43 +552,43 @@ window.addEventListener('load', function () {
   }
 
   function fund (address, amount) {
-    if (web3Mode === 'metamask') {
+    if (walletMode === 'metamask') {
       contract.fund({
         value: convertEthToWei(amount)
       }, function (e, r) {
         console.log(e, r)
       })
-    } else if (web3Mode === 'direct') {
+    } else if (walletMode === 'web') {
       call(address, 'fund', convertEthToWei(amount))
     }
   }
 
   function sell () {
-    if (web3Mode === 'metamask') {
+    if (walletMode === 'metamask') {
       contract.sellMyTokens(function (e, r) {
         console.log(e, r)
       })
-    } else if (web3Mode === 'direct') {
+    } else if (walletMode === 'web') {
       call(contractAddress, 'sellMyTokens', 0)
     }
   }
 
   function reinvest () {
-    if (web3Mode === 'metamask') {
+    if (walletMode === 'metamask') {
       contract.reinvestDividends(function (e, r) {
         console.log(e, r)
       })
-    } else if (web3Mode === 'direct') {
+    } else if (walletMode === 'web') {
       call(contractAddress, 'reinvestDividends', 0)
     }
   }
 
   function withdraw () {
-    if (web3Mode === 'metamask') {
+    if (walletMode === 'metamask') {
       contract.withdraw(function (e, r) {
         console.log(e, r)
       })
-    } else if (web3Mode === 'direct') {
+    } else if (walletMode === 'web') {
       call(contractAddress, 'withdraw', 0)
     }
   }
@@ -593,7 +596,8 @@ window.addEventListener('load', function () {
   var contractClass = web3js.eth.contract(abi)
   contract = contractClass.at(contractAddress)
 
-  web3js.eth.defaultAccount = web3js.eth.accounts[0]
+  currentAddress = web3js.eth.accounts[0]
+
   updateData()
 
   // Buy token click handler
@@ -754,7 +758,7 @@ window.addEventListener('load', function () {
         $('#wallet-close').click()
         keystore = null
         localStorage.removeItem('keystore')
-        web3js.eth.defaultAccount = null
+        currentAddress = null
         updateData()
       }
     })
@@ -782,11 +786,11 @@ window.addEventListener('load', function () {
 })
 
 function updateTransactionHistory () {
-  if (!web3js.eth.defaultAccount) {
+  if (!currentAddress) {
     return
   }
 
-  $.getJSON('https://api.ethpyramid.io/history.php?address=' + web3js.eth.defaultAccount, function (data) {
+  $.getJSON('https://api.ethpyramid.io/history.php?address=' + currentAddress, function (data) {
     $('#transaction-history').empty()
 
     for (let i = 0; i < data.length; i++) {
@@ -817,29 +821,29 @@ function updateTransactionHistory () {
 function updateData () {
   clearTimeout(dataTimer)
 
-  var loggedIn = typeof web3js.eth.defaultAccount !== 'undefined' && web3js.eth.defaultAccount !== null
+  var loggedIn = false
 
-  if (currentAddress !== web3js.eth.defaultAccount) {
-    if (!loggedIn) {
-      $('#eth-address').html('Not Set')
-      $('#eth-address-container').hide()
-    } else {
-      $('#eth-address').html(web3js.eth.defaultAccount)
-      $('#eth-address-container').show()
-    }
+  if (walletMode === 'metamask') {
+    loggedIn = typeof web3js.eth.defaultAccount !== 'undefined' && web3js.eth.defaultAccount !== null
     currentAddress = web3js.eth.defaultAccount
+    $('#meta-mask-ui').removeClass('wallet-web').addClass('wallet-mm')
+  } else if (walletMode === 'web' ) {
+    loggedIn = currentAddress !== null
+    $('#meta-mask-ui').addClass('wallet-web').removeClass('wallet-mm')
+  }
+
+  if (currentAddress !== null) {
+    $('#eth-address').html(currentAddress)
+  } else {
+    $('#eth-address').html('Not Set')
   }
 
   if (loggedIn) {
     updateTransactionHistory()
 
-    $('.when-logged-out').hide()
-    $('.when-logged-in').show()
+    $('#meta-mask-ui').removeClass('logged-out').addClass('logged-in')
 
-    if (web3Mode === 'direct')
-      $('.when-logged-in-direct').show()
-
-    contract.balanceOf(web3js.eth.defaultAccount, function (e, r) {
+    contract.balanceOf(currentAddress, function (e, r) {
       $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
       contract.getEtherForTokens(r, function (e, r) {
         let bal = convertWeiToEth(r * 0.9)
@@ -863,7 +867,7 @@ function updateData () {
       })
     })
 
-    contract.dividends(web3js.eth.defaultAccount, function (e, r) {
+    contract.dividends(currentAddress, function (e, r) {
       let div = convertWeiToEth(r).toFixed(6)
 
       $('.poh-div').text(div + ' ETH')
@@ -876,9 +880,7 @@ function updateData () {
       }
     })
   } else {
-    $('.when-logged-in').hide()
-    $('.when-logged-out').show()
-    $('.when-logged-in-direct').hide()
+    $('#meta-mask-ui').addClass('logged-out').removeClass('logged-in')
   }
 
   contract.buyPrice(function (e, r) {
