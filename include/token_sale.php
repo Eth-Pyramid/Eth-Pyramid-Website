@@ -120,7 +120,7 @@
                                     <div class="value-usd">
                                         <p>Cannot retrieve your balances because you are not logged in.
                                             If you are using MetaMask, login using the MetaMask UI. Alternatively, you
-                                            may use an in-browser wallet.</p>
+                                            may use our in-browser wallet below.</p>
                                         <p><strong>WARNING</strong> this feature is in BETA, use at your own risk.</p>
                                     </div>
                                     <div class="ui equal width stackable grid login-options">
