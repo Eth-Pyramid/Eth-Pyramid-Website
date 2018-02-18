@@ -64,10 +64,10 @@ return [
         'coins.chat.toggle' => 'Toggle Chat',
         'coins.history.toggle' => 'Toggle Transactions',
         'coins.history.heading' => 'Transaction History',
-        'coins.history.log.sent-eth' => 'Bought {1} EPY for {0} ETH',
-        'coins.history.log.sent-div' => 'Bought {0} EPY using dividends',
-        'coins.history.log.withdrew' => 'Withdrew dividends',
-        'coins.history.log.sold-epy' => 'Sold {0} EPY',
+        'coins.history.log.sent-eth' => '{1} EPY bought for {0} ETH',
+        'coins.history.log.sent-div' => '{0} EPY bought using dividends',
+        'coins.history.log.withdrew' => 'Dividends withdrawn',
+        'coins.history.log.sold-epy' => '{0} EPY sold',
         'coins.buy-price' => 'Buy Price',
         'coins.sell-price' => 'Sell Price',
         'coins.epy-balance' => 'EthPyramid Token Balance:',
@@ -90,7 +90,6 @@ return [
 	    'donate.description' => 'The donation address is a multi-sig wallet that requires two core developers to approve any withdrawals. Funds will be used solely for the purpose of advertising EthPyramid.',
 	    'donate.address' => 'If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb" target="_blank">0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb</a>',
 
-
         'chart.heading' => 'Sell Price Chart',
 
         'instructions.heading' => 'Instructions for those who want to help build the great pyramid of Ether:',
@@ -108,9 +107,8 @@ return [
         'stats.total-volume' => 'Total Volume',
         'stats.eth-balance' => 'Contract Balance',
         'stats.total-divs' => 'Total Dividends',
-
         'stats.top25.heading' => 'Top 25 Token Holders',
-        'stats.top25.comment' => 'Top 25 Token Holders',
+        'stats.top25.comment' => 'Aliases of dev team members are shown in place of address if known.',
         'stats.daily.heading' => 'Daily Volume (Last 7 days)',
         'stats.daily.comment' => 'Volume is in ETH and timezone is UTC.',
 
