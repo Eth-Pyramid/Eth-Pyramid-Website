@@ -112,10 +112,6 @@
                             </div>
                             <div class="ui sixteen wide column when-logged-out" style="display: none;">
                                 <div class="login-box green">
-                                    <?php if( !isset( $_GET['this'] ) || $_GET['this'] !== 'abadidea' ): ?>
-                                    <div class="value"><?php __('metamask.plz-login.status'); ?></div>
-                                    <div class="value-usd"><?php __('metamask.plz-login.comment'); ?></div>
-                                    <?php else: ?>
                                     <div class="value">Not Logged In</div>
                                     <div class="value-usd">
                                         <p>Cannot retrieve your balances because you are not logged in.
@@ -148,7 +144,6 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="ui ten wide column traffic-message">

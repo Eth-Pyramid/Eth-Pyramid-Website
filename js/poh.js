@@ -172,7 +172,7 @@ function detectWeb3 () {
     $('#metamask-detecting').dimmer('hide')
   }
 
-  if (typeof web !== 'undefined') {
+  if (typeof web3 !== 'undefined') {
     web3js = new Web3(web3.currentProvider)
     web3Mode = 'metamask'
   } else {
