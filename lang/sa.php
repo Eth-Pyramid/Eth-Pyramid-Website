@@ -3,7 +3,7 @@ return [
     'code' => 'sa',
     'iso_code' => 'sa',
     'iso_country' => 'sa',
-    'default_currency' => 'SAR',
+    'default_currency' => 'USD',
     'text' => [
         'meta.title' => 'EthPyramid',
         'meta.description' => 'نظام هرمي مكتف ذاتيا وآمن وشفاف',
