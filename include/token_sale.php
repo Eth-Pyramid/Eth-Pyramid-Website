@@ -20,6 +20,11 @@
 
                             <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in input-amount"
                                    placeholder="<?php __('coins.eth-amount'); ?>">
+
+                            <div class="when-logged-in" id="address-balance">
+                                Balance: <span class="address-balance"></span>
+                            </div>
+
                             <button id="buy-tokens"
                                     class='ui primary huge button when-logged-in'><?php __('coins.buy-tokens'); ?></button>
 
@@ -61,7 +66,6 @@
                                 </select>
                             </div>
 
-                            <a href="#" id="chat-toggle"><?php __('coins.chat.toggle'); ?></a><br>
                             <a href="#" id="history-toggle"
                                class="when-logged-in"><?php __('coins.history.toggle'); ?></a>
 
@@ -154,10 +158,8 @@
 								<?php __('coins.contract-balance'); ?>
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
-                            <div class="ui sixteen wide column">
-                                <div id="eth-address-container" class="when-logged-in">
-                                    <strong>Account:</strong> <span id="eth-address">Not Set</span>
-                                </div>
+                            <div class="ui sixteen wide column when-logged-in" id="eth-address-container">
+								<strong>Account:</strong> <span id="eth-address">Not Set</span>
                             </div>
                             <div class="ui sixteen wide column">
                                 <div id="transaction-history-container" style="display: none">
@@ -216,13 +218,14 @@
                 <div id="wallet-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2>Wallet Management</h2>
+                        <h4>Balance: <span class="address-balance"></span></h4>
                         <hr/>
                         <div class="ui equal width stackable grid">
                             <div class="ui column">
                                 <h3>Send</h3>
                                 <p>Send ETH to another address.</p>
                                 <div class="center aligned actions">
-                                    <input type="text" id="send-address" class="input-amount" placeholder="Address"/>
+                                    <input type="text" id="send-address" class="input-amount" placeholder="Destination address"/>
                                     <input type="number" id="send-amount" min="0" step="0.1" class="input-amount"
                                            placeholder="<?php __('coins.eth-amount'); ?>"/>
                                     <button id="send-action"
@@ -268,10 +271,6 @@
                     </div>
                 </div>
             </div>
-            <div class="ui five wide column chat-box" style="display: none;">
-                <iframe src="https://titanembeds.com/embed/408119545379815434?defaultchannel=408119545379815438"
-                        height="700" width="100%" frameborder="0"></iframe>
-            </div>
         </div>
 
     </div>
@@ -307,21 +306,7 @@
 <script type="text/javascript">
   var default_currency = '<?php echo getDefaultCurrency(); ?>'
 
-  var chaton = false
-
   $(function () {
-    $('#chat-toggle').click(function (e) {
-      e.preventDefault()
-      chaton = !chaton
-      if (chaton) {
-        $('.chat-box').show()
-        $('.interface').removeClass('sixteen wide').addClass('eleven wide')
-      } else {
-        $('.chat-box').hide()
-        $('.interface').removeClass('eleven wide').addClass('sixteen wide')
-      }
-    })
-
     $('#history-toggle').click(function (e) {
       e.preventDefault()
       $('#transaction-history-container').slideToggle()

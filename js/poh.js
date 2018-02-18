@@ -564,7 +564,10 @@ window.addEventListener('load', function () {
             return
           }
           web3js.eth.sendRawTransaction(signedTx, function (err, hash) {
-            if (err) throw(err)
+            if (err) {
+              alert(err.message.substring(0, err.message.indexOf('\n')))
+              throw err
+            }
 
             $('#tx-hash').empty().append($('<a target="_blank" href="https://etherscan.io/tx/' + hash + '">' + hash + '</a>'))
             $('#tx-confirmation').modal('show')
@@ -776,7 +779,6 @@ window.addEventListener('load', function () {
       return
 
     useWallet(function (pwDerivedKey) {
-
       if (!keystore.isDerivedKeyCorrect(pwDerivedKey)) {
         alert('Invalid password supplied')
       }
@@ -815,8 +817,12 @@ window.addEventListener('load', function () {
     copyToClipboard(currentAddress)
 
     $('#copy-eth-address').popup({
-      content: 'Copied to clipboard'
+      content: 'Copied to clipboard',
+      hoverable: true
     }).popup('show')
+
+  }).on('mouseout', function () {
+    $('#copy-eth-address').popup('destroy')
   })
 })
 
@@ -914,6 +920,10 @@ function updateData () {
 
         dividendValue = div
       }
+    })
+
+    web3js.eth.getBalance(currentAddress, function (e, r) {
+      $('.address-balance').text(convertWeiToEth(r) + ' ETH')
     })
   } else {
     $('#meta-mask-ui').addClass('logged-out').removeClass('logged-in')
