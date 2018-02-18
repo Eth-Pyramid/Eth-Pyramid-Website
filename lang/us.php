@@ -83,12 +83,12 @@ return [
         'coins.actions.withdraw.button' => 'Withdraw',
         'coins.actions.withdraw.comment' => 'Withdraw your dividends balance back into your Ethereum wallet.',
 
-	    'donate.open-button' => 'Donate to Project',
-	    'donate.close-button' => 'Actually, Never Mind',
-	    'donate.action-button' => 'Take my ETH',
-	    'donate.heading' => 'Donate to the EthPyramid Marketing Fund',
-	    'donate.description' => 'The donation address is a multi-sig wallet that requires two core developers to approve any withdrawals. Funds will be used solely for the purpose of advertising EthPyramid.',
-	    'donate.address' => 'If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb" target="_blank">0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb</a>',
+	'donate.open-button' => 'Donate to Project',
+	'donate.close-button' => 'Actually, Never Mind',
+	'donate.action-button' => 'Take my ETH',
+	'donate.heading' => 'Donate to the EthPyramid Marketing Fund',
+	'donate.description' => 'The donation address is a multi-sig wallet that requires two core developers to approve any withdrawals. Funds will be used solely for the purpose of advertising EthPyramid.',
+	'donate.address' => 'If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb" target="_blank">0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb</a>',
 
         'chart.heading' => 'Sell Price Chart',
 
