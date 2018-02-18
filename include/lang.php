@@ -134,6 +134,10 @@ else
 	{
 		if ($language_country == $value['iso_code'] . '-' . $value['iso_country'])
 		{
+			// Australian translation is a joke so only do it if manually selected
+			if( $value['iso_country'] == 'au' )
+				continue;
+
 			useLanguage($value['code']);
 			$found = true;
 			break;
