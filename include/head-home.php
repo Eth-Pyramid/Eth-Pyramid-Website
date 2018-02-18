@@ -126,6 +126,7 @@
                         <div class="menu">
                             <a href="?lang=us" class="item text"><i class="us flag"></i> English (US)</a>
                             <a href="?lang=au" class="item text"><i class="au flag"></i> English (AU)</a>
+                            <a href="?lang=sa" class="item text"><i class="sa flag"></i> Arabic</a>
                             <a href="?lang=cn" class="item text"><i class="cn flag"></i> Chinese</a>
                             <a href="?lang=fr" class="item text"><i class="fr flag"></i> French</a>
                             <a href="?lang=de" class="item text"><i class="de flag"></i> German</a>
