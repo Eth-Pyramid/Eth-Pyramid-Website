@@ -15,6 +15,322 @@ var ethPrice = 0
 var currency = (typeof default_currency === 'undefined') ? 'USD' : default_currency
 var ethPriceTimer = null
 var dataTimer = null
+var abi = [
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': '',
+        'type': 'address'
+      },
+      {
+        'name': '',
+        'type': 'address'
+      }
+    ],
+    'name': 'allowance',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'totalSupply',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': '',
+        'type': 'address'
+      }
+    ],
+    'name': 'tokenBalance',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'symbol',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'string'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'buyPrice',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': 'ethervalue',
+        'type': 'uint256'
+      },
+      {
+        'name': 'subvalue',
+        'type': 'uint256'
+      }
+    ],
+    'name': 'calculateDividendTokens',
+    'outputs': [
+      {
+        'name': 'tokens',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': '',
+        'type': 'address'
+      }
+    ],
+    'name': 'payouts',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'int256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'name',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'string'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'decimals',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint8'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': '_owner',
+        'type': 'address'
+      }
+    ],
+    'name': 'dividends',
+    'outputs': [
+      {
+        'name': 'amount',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': '_owner',
+        'type': 'address'
+      }
+    ],
+    'name': 'balanceOf',
+    'outputs': [
+      {
+        'name': 'balance',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': 'tokens',
+        'type': 'uint256'
+      }
+    ],
+    'name': 'getEtherForTokens',
+    'outputs': [
+      {
+        'name': 'ethervalue',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [],
+    'name': 'sellPrice',
+    'outputs': [
+      {
+        'name': '',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': true,
+    'inputs': [
+      {
+        'name': 'ethervalue',
+        'type': 'uint256'
+      }
+    ],
+    'name': 'getTokensForEther',
+    'outputs': [
+      {
+        'name': 'tokens',
+        'type': 'uint256'
+      }
+    ],
+    'payable': false,
+    'stateMutability': 'view',
+    'type': 'function'
+  },
+  {
+    'constant': false,
+    'inputs': [],
+    'name': 'reinvestDividends',
+    'outputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'function'
+  },
+  {
+    'constant': false,
+    'inputs': [
+      {
+        'name': 'to',
+        'type': 'address'
+      }
+    ],
+    'name': 'withdrawOld',
+    'outputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'function'
+  },
+  {
+    'inputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'constructor'
+  },
+  {
+    'constant': false,
+    'inputs': [],
+    'name': 'withdraw',
+    'outputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'function'
+  },
+  {
+    'constant': false,
+    'inputs': [],
+    'name': 'sellMyTokens',
+    'outputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'function'
+  },
+  {
+    'payable': true,
+    'stateMutability': 'payable',
+    'type': 'fallback'
+  },
+  {
+    'constant': false,
+    'inputs': [],
+    'name': 'getMeOutOfHere',
+    'outputs': [],
+    'payable': false,
+    'stateMutability': 'nonpayable',
+    'type': 'function'
+  },
+  {
+    'constant': false,
+    'inputs': [],
+    'name': 'fund',
+    'outputs': [],
+    'payable': true,
+    'stateMutability': 'payable',
+    'type': 'function'
+  }
+]
 
 // UTILITY FUNCTIONS
 if (!String.prototype.format) {
@@ -201,6 +517,7 @@ function detectWeb3 () {
   if (typeof web3 !== 'undefined') {
     web3js = new Web3(web3.currentProvider)
     web3Mode = 'metamask'
+    currentAddress = web3js.eth.accounts[0]
   } else {
     web3js = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/iAuiwox78xdSQSkLkeXB'))
     web3Mode = 'direct'
@@ -211,328 +528,16 @@ function detectWeb3 () {
     keystore = lightwallet.keystore.deserialize(ks)
     $('#unlock-wallet-container').show()
   }
+
+  var contractClass = web3js.eth.contract(abi)
+  contract = contractClass.at(contractAddress)
+
+  updateData()
 }
 
 window.addEventListener('load', function () {
 
-  setTimeout( detectWeb3, 500 );
-
-  let abi = [
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': '',
-          'type': 'address'
-        },
-        {
-          'name': '',
-          'type': 'address'
-        }
-      ],
-      'name': 'allowance',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'totalSupply',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': '',
-          'type': 'address'
-        }
-      ],
-      'name': 'tokenBalance',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'symbol',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'string'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'buyPrice',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': 'ethervalue',
-          'type': 'uint256'
-        },
-        {
-          'name': 'subvalue',
-          'type': 'uint256'
-        }
-      ],
-      'name': 'calculateDividendTokens',
-      'outputs': [
-        {
-          'name': 'tokens',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': '',
-          'type': 'address'
-        }
-      ],
-      'name': 'payouts',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'int256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'name',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'string'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'decimals',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint8'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': '_owner',
-          'type': 'address'
-        }
-      ],
-      'name': 'dividends',
-      'outputs': [
-        {
-          'name': 'amount',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': '_owner',
-          'type': 'address'
-        }
-      ],
-      'name': 'balanceOf',
-      'outputs': [
-        {
-          'name': 'balance',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': 'tokens',
-          'type': 'uint256'
-        }
-      ],
-      'name': 'getEtherForTokens',
-      'outputs': [
-        {
-          'name': 'ethervalue',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [],
-      'name': 'sellPrice',
-      'outputs': [
-        {
-          'name': '',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': true,
-      'inputs': [
-        {
-          'name': 'ethervalue',
-          'type': 'uint256'
-        }
-      ],
-      'name': 'getTokensForEther',
-      'outputs': [
-        {
-          'name': 'tokens',
-          'type': 'uint256'
-        }
-      ],
-      'payable': false,
-      'stateMutability': 'view',
-      'type': 'function'
-    },
-    {
-      'constant': false,
-      'inputs': [],
-      'name': 'reinvestDividends',
-      'outputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'function'
-    },
-    {
-      'constant': false,
-      'inputs': [
-        {
-          'name': 'to',
-          'type': 'address'
-        }
-      ],
-      'name': 'withdrawOld',
-      'outputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'function'
-    },
-    {
-      'inputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'constructor'
-    },
-    {
-      'constant': false,
-      'inputs': [],
-      'name': 'withdraw',
-      'outputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'function'
-    },
-    {
-      'constant': false,
-      'inputs': [],
-      'name': 'sellMyTokens',
-      'outputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'function'
-    },
-    {
-      'payable': true,
-      'stateMutability': 'payable',
-      'type': 'fallback'
-    },
-    {
-      'constant': false,
-      'inputs': [],
-      'name': 'getMeOutOfHere',
-      'outputs': [],
-      'payable': false,
-      'stateMutability': 'nonpayable',
-      'type': 'function'
-    },
-    {
-      'constant': false,
-      'inputs': [],
-      'name': 'fund',
-      'outputs': [],
-      'payable': true,
-      'stateMutability': 'payable',
-      'type': 'function'
-    }
-  ]
+  setTimeout(detectWeb3, 500)
 
   function call (address, method, amount) {
     web3js.eth.getTransactionCount(currentAddress, function (err, nonce) {
@@ -618,13 +623,6 @@ window.addEventListener('load', function () {
       call(contractAddress, 'withdraw', 0)
     }
   }
-
-  var contractClass = web3js.eth.contract(abi)
-  contract = contractClass.at(contractAddress)
-
-  currentAddress = web3js.eth.accounts[0]
-
-  updateData()
 
   // Buy token click handler
   $('#buy-tokens').click(function () {

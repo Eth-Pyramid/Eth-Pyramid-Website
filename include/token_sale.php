@@ -140,10 +140,10 @@
                                             </p>
                                         </div>
                                         <div class="ui column">
-                                            <button id="recover-wallet" class="ui button large">Recover Wallet
+                                            <button id="recover-wallet" class="ui button large">Restore Wallet
                                             </button>
                                             <p>
-                                                Recovers a wallet from the supplied seed. The supplied password is used
+                                                Restores a wallet from the supplied seed. The supplied password is used
                                                 to encrypt the wallet and store it securely.
                                             </p>
                                         </div>
