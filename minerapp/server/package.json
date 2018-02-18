@@ -1,0 +1,23 @@
+{
+  "name": "webminer-server",
+  "version": "1.0.0",
+  "description": "Esker webminer client",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-curry": "*",
+    "bluebird": "2.x",
+    "chalk": "*",
+    "commander": "*",
+    "debug": "*",
+    "eventemitter3": "1.x",
+    "express": "^4.16.1",
+    "json-rpc2": "1.x",
+    "lodash": "3.x",
+    "toobusy-js": "*",
+    "uuid": "*"
+  }
+}
