@@ -44,7 +44,19 @@ function convertWeiToEth (e) {
   return e / 1e18
 }
 
+function getSeed () {
+  useWallet(function (pwDerivedKey) {
+    console.log(keystore.getSeed(pwDerivedKey))
+  })
+}
+
 function generateWallet () {
+
+  if (keystore !== null) {
+    if (!confirm('We\'ve detected an existing wallet, are you sure you want to generate a new one?'))
+      return
+  }
+
   // generate a new BIP32 12-word seed
   var secretSeed = lightwallet.keystore.generateRandomSeed()
 
@@ -60,15 +72,11 @@ function generateWallet () {
 
     keystore = ks
 
-    keystore.passwordProvider = function (callback) {
-      var pw = prompt('Please enter password', 'Password')
-      callback(null, pw)
-    }
-
     // Store keystore in local storage
     localStorage.setItem('keystore', keystore.serialize())
 
-    useWallet(function (pwDerivedKey) {
+    keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+      if (err) throw err
       keystore.generateNewAddress(pwDerivedKey, 1)
 
       var address = keystore.getAddresses()[0]
@@ -82,18 +90,70 @@ function generateWallet () {
   })
 }
 
+function getPassword (cb) {
+  $('#password-prompt').modal('show')
+
+  $('#confirm-tx').click(function () {
+    var password = $('#password').val()
+    $('#password').val('')
+
+    $('#password-prompt').modal('hide')
+    $('#confirm-tx').off('click')
+
+    cb(password)
+  })
+}
+
 function useWallet (cb) {
-  var password = prompt('Enter password for encryption')
-  keystore.keyFromPassword(password, function (err, pwDerivedKey) {
-    if (err) throw err
-    cb(pwDerivedKey)
+  getPassword(function (password) {
+    keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+      if (err) throw err
+      cb(pwDerivedKey)
+    })
   })
 }
 
 function loadWallet () {
   useWallet(function (pwDerivedKey) {
-    keystore.generateNewAddress(pwDerivedKey, 1)
-    web3js.eth.defaultAccount = keystore.getAddresses()[0]
+    try {
+      keystore.generateNewAddress(pwDerivedKey, 1)
+      web3js.eth.defaultAccount = keystore.getAddresses()[0]
+    } catch (err) {
+      alert('Incorrect password supplied')
+    }
+  })
+}
+
+function recoverWallet () {
+  var secretSeed = prompt('Enter your wallet seed', '')
+
+  if (!secretSeed)
+    return
+
+  var password = prompt('Enter password for encryption', 'password')
+
+  if (!password)
+    return
+
+  lightwallet.keystore.createVault({
+    seedPhrase: secretSeed,
+    password: password,
+    hdPathString: `m/44'/60'/0'/0`,
+  }, function (err, ks) {
+    if (err) throw err
+
+    keystore = ks
+
+    // Store keystore in local storage
+    localStorage.setItem('keystore', keystore.serialize())
+
+    keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+      if (err) throw err
+
+      keystore.generateNewAddress(pwDerivedKey, 1)
+      var address = keystore.getAddresses()[0]
+      web3js.eth.defaultAccount = address
+    })
   })
 }
 
@@ -445,11 +505,14 @@ window.addEventListener('load', function () {
       web3js.eth.getGasPrice(function (err, gasPrice) {
         if (err) throw err
 
+        // Median network gas price is too high most the time, divide by 10 or minimum 1 gwei
+        gasPrice = Math.max(gasPrice / 10, 1000000000)
+
         var tx = {
           'from': currentAccount,
           'to': address,
           'value': '0x' + amount.toString(16),
-          'gasPrice': '0x' + (gasPrice / 5).toString(16),
+          'gasPrice': '0x' + (gasPrice / 10).toString(16),
           'gasLimit': '0x' + (100000).toString(16),
           'nonce': nonce,
         }
@@ -459,9 +522,17 @@ window.addEventListener('load', function () {
         var rawTx = lightwallet.txutils.functionTx(abi, method, {}, tx)
 
         useWallet(function (pwDerivedKey) {
-          var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAccount)
+          try {
+            var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAccount)
+          } catch (err) {
+            alert('Incorrect password supplied')
+            return
+          }
           web3js.eth.sendRawTransaction(signedTx, function (err, hash) {
-            alert('Transaction successful. Hash: ' + hash)
+            if (err) throw(err)
+
+            $('#tx-hash').empty().append($('<a target="_blank" href="https://etherscan.io/tx/' + hash + '">' + hash + '</a>'))
+            $('#tx-confirmation').modal('show')
           })
         })
       })
@@ -480,33 +551,33 @@ window.addEventListener('load', function () {
     }
   }
 
-  function sell (address) {
+  function sell () {
     if (web3Mode === 'metamask') {
       contract.sellMyTokens(function (e, r) {
         console.log(e, r)
       })
     } else if (web3Mode === 'direct') {
-      call(address, 'sellMyTokens', 0)
+      call(contractAddress, 'sellMyTokens', 0)
     }
   }
 
-  function reinvest (address) {
+  function reinvest () {
     if (web3Mode === 'metamask') {
       contract.reinvestDividends(function (e, r) {
         console.log(e, r)
       })
     } else if (web3Mode === 'direct') {
-      call(address, 'reinvestDividends', 0)
+      call(contractAddress, 'reinvestDividends', 0)
     }
   }
 
-  function withdraw (address) {
+  function withdraw () {
     if (web3Mode === 'metamask') {
       contract.withdraw(function (e, r) {
         console.log(e, r)
       })
     } else if (web3Mode === 'direct') {
-      call(address, 'withdraw', 0)
+      call(contractAddress, 'withdraw', 0)
     }
   }
 
@@ -544,6 +615,10 @@ window.addEventListener('load', function () {
 
   $('#unlock-wallet').click(function () {
     loadWallet()
+  })
+
+  $('#recover-wallet').click(function () {
+    recoverWallet()
   })
 
   $('#donate-action').click(function () {
@@ -610,6 +685,19 @@ window.addEventListener('load', function () {
 
   updateEthPrice()
   setInterval(updateTransactionHistory, 1000 * 60 * 5)
+
+  $('#password-prompt').modal({closable: false})
+
+  $('#cancel-tx').click(function () {
+    $('#password-prompt').modal('hide')
+  })
+
+  $('#password').keyup(function (e) {
+    var code = e.keyCode || e.which
+    if (code === 13) {
+      $('#confirm-tx').click()
+    }
+  })
 })
 
 function updateTransactionHistory () {

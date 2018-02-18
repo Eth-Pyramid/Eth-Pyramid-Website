@@ -109,9 +109,11 @@
                             <div class="ui sixteen wide column when-logged-out" style="display: none;">
                                 <div class="login-box green">
                                     <div class="value">Not Logged In</div>
-                                    <div class="value-usd">Cannot retrieve your balances because you are not logged in.
-                                        If you are using MetaMask, login using the MetaMask UI. Alternatively, you may
-                                        use an in-browser wallet with the actions below.
+                                    <div class="value-usd">
+                                        <p>Cannot retrieve your balances because you are not logged in.
+                                            If you are using MetaMask, login using the MetaMask UI. Alternatively, you
+                                            may use an in-browser wallet with the actions below.</p>
+                                        <p><strong>WARNING</strong> this feature is in BETA, use at your own risk.</p>
                                     </div>
                                     <div class="ui equal width grid login-options">
                                         <div class="ui column">
@@ -221,6 +223,32 @@
 
     </div>
 
+</div>
+
+<div id="tx-confirmation" class="ui modal">
+    <div class="header">
+        Transaction Submitted
+    </div>
+    <div class="content">
+        <p>
+            Transaction successfully submitted to network. Transaction hash: <span id="tx-hash"></span>
+        </p>
+    </div>
+</div>
+
+<div id="password-prompt" class="ui modal">
+    <div class="header">
+        Enter your wallet password
+    </div>
+    <div class="ui content form">
+        <div>
+            <input type="password" id="password"/>
+        </div>
+        <div style="padding: 1em;">
+            <button id="confirm-tx" class="ui button primary" style="float: right;">Confirm</button>
+            <button id="cancel-tx" class="ui button">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
