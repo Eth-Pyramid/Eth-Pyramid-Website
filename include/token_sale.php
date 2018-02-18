@@ -53,7 +53,6 @@
                                     <option>PKR</option>
                                     <option>PLN</option>
                                     <option>RUB</option>
-                                    <option>SAR</option>
                                     <option>SEK</option>
                                     <option>SGD</option>
                                     <option>THB</option>
