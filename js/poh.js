@@ -6,13 +6,14 @@ var donationAddress = '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb'
 var web3Mode = null
 var currentAddress = null
 var keystore = null
-var currentAccount = null
 var dividendValue = 0
 var tokenBalance = 0
+var contract = null
 
 var ethPrice = 0
 var currency = (typeof default_currency === 'undefined') ? 'USD' : default_currency
 var ethPriceTimer = null
+var dataTimer = null
 
 // UTILITY FUNCTIONS
 if (!String.prototype.format) {
@@ -61,7 +62,7 @@ function generateWallet () {
   var secretSeed = lightwallet.keystore.generateRandomSeed()
 
   // the seed is stored encrypted by a user-defined password
-  var password = prompt('Enter password for encryption', 'password')
+  var password = prompt('Enter password for encryption')
 
   lightwallet.keystore.createVault({
     seedPhrase: secretSeed,
@@ -86,6 +87,7 @@ function generateWallet () {
       $('#seed-dimmer').dimmer('show')
 
       web3js.eth.defaultAccount = address
+      updateData(contract)
     })
   })
 }
@@ -93,12 +95,12 @@ function generateWallet () {
 function getPassword (cb) {
   $('#password-prompt').modal('show')
 
-  $('#confirm-tx').click(function () {
+  $('#confirm-tx').off('click')
+  $('#confirm-tx').on('click', function () {
     var password = $('#password').val()
     $('#password').val('')
 
     $('#password-prompt').modal('hide')
-    $('#confirm-tx').off('click')
 
     cb(password)
   })
@@ -118,43 +120,51 @@ function loadWallet () {
     try {
       keystore.generateNewAddress(pwDerivedKey, 1)
       web3js.eth.defaultAccount = keystore.getAddresses()[0]
+      updateData()
     } catch (err) {
+      console.log(err)
       alert('Incorrect password supplied')
     }
   })
 }
 
 function recoverWallet () {
-  var secretSeed = prompt('Enter your wallet seed', '')
+  var secretSeed = prompt('Enter your wallet seed')
 
   if (!secretSeed)
     return
 
-  var password = prompt('Enter password for encryption', 'password')
+  var password = prompt('Enter password for encryption')
 
   if (!password)
     return
 
-  lightwallet.keystore.createVault({
-    seedPhrase: secretSeed,
-    password: password,
-    hdPathString: `m/44'/60'/0'/0`,
-  }, function (err, ks) {
-    if (err) throw err
-
-    keystore = ks
-
-    // Store keystore in local storage
-    localStorage.setItem('keystore', keystore.serialize())
-
-    keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+  try {
+    lightwallet.keystore.createVault({
+      seedPhrase: secretSeed,
+      password: password,
+      hdPathString: `m/44'/60'/0'/0`,
+    }, function (err, ks) {
       if (err) throw err
 
-      keystore.generateNewAddress(pwDerivedKey, 1)
-      var address = keystore.getAddresses()[0]
-      web3js.eth.defaultAccount = address
+      keystore = ks
+
+      // Store keystore in local storage
+      localStorage.setItem('keystore', keystore.serialize())
+
+      keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+        if (err) throw err
+
+        keystore.generateNewAddress(pwDerivedKey, 1)
+        var address = keystore.getAddresses()[0]
+        web3js.eth.defaultAccount = address
+        updateData()
+      })
     })
-  })
+  } catch (err) {
+    console.log(err)
+    alert('Supplied seed is invalid')
+  }
 }
 
 function detectWeb3 () {
@@ -172,7 +182,7 @@ function detectWeb3 () {
     var ks = localStorage.getItem('keystore')
     if (ks !== null) {
       keystore = lightwallet.keystore.deserialize(ks)
-      $('#unlock-wallet').show()
+      $('#unlock-wallet-container').show()
     }
   }
 }
@@ -499,7 +509,7 @@ window.addEventListener('load', function () {
   ]
 
   function call (address, method, amount) {
-    web3js.eth.getTransactionCount(currentAccount, function (err, nonce) {
+    web3js.eth.getTransactionCount(currentAddress, function (err, nonce) {
       if (err) throw err
 
       web3js.eth.getGasPrice(function (err, gasPrice) {
@@ -509,22 +519,21 @@ window.addEventListener('load', function () {
         gasPrice = Math.max(gasPrice / 10, 1000000000)
 
         var tx = {
-          'from': currentAccount,
+          'from': currentAddress,
           'to': address,
           'value': '0x' + amount.toString(16),
-          'gasPrice': '0x' + (gasPrice / 10).toString(16),
+          'gasPrice': '0x' + (gasPrice).toString(16),
           'gasLimit': '0x' + (100000).toString(16),
           'nonce': nonce,
         }
-
-        console.log(tx)
 
         var rawTx = lightwallet.txutils.functionTx(abi, method, {}, tx)
 
         useWallet(function (pwDerivedKey) {
           try {
-            var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAccount)
+            var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAddress)
           } catch (err) {
+            console.log(err)
             alert('Incorrect password supplied')
             return
           }
@@ -582,14 +591,10 @@ window.addEventListener('load', function () {
   }
 
   var contractClass = web3js.eth.contract(abi)
-  var contract = contractClass.at(contractAddress)
+  contract = contractClass.at(contractAddress)
 
   web3js.eth.defaultAccount = web3js.eth.accounts[0]
-  updateData(contract)
-
-  setInterval(function () {
-    updateData(contract)
-  }, 1000)
+  updateData()
 
   // Buy token click handler
   $('#buy-tokens').click(function () {
@@ -621,6 +626,28 @@ window.addEventListener('load', function () {
     recoverWallet()
   })
 
+  $('#send-action').click(function () {
+    var amount = $('#send-amount').val().trim()
+    if (amount <= 0 || !isFinite(amount) || amount === '') {
+      $('#send-amount').addClass('error').popup({
+        title: 'Invalid Input',
+        content: 'Please input a valid non-negative, non-zero value.'
+      }).popup('show')
+    } else {
+      var address = $('#send-address').val()
+      if (!address.match(/^0x[0-9a-fA-F]{40}$/)) {
+        $('#send-address').addClass('error').popup({
+          title: 'Invalid Input',
+          content: 'Please input a valid address to send to.'
+        }).popup('show')
+      } else {
+        $('#send-amount').removeClass('error').popup('destroy')
+        $('#send-address').removeClass('error').popup('destroy')
+        fund(address, amount)
+      }
+    }
+  })
+
   $('#donate-action').click(function () {
     let amount = $('#donate-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
@@ -632,6 +659,19 @@ window.addEventListener('load', function () {
       $('#donate-amount').removeClass('error').popup('destroy')
       fund(donationAddress, amount)
     }
+  })
+
+  $('#wallet-open').click(function (e) {
+    e.preventDefault()
+    $('#wallet-dimmer').dimmer('show')
+  })
+
+  $('#wallet-close').click(function (e) {
+    e.preventDefault()
+    $('#wallet-dimmer').dimmer('hide')
+
+    $('#exported-seed').html('').slideUp()
+    $('#exported-private-key').val('').slideUp()
   })
 
   $('#donate-open').click(function (e) {
@@ -698,6 +738,47 @@ window.addEventListener('load', function () {
       $('#confirm-tx').click()
     }
   })
+
+  $('#delete-wallet').click(function (e) {
+    e.preventDefault()
+
+    if (!confirm('Are you sure you want to delete this wallet? Make sure you have a backup of your seed or private key.'))
+      return
+
+    useWallet(function (pwDerivedKey) {
+
+      if (!keystore.isDerivedKeyCorrect(pwDerivedKey)) {
+        alert('Invalid password supplied')
+      }
+      else {
+        $('#wallet-close').click()
+        keystore = null
+        localStorage.removeItem('keystore')
+        web3js.eth.defaultAccount = null
+        updateData()
+      }
+    })
+  })
+
+  $('#export-private-key').click(function (e) {
+    e.preventDefault()
+
+    useWallet(function (pwDerivedKey) {
+      var key = keystore.exportPrivateKey(currentAddress, pwDerivedKey)
+      $('#exported-seed').html('').slideUp()
+      $('#exported-private-key').val(key).slideDown()
+    })
+  })
+
+  $('#export-seed').click(function (e) {
+    e.preventDefault()
+
+    useWallet(function (pwDerivedKey) {
+      var seed = keystore.getSeed(pwDerivedKey)
+      $('#exported-private-key').val('').slideUp()
+      $('#exported-seed').html(seed).slideDown()
+    })
+  })
 })
 
 function updateTransactionHistory () {
@@ -733,28 +814,31 @@ function updateTransactionHistory () {
   })
 }
 
-function updateData (contract) {
-  var logged_in = web3js.eth.defaultAccount ? true : false
+function updateData () {
+  clearTimeout(dataTimer)
 
-  if (logged_in) {
-    if (web3js.eth.defaultAccount !== currentAccount) {
-      currentAccount = web3js.eth.defaultAccount
-      updateTransactionHistory()
+  var loggedIn = typeof web3js.eth.defaultAccount !== 'undefined' && web3js.eth.defaultAccount !== null
+
+  if (currentAddress !== web3js.eth.defaultAccount) {
+    if (!loggedIn) {
+      $('#eth-address').html('Not Set')
+      $('#eth-address-container').hide()
+    } else {
+      $('#eth-address').html(web3js.eth.defaultAccount)
+      $('#eth-address-container').show()
     }
-
-    $('.when-logged-out').hide()
-    $('.when-logged-in').show()
-  } else {
-    $('.when-logged-in').hide()
-    $('.when-logged-out').show()
-  }
-
-  if (currentAddress != web3js.eth.defaultAccount) {
-    $('#eth-address').html(web3js.eth.defaultAccount)
     currentAddress = web3js.eth.defaultAccount
   }
 
-  if (logged_in) {
+  if (loggedIn) {
+    updateTransactionHistory()
+
+    $('.when-logged-out').hide()
+    $('.when-logged-in').show()
+
+    if (web3Mode === 'direct')
+      $('.when-logged-in-direct').show()
+
     contract.balanceOf(web3js.eth.defaultAccount, function (e, r) {
       $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
       contract.getEtherForTokens(r, function (e, r) {
@@ -791,6 +875,10 @@ function updateData (contract) {
         dividendValue = div
       }
     })
+  } else {
+    $('.when-logged-in').hide()
+    $('.when-logged-out').show()
+    $('.when-logged-in-direct').hide()
   }
 
   contract.buyPrice(function (e, r) {
@@ -809,4 +897,7 @@ function updateData (contract) {
     $('.contract-balance').text(convertWeiToEth(r).toFixed(4))
   })
 
+  dataTimer = setTimeout(function () {
+    updateData()
+  }, web3Mode === 'metamask' ? 1000 : 5000)
 }

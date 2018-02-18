@@ -37,7 +37,7 @@
     max-width: 250px;
 }
 
-#purchase-amount, #donate-amount {
+.input-amount {
     width: 100%;
     display: block;
     padding: 1em;
@@ -49,11 +49,20 @@
     text-align: center;
 }
 
+#send-amount {
+    max-width: 75%;
+    margin: 2em auto;
+}
+
+#send-address {
+    max-width: 75%;
+    margin: 0 auto 1em auto;
+}
+
 #donate-amount {
     max-width: 300px;
     margin: 2em auto;
 }
-
 
 #wallet-address {
     font-weight: 700;
@@ -61,6 +70,12 @@
 
 .login-options {
     margin-top: 1em !important;
+}
+
+.login-options p {
+    font-size: 0.9em;
+    margin-top: 1em;
+    color: #cccccc;
 }
 
 #donate-dimmer p {
@@ -86,7 +101,7 @@
     margin-bottom: 2em;
 }
 
-#purchase-amount.error, #donate-amount.error {
+.input-amount.error {
     border-color: red;
 }
 
@@ -201,10 +216,6 @@
     .contract-balance-container, .toggle-chat-container {
         text-align: center;
     }
-
-    #meta-mask-ui.dimmed {
-        max-height: 350px;
-    }
 }
 
 #transaction-history {
@@ -219,4 +230,29 @@
 #transaction-history .time {
     color: #999999;
     margin-right: 1em;
+}
+
+#unlock-wallet-container {
+    display: none;
+}
+
+#exported-seed, #exported-private-key {
+    display: none;
+    width: 90%;
+    padding: 1em;
+}
+
+#exported-private-key {
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#exported-seed {
+    height: 100px;
+    font-size: 1.5em;
+}
+
+#eth-address-container {
+    display: none;
+    text-align: center;
 }

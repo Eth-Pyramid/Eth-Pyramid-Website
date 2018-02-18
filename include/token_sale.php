@@ -18,7 +18,7 @@
                             </div>
 
 
-                            <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in"
+                            <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in input-amount"
                                    placeholder="<?php __('coins.eth-amount'); ?>">
                             <button id="buy-tokens"
                                     class='ui primary huge button when-logged-in'><?php __('coins.buy-tokens'); ?></button>
@@ -68,6 +68,10 @@
                             <div class="when-logged-in">
                                 <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
                             </div>
+
+                            <div class="when-logged-in-direct" style="display: none;">
+                                <a href="#" id="wallet-open">Wallet Management</a>
+                            </div>
                         </div>
                     </div>
                     <div class="ui eleven wide column" id="value-panel">
@@ -108,28 +112,43 @@
                             </div>
                             <div class="ui sixteen wide column when-logged-out" style="display: none;">
                                 <div class="login-box green">
+                                    <?php if( !isset( $_GET['this'] ) || $_GET['this'] !== 'abadidea' ): ?>
+                                    <div class="value"><?php __('metamask.plz-login.status'); ?></div>
+                                    <div class="value-usd"><?php __('metamask.plz-login.comment'); ?></div>
+                                    <?php else: ?>
                                     <div class="value">Not Logged In</div>
                                     <div class="value-usd">
                                         <p>Cannot retrieve your balances because you are not logged in.
                                             If you are using MetaMask, login using the MetaMask UI. Alternatively, you
-                                            may use an in-browser wallet with the actions below.</p>
+                                            may use an in-browser wallet.</p>
                                         <p><strong>WARNING</strong> this feature is in BETA, use at your own risk.</p>
                                     </div>
-                                    <div class="ui equal width grid login-options">
+                                    <div class="ui equal width stackable grid login-options">
                                         <div class="ui column">
                                             <button id="generate-wallet" class="ui button large primary">Generate Wallet
                                             </button>
+                                            <p>
+                                                Generates and displays a wallet seed. The supplied password is used to
+                                                encrypt the wallet and store it securely.
+                                            </p>
                                         </div>
-                                        <div class="ui column">
-                                            <button id="unlock-wallet" class="ui button large secondary"
-                                                    style="display: none;">Unlock Wallet
+                                        <div class="ui column" id="unlock-wallet-container">
+                                            <button id="unlock-wallet" class="ui button large secondary">Unlock Wallet
                                             </button>
+                                            <p>
+                                                Unlocks the wallet currently encrypted and stored in this browser.
+                                            </p>
                                         </div>
                                         <div class="ui column">
                                             <button id="recover-wallet" class="ui button large">Recover Wallet
                                             </button>
+                                            <p>
+                                                Recovers a wallet from the supplied seed. The supplied password is used
+                                                to encrypt the wallet and store it securely.
+                                            </p>
                                         </div>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="ui ten wide column traffic-message">
@@ -141,7 +160,7 @@
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
                             <div class="ui sixteen wide column">
-                                <div style="text-align: center;">
+                                <div id="eth-address-container">
                                     <strong>Account:</strong> <span id="eth-address">Not Set</span>
                                 </div>
                             </div>
@@ -199,12 +218,43 @@
                         </button>
                     </div>
                 </div>
+                <div id="wallet-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2>Wallet Management</h2>
+                        <div class="ui equal width stackable grid">
+                            <div class="ui column">
+                                <h3>Send</h3>
+                                <p>Send ETH to another address.</p>
+                                <div class="center aligned actions">
+                                    <input type="text" id="send-address" class="input-amount" placeholder="Address"/>
+                                    <input type="number" id="send-amount" min="0" step="0.1" class="input-amount"
+                                           placeholder="<?php __('coins.eth-amount'); ?>"/>
+                                    <button id="send-action"
+                                            class="ui primary huge button">Send ETH</button>
+                                </div>
+                            </div>
+                            <div class="ui column">
+                                <h3>Actions</h3>
+                                <p>
+                                    <a id="export-seed" href="#" class="ui button small">Export Seed</a>
+                                    <a id="export-private-key" href="#" class="ui button small">Export Private Key</a>
+                                    <a id="delete-wallet" href="#" class="ui button small">Delete Wallet</a>
+                                </p>
+								<textarea id="exported-seed"></textarea>
+                                <input type="text" id="exported-private-key">
+                            </div>
+                        </div>
+                        <div class="ui center aligned" style="margin-top: 5em">
+                            <a href="#" id="wallet-close" class="ui button huge secondary">Close</a>
+                        </div>
+                    </div>
+                </div>
                 <div id="donate-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left"><?php __('donate.heading'); ?></h2></br>
                         <p><?php __('donate.description'); ?></p>
                         <div class="center aligned actions">
-                            <input type="number" id="donate-amount" min="0" step="0.1"
+                            <input type="number" id="donate-amount" min="0" step="0.1" class="input-amount"
                                    placeholder="<?php __('coins.eth-amount'); ?>"/>
                             <button id="donate-action"
                                     class="ui primary huge button"><?php __('donate.action-button'); ?></button>
