@@ -9,7 +9,7 @@
 
     <div class="ui container">
         <div class="ui stackable grid">
-            <div class="ui sixteen wide column interface" id="meta-mask-ui">
+            <div class="ui sixteen wide column interface logged-out" id="meta-mask-ui">
                 <div class="ui stackable grid">
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
@@ -216,6 +216,7 @@
                 <div id="wallet-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2>Wallet Management</h2>
+                        <hr/>
                         <div class="ui equal width stackable grid">
                             <div class="ui column">
                                 <h3>Send</h3>
@@ -229,6 +230,13 @@
                                 </div>
                             </div>
                             <div class="ui column">
+                                <h3>Receive</h3>
+                                <p>
+                                    To deposit ETH into this wallet, send ETH to your public address:
+                                </p>
+                                <p id="eth-public-address">
+                                  <a href="#" class="etherscan-link" target="_blank"></a> <a href="#" id="copy-eth-address"><i class="fas fa-copy"></i></a>
+                                </p>
                                 <h3>Actions</h3>
                                 <p>
                                     <a id="export-seed" href="#" class="ui button small">Export Seed</a>
@@ -324,9 +332,11 @@
   $('#metamask-not-found').dimmer({closable: false})
   $('#donate-dimmer').dimmer({closable: false})
   $('#seed-dimmer').dimmer({closable: false})
+  $('#wallet-dimmer').dimmer({closable: false})
 
   $('#metamask-detecting').dimmer('show')
 </script>
+
 <script type="text/javascript">
   var lang = {
     fund: "<?php __('coins.history.log.sent-eth'); ?>",

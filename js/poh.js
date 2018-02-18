@@ -29,6 +29,28 @@ if (!String.prototype.format) {
   }
 }
 
+function copyToClipboard (text) {
+  if (window.clipboardData && window.clipboardData.setData) {
+    // IE specific code path to prevent textarea being shown while dialog is visible.
+    return clipboardData.setData('Text', text)
+
+  } else if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+    var textarea = document.createElement('textarea')
+    textarea.textContent = text
+    textarea.style.position = 'fixed'  // Prevent scrolling to bottom of page in MS Edge.
+    document.body.appendChild(textarea)
+    textarea.select()
+    try {
+      return document.execCommand('copy')  // Security exception may be thrown by some browsers.
+    } catch (ex) {
+      console.warn('Copy to clipboard failed.', ex)
+      return false
+    } finally {
+      document.body.removeChild(textarea)
+    }
+  }
+}
+
 function updateEthPrice () {
   clearTimeout(ethPriceTimer)
   $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
@@ -90,6 +112,7 @@ function generateWallet () {
       currentAddress = address
       walletMode = 'web'
       updateData(contract)
+
     })
   })
 }
@@ -181,12 +204,12 @@ function detectWeb3 () {
   } else {
     web3js = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/iAuiwox78xdSQSkLkeXB'))
     web3Mode = 'direct'
+  }
 
-    var ks = localStorage.getItem('keystore')
-    if (ks !== null) {
-      keystore = lightwallet.keystore.deserialize(ks)
-      $('#unlock-wallet-container').show()
-    }
+  var ks = localStorage.getItem('keystore')
+  if (ks !== null) {
+    keystore = lightwallet.keystore.deserialize(ks)
+    $('#unlock-wallet-container').show()
   }
 }
 
@@ -615,7 +638,10 @@ window.addEventListener('load', function () {
   })
 
   $('#close-seed').click(function () {
-    $('#seed-dimmer').dimmer('hide')
+    if ($('#seed-dimmer').hasClass('visible')) {
+      $('#seed-dimmer').dimmer('hide')
+      $('#wallet-dimmer').dimmer('show')
+    }
   })
 
   $('#generate-wallet').click(function () {
@@ -770,7 +796,7 @@ window.addEventListener('load', function () {
     useWallet(function (pwDerivedKey) {
       var key = keystore.exportPrivateKey(currentAddress, pwDerivedKey)
       $('#exported-seed').html('').slideUp()
-      $('#exported-private-key').val(key).slideDown()
+      $('#exported-private-key').val('0x' + key).slideDown()
     })
   })
 
@@ -782,6 +808,15 @@ window.addEventListener('load', function () {
       $('#exported-private-key').val('').slideUp()
       $('#exported-seed').html(seed).slideDown()
     })
+  })
+
+  $('#copy-eth-address').click(function (e) {
+    e.preventDefault()
+    copyToClipboard(currentAddress)
+
+    $('#copy-eth-address').popup({
+      content: 'Copied to clipboard'
+    }).popup('show')
   })
 })
 
@@ -827,13 +862,14 @@ function updateData () {
     loggedIn = typeof web3js.eth.defaultAccount !== 'undefined' && web3js.eth.defaultAccount !== null
     currentAddress = web3js.eth.defaultAccount
     $('#meta-mask-ui').removeClass('wallet-web').addClass('wallet-mm')
-  } else if (walletMode === 'web' ) {
+  } else if (walletMode === 'web') {
     loggedIn = currentAddress !== null
     $('#meta-mask-ui').addClass('wallet-web').removeClass('wallet-mm')
   }
 
   if (currentAddress !== null) {
     $('#eth-address').html(currentAddress)
+    $('#eth-public-address a.etherscan-link').attr('href', 'https://etherscan.io/address/' + currentAddress).html(currentAddress)
   } else {
     $('#eth-address').html('Not Set')
   }

@@ -95,6 +95,17 @@
     color: #d69361;
     text-align: center;
     background: #111111;
+    display: block;
+    resize: none;
+}
+
+#wallet-dimmer hr {
+    margin-bottom: 4em;
+    border-color: #222;
+}
+
+#wallet-dimmer .column {
+    min-height: 350px;
 }
 
 #donate-dimmer .actions {
@@ -252,9 +263,18 @@
     font-size: 1.5em;
 }
 
-#eth-address-container {
-    display: none;
+#eth-public-address {
     text-align: center;
+    margin-bottom: 3em;
+}
+
+#eth-address-container {
+    text-align: center;
+}
+
+a#copy-eth-address {
+    color: #ffffff;
+    margin-left: 1em;
 }
 
 #meta-mask-ui.logged-out .when-logged-in {
@@ -265,6 +285,11 @@
     display: none;
 }
 
+#meta-mask-ui.logged-out .when-wallet-web {
+    display: none;
+}
+
 #meta-mask-ui.wallet-mm .when-wallet-web {
     display: none;
 }
+

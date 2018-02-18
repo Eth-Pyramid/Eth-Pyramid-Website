@@ -23,12 +23,12 @@
     background-color: #ffffff2b;
 }
 
-.ui.method.button.big.secondary {
+.ui.method.button.secondary {
     color: #fff;
     background: #00000026 none;
 }
 
-.ui.method.button.big.secondary:hover {
+.ui.method.button.secondary:hover {
     background-color: #ffffff2b;
 }
 
