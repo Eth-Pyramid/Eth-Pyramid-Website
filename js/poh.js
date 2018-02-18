@@ -1,5 +1,20 @@
+// CONSTANTS
 var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200'
+var donationAddress = '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb'
 
+// GLOBALS
+var web3Mode = null
+var currentAddress = null
+var keystore = null
+var currentAccount = null
+var dividendValue = 0
+var tokenBalance = 0
+
+var ethPrice = 0
+var currency = (typeof default_currency === 'undefined') ? 'USD' : default_currency
+var ethPriceTimer = null
+
+// UTILITY FUNCTIONS
 if (!String.prototype.format) {
   String.prototype.format = function () {
     var args = arguments
@@ -12,18 +27,99 @@ if (!String.prototype.format) {
   }
 }
 
-window.addEventListener('load', function () {
+function updateEthPrice () {
+  clearTimeout(ethPriceTimer)
+  $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
+    var eth = result[0]
+    ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
+    ethPriceTimer = setTimeout(updateEthPrice, 10000)
+  })
+}
 
+function convertEthToWei (e) {
+  return 1e18 * e
+}
+
+function convertWeiToEth (e) {
+  return e / 1e18
+}
+
+function generateWallet () {
+  // generate a new BIP32 12-word seed
+  var secretSeed = lightwallet.keystore.generateRandomSeed()
+
+  // the seed is stored encrypted by a user-defined password
+  var password = prompt('Enter password for encryption', 'password')
+
+  lightwallet.keystore.createVault({
+    seedPhrase: secretSeed,
+    password: password,
+    hdPathString: `m/44'/60'/0'/0`,
+  }, function (err, ks) {
+    if (err) throw err
+
+    keystore = ks
+
+    keystore.passwordProvider = function (callback) {
+      var pw = prompt('Please enter password', 'Password')
+      callback(null, pw)
+    }
+
+    // Store keystore in local storage
+    localStorage.setItem('keystore', keystore.serialize())
+
+    useWallet(function (pwDerivedKey) {
+      keystore.generateNewAddress(pwDerivedKey, 1)
+
+      var address = keystore.getAddresses()[0]
+
+      $('#wallet-seed').html(secretSeed)
+      $('#wallet-address').html(address)
+      $('#seed-dimmer').dimmer('show')
+
+      web3js.eth.defaultAccount = address
+    })
+  })
+}
+
+function useWallet (cb) {
+  var password = prompt('Enter password for encryption')
+  keystore.keyFromPassword(password, function (err, pwDerivedKey) {
+    if (err) throw err
+    cb(pwDerivedKey)
+  })
+}
+
+function loadWallet () {
+  useWallet(function (pwDerivedKey) {
+    keystore.generateNewAddress(pwDerivedKey, 1)
+    web3js.eth.defaultAccount = keystore.getAddresses()[0]
+  })
+}
+
+function detectWeb3 () {
   if ($('#metamask-detecting').hasClass('visible')) {
     $('#metamask-detecting').dimmer('hide')
   }
 
-  if (typeof web3 !== 'undefined') {
+  if (typeof web !== 'undefined') {
     web3js = new Web3(web3.currentProvider)
+    web3Mode = 'metamask'
   } else {
-    console.log('No web3? You should consider trying MetaMask!')
-    $('#metamask-not-found').dimmer('show')
+    web3js = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/iAuiwox78xdSQSkLkeXB'))
+    web3Mode = 'direct'
+
+    var ks = localStorage.getItem('keystore')
+    if (ks !== null) {
+      keystore = lightwallet.keystore.deserialize(ks)
+      $('#unlock-wallet').show()
+    }
   }
+}
+
+window.addEventListener('load', function () {
+
+  detectWeb3()
 
   let abi = [
     {
@@ -342,10 +438,82 @@ window.addEventListener('load', function () {
     }
   ]
 
-  var contractClass = web3.eth.contract(abi)
+  function call (address, method, amount) {
+    web3js.eth.getTransactionCount(currentAccount, function (err, nonce) {
+      if (err) throw err
+
+      web3js.eth.getGasPrice(function (err, gasPrice) {
+        if (err) throw err
+
+        var tx = {
+          'from': currentAccount,
+          'to': address,
+          'value': '0x' + amount.toString(16),
+          'gasPrice': '0x' + (gasPrice / 5).toString(16),
+          'gasLimit': '0x' + (100000).toString(16),
+          'nonce': nonce,
+        }
+
+        console.log(tx)
+
+        var rawTx = lightwallet.txutils.functionTx(abi, method, {}, tx)
+
+        useWallet(function (pwDerivedKey) {
+          var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAccount)
+          web3js.eth.sendRawTransaction(signedTx, function (err, hash) {
+            alert('Transaction successful. Hash: ' + hash)
+          })
+        })
+      })
+    })
+  }
+
+  function fund (address, amount) {
+    if (web3Mode === 'metamask') {
+      contract.fund({
+        value: convertEthToWei(amount)
+      }, function (e, r) {
+        console.log(e, r)
+      })
+    } else if (web3Mode === 'direct') {
+      call(address, 'fund', convertEthToWei(amount))
+    }
+  }
+
+  function sell (address) {
+    if (web3Mode === 'metamask') {
+      contract.sellMyTokens(function (e, r) {
+        console.log(e, r)
+      })
+    } else if (web3Mode === 'direct') {
+      call(address, 'sellMyTokens', 0)
+    }
+  }
+
+  function reinvest (address) {
+    if (web3Mode === 'metamask') {
+      contract.reinvestDividends(function (e, r) {
+        console.log(e, r)
+      })
+    } else if (web3Mode === 'direct') {
+      call(address, 'reinvestDividends', 0)
+    }
+  }
+
+  function withdraw (address) {
+    if (web3Mode === 'metamask') {
+      contract.withdraw(function (e, r) {
+        console.log(e, r)
+      })
+    } else if (web3Mode === 'direct') {
+      call(address, 'withdraw', 0)
+    }
+  }
+
+  var contractClass = web3js.eth.contract(abi)
   var contract = contractClass.at(contractAddress)
 
-  web3.eth.defaultAccount = web3.eth.accounts[0]
+  web3js.eth.defaultAccount = web3js.eth.accounts[0]
   updateData(contract)
 
   setInterval(function () {
@@ -362,12 +530,20 @@ window.addEventListener('load', function () {
       }).popup('show')
     } else {
       $('#purchase-amount').removeClass('error').popup('destroy')
-      contract.fund({
-        value: convertEthToWei(amount)
-      }, function (e, r) {
-        console.log(e, r)
-      })
+      fund(contractAddress, amount)
     }
+  })
+
+  $('#close-seed').click(function () {
+    $('#seed-dimmer').dimmer('hide')
+  })
+
+  $('#generate-wallet').click(function () {
+    generateWallet()
+  })
+
+  $('#unlock-wallet').click(function () {
+    loadWallet()
   })
 
   $('#donate-action').click(function () {
@@ -379,14 +555,7 @@ window.addEventListener('load', function () {
       }).popup('show')
     } else {
       $('#donate-amount').removeClass('error').popup('destroy')
-      web3.eth.sendTransaction({
-        to: '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb',
-        value: convertEthToWei(amount)
-      }, function (e, r) {
-        $('#donate-amount').val('')
-        $('#donate-dimmer').dimmer('hide')
-        console.log(e, r)
-      })
+      fund(donationAddress, amount)
     }
   })
 
@@ -401,23 +570,17 @@ window.addEventListener('load', function () {
 
   // Sell token click handler
   $('#sell-tokens-btn').click(function () {
-    contract.sellMyTokens(function (e, r) {
-      console.log(e, r)
-    })
+    sell()
   })
 
   // Reinvest click handler
   $('#reinvest-btn').click(function () {
-    contract.reinvestDividends(function (e, r) {
-      console.log(e, r)
-    })
+    reinvest()
   })
 
   // Withdraw click handler
   $('#withdraw-btn').click(function () {
-    contract.withdraw(function (e, r) {
-      console.log(e, r)
-    })
+    withdraw()
   })
 
   $('#sell-tokens-btn-m').click(function () {
@@ -437,30 +600,6 @@ window.addEventListener('load', function () {
       console.log(e, r)
     })
   })
-})
-
-function convertEthToWei (e) {
-  return 1e18 * e
-}
-
-function convertWeiToEth (e) {
-  return e / 1e18
-}
-
-var ethPrice = 0
-var currency = (typeof default_currency == 'undefined') ? 'USD' : default_currency
-var timer = null
-
-function updateEthPrice () {
-  clearTimeout(timer)
-  $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
-    var eth = result[0]
-    ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
-    timer = setTimeout(updateEthPrice, 10000)
-  })
-}
-
-$(function () {
 
   $('#currency').val(currency)
 
@@ -469,19 +608,16 @@ $(function () {
     updateEthPrice()
   })
 
+  updateEthPrice()
+  setInterval(updateTransactionHistory, 1000 * 60 * 5)
 })
 
-updateEthPrice()
-
-var dividendValue = 0
-var tokenBalance = 0
-
 function updateTransactionHistory () {
-  if (!web3.eth.defaultAccount) {
+  if (!web3js.eth.defaultAccount) {
     return
   }
 
-  $.getJSON('https://api.ethpyramid.io/history.php?address=' + web3.eth.defaultAccount, function (data) {
+  $.getJSON('https://api.ethpyramid.io/history.php?address=' + web3js.eth.defaultAccount, function (data) {
     $('#transaction-history').empty()
 
     for (let i = 0; i < data.length; i++) {
@@ -509,49 +645,65 @@ function updateTransactionHistory () {
   })
 }
 
-var currentAccount = null
-
-setInterval(updateTransactionHistory, 1000 * 60 * 5)
-
 function updateData (contract) {
-  if (!web3.eth.defaultAccount) {
-    $('#metamask-not-logged-in').dimmer('show')
-    return
+  var logged_in = web3js.eth.defaultAccount ? true : false
+
+  if (logged_in) {
+    if (web3js.eth.defaultAccount !== currentAccount) {
+      currentAccount = web3js.eth.defaultAccount
+      updateTransactionHistory()
+    }
+
+    $('.when-logged-out').hide()
+    $('.when-logged-in').show()
+  } else {
+    $('.when-logged-in').hide()
+    $('.when-logged-out').show()
   }
 
-  if (web3.eth.defaultAccount !== currentAccount) {
-    currentAccount = web3.eth.defaultAccount
-    updateTransactionHistory()
+  if (currentAddress != web3js.eth.defaultAccount) {
+    $('#eth-address').html(web3js.eth.defaultAccount)
+    currentAddress = web3js.eth.defaultAccount
   }
 
-  if ($('#metamask-not-logged-in').hasClass('visible'))
-    $('#metamask-not-logged-in').dimmer('hide')
-
-  $('#eth-address').html(web3.eth.defaultAccount)
-
-  contract.balanceOf(web3.eth.defaultAccount, function (e, r) {
-    $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
-    contract.getEtherForTokens(r, function (e, r) {
-      let bal = convertWeiToEth(r * 0.9)
-      $('.poh-value').text(bal.toFixed(4) + ' ETH')
-      $('.poh-value-usd').text('(' + (convertWeiToEth(r * 0.9) * ethPrice).toFixed(4) + ' ' + currency + ')')
-      if (tokenBalance !== 0) {
-        if (bal > tokenBalance) {
-          $('.poh-value').addClass('up').removeClass('down')
-          setTimeout(function () {
-            $('.poh-value').removeClass('up')
-          }, 3000)
+  if (logged_in) {
+    contract.balanceOf(web3js.eth.defaultAccount, function (e, r) {
+      $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
+      contract.getEtherForTokens(r, function (e, r) {
+        let bal = convertWeiToEth(r * 0.9)
+        $('.poh-value').text(bal.toFixed(4) + ' ETH')
+        $('.poh-value-usd').text('(' + (convertWeiToEth(r * 0.9) * ethPrice).toFixed(4) + ' ' + currency + ')')
+        if (tokenBalance !== 0) {
+          if (bal > tokenBalance) {
+            $('.poh-value').addClass('up').removeClass('down')
+            setTimeout(function () {
+              $('.poh-value').removeClass('up')
+            }, 3000)
+          }
+          else if (bal < tokenBalance) {
+            $('.poh-value').addClass('down').removeClass('up')
+            setTimeout(function () {
+              $('.poh-value').removeClass('down')
+            }, 3000)
+          }
         }
-        else if (bal < tokenBalance) {
-          $('.poh-value').addClass('down').removeClass('up')
-          setTimeout(function () {
-            $('.poh-value').removeClass('down')
-          }, 3000)
-        }
-      }
-      tokenBalance = bal
+        tokenBalance = bal
+      })
     })
-  })
+
+    contract.dividends(web3js.eth.defaultAccount, function (e, r) {
+      let div = convertWeiToEth(r).toFixed(6)
+
+      $('.poh-div').text(div + ' ETH')
+      $('.poh-div-usd').text('(' + (convertWeiToEth(r) * ethPrice).toFixed(4) + ' ' + currency + ')')
+
+      if (dividendValue != div) {
+        $('.poh-div').fadeTo(100, 0.3, function () { $(this).fadeTo(250, 1.0) })
+
+        dividendValue = div
+      }
+    })
+  }
 
   contract.buyPrice(function (e, r) {
     let buyPrice = (1 / (convertWeiToEth(r) * .9) / 1000000)
@@ -565,20 +717,7 @@ function updateData (contract) {
     $('.poh-sell-usd').text('(' + (sellPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
   })
 
-  contract.dividends(web3.eth.defaultAccount, function (e, r) {
-    let div = convertWeiToEth(r).toFixed(6)
-
-    $('.poh-div').text(div + ' ETH')
-    $('.poh-div-usd').text('(' + (convertWeiToEth(r) * ethPrice).toFixed(4) + ' ' + currency + ')')
-
-    if (dividendValue != div) {
-      $('.poh-div').fadeTo(100, 0.3, function () { $(this).fadeTo(250, 1.0) })
-
-      dividendValue = div
-    }
-  })
-
-  web3.eth.getBalance(contract.address, function (e, r) {
+  web3js.eth.getBalance(contract.address, function (e, r) {
     $('.contract-balance').text(convertWeiToEth(r).toFixed(4))
   })
 

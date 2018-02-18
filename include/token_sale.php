@@ -17,12 +17,11 @@
                                 <img src="images/spinning.gif">
                             </div>
 
-                            <div style="display: none" id="eth-address">Not Set</div>
 
-                            <input type="number" id="purchase-amount" min="0" step="0.01"
+                            <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in"
                                    placeholder="<?php __('coins.eth-amount'); ?>">
                             <button id="buy-tokens"
-                                    class='ui primary huge button'><?php __('coins.buy-tokens'); ?></button>
+                                    class='ui primary huge button when-logged-in'><?php __('coins.buy-tokens'); ?></button>
 
                             <div id="currency-selector">
 								<?php __('coins.select-currency'); ?>
@@ -63,9 +62,10 @@
                             </div>
 
                             <a href="#" id="chat-toggle"><?php __('coins.chat.toggle'); ?></a><br>
-                            <a href="#" id="history-toggle"><?php __('coins.history.toggle'); ?></a>
+                            <a href="#" id="history-toggle"
+                               class="when-logged-in"><?php __('coins.history.toggle'); ?></a>
 
-                            <div>
+                            <div class="when-logged-in">
                                 <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
                             </div>
                         </div>
@@ -86,24 +86,48 @@
                                     <div class="poh-sell-usd value-usd"></div>
                                 </div>
                             </div>
-                            <div class="ui eight wide column">
+                            <div class="ui eight wide column when-logged-in">
                                 <div class="price-box blue token-balance">
                                     <div class="title"><?php __('coins.epy-balance'); ?></div>
                                     <div class="poh-balance value"></div>
                                 </div>
                             </div>
-                            <div class="ui eight wide column">
+                            <div class="ui eight wide column when-logged-in">
                                 <div class="price-box blue">
                                     <div class="title"><?php __('coins.dividends'); ?></div>
                                     <div class="poh-div value"></div>
                                     <div class="poh-div-usd value-usd"></div>
                                 </div>
                             </div>
-                            <div class="ui sixteen wide column">
+                            <div class="ui sixteen wide column when-logged-in">
                                 <div class="price-box green">
                                     <div class="title"><?php __('coins.estimated-value'); ?></div>
                                     <div class="poh-value value"></div>
                                     <div class="poh-value-usd value-usd"></div>
+                                </div>
+                            </div>
+                            <div class="ui sixteen wide column when-logged-out" style="display: none;">
+                                <div class="login-box green">
+                                    <div class="value">Not Logged In</div>
+                                    <div class="value-usd">Cannot retrieve your balances because you are not logged in.
+                                        If you are using MetaMask, login using the MetaMask UI. Alternatively, you may
+                                        use an in-browser wallet with the actions below.
+                                    </div>
+                                    <div class="ui equal width grid login-options">
+                                        <div class="ui column">
+                                            <button id="generate-wallet" class="ui button large primary">Generate Wallet
+                                            </button>
+                                        </div>
+                                        <div class="ui column">
+                                            <button id="unlock-wallet" class="ui button large secondary"
+                                                    style="display: none;">Unlock Wallet
+                                            </button>
+                                        </div>
+                                        <div class="ui column">
+                                            <button id="recover-wallet" class="ui button large">Recover Wallet
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="ui ten wide column traffic-message">
@@ -115,6 +139,11 @@
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
                             <div class="ui sixteen wide column">
+                                <div style="text-align: center;">
+                                    <strong>Account:</strong> <span id="eth-address">Not Set</span>
+                                </div>
+                            </div>
+                            <div class="ui sixteen wide column">
                                 <div id="transaction-history-container" style="display: none">
                                     <h2><?php __('coins.history.heading'); ?></h2>
                                     <div id="transaction-history">
@@ -124,7 +153,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui three column stackable grid center aligned methods">
+                <div class="ui three column stackable grid center aligned methods when-logged-in">
                     <div class="column">
                         <button id="sell-tokens-btn"
                                 class='ui method button big secondary'><?php __('coins.actions.cash-out.button'); ?></button>
@@ -147,16 +176,25 @@
                         <p><?php __('metamask.not-found.comment'); ?></p>
                     </div>
                 </div>
-                <div id="metamask-not-logged-in" class="ui dimmer">
-                    <div class="inner">
-                        <h2 class="float-left"><?php __('metamask.plz-login.status'); ?></h2></br>
-                        <p><?php __('metamask.plz-login.comment'); ?></p>
-                    </div>
-                </div>
                 <div id="metamask-detecting" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left"><?php __('metamask.detecting.status'); ?></h2></br>
                         <p><?php __('metamask.detecting.comment'); ?></p>
+                    </div>
+                </div>
+                <div id="seed-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">Wallet Seed</h2></br>
+                        <p><strong>WARNING</strong> This is your wallet's seed. If you lose this, you lose access to
+                            your ETH and any EPY along with it. This is only ever stored locally in your web browser.
+                            If you clear your browser data, generate a new wallet over an existing, or your computer
+                            dies, and you don't have this saved anywhere, nobody can recover this for you.
+                            Seriously, save it somewhere safe.</p>
+                        <textarea id="wallet-seed">
+
+                        </textarea>
+                        <button class="ui button huge primary" id="close-seed">I Have Stored My Seed Somewhere Safe
+                        </button>
                     </div>
                 </div>
                 <div id="donate-dimmer" class="ui dimmer">
@@ -203,18 +241,18 @@
       }
     })
 
-
     $('#history-toggle').click(function (e) {
       e.preventDefault()
       $('#transaction-history-container').slideToggle()
     })
-
-    $('#metamask-detecting').dimmer({closable: false})
-    $('#metamask-not-found').dimmer({closable: false})
-    $('#metamask-not-logged-in').dimmer({closable: false})
-    $('#donate-dimmer').dimmer({closable: true})
-    $('#metamask-detecting').dimmer('show')
   })
+
+  $('#metamask-detecting').dimmer({closable: false})
+  $('#metamask-not-found').dimmer({closable: false})
+  $('#donate-dimmer').dimmer({closable: false})
+  $('#seed-dimmer').dimmer({closable: false})
+
+  $('#metamask-detecting').dimmer('show')
 </script>
 <script type="text/javascript">
   var lang = {
@@ -224,4 +262,7 @@
     sold: "<?php __('coins.history.log.sold-epy'); ?>"
   }
 </script>
+
+<script type="text/javascript" src="js/web3.js"></script>
+<script type="text/javascript" src="js/lightwallet.min.js"></script>
 <script type="text/javascript" src="js/poh.js"></script>

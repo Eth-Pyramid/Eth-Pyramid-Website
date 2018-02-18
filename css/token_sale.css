@@ -54,9 +54,32 @@
     margin: 2em auto;
 }
 
+
+#wallet-address {
+    font-weight: 700;
+}
+
+.login-options {
+    margin-top: 1em !important;
+}
+
 #donate-dimmer p {
     width: 50%;
     margin: 0 auto;
+}
+
+#seed-dimmer p {
+    width: 75%;
+    margin: 0 auto;
+}
+
+#wallet-seed {
+    font-size: 2em;
+    margin: 2em auto !important;
+    width: 50% !important;
+    color: #d69361;
+    text-align: center;
+    background: #111111;
 }
 
 #donate-dimmer .actions {
@@ -87,7 +110,11 @@
     height: 132px;
 }
 
-.price-box, #transaction-history-container {
+.login-box {
+    text-align: center;
+}
+
+.price-box, #transaction-history-container, .login-box {
     padding: 1.8em;
     background: #404040;
     border-radius: 20px;
@@ -102,16 +129,16 @@
     background-color: #384b57;
 }
 
-.price-box.green {
+.price-box.green, .login-box.green {
     background: #3e596b;
 }
 
-.price-box .title {
+.price-box .title, .login-box .title {
     color: #d69361 !important;
     font-size: 1.2em;
 }
 
-.price-box .value {
+.price-box .value, .login-box .value {
     color: #FFFFFF;
     font-size: 2em;
     font-weight: 700;
@@ -119,7 +146,7 @@
     margin: 0.5em 0 0.3em 0;
 }
 
-.price-box .value-usd {
+.price-box .value-usd, .login-box .value-usd {
     color: #b7b7b7;
 }
 
