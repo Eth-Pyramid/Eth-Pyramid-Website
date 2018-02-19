@@ -47,6 +47,32 @@ include('include/head.php');
             </div>
         </div>
 
+        <div class="ui sixteen wide column">
+            <div class="ui equal width stackable grid">
+                <div class="ui statistic column">
+                    <div class="label">
+					    <?php __('stats.active-users'); ?>
+                    </div>
+                    <div class="value" id="active-users">
+                    </div>
+                </div>
+                <div class="ui statistic column">
+                    <div class="label">
+					    <?php __('stats.inactive-users'); ?>
+                    </div>
+                    <div class="value" id="inactive-users">
+                    </div>
+                </div>
+                <div class="ui statistic column">
+                    <div class="label">
+			            <?php __('stats.total-users'); ?>
+                    </div>
+                    <div class="value" id="total-users">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="ui eight wide column">
             <h3><?php __('stats.top25.heading'); ?></h3>
             <p><?php __('stats.top25.comment'); ?></p>
@@ -147,6 +173,9 @@ include('include/head.php');
         $('#total-volume').html(data.total_volume.toFixed(0) + ' ETH')
         $('#contract-balance').html(data.contract_balance.toFixed(0) + ' ETH')
         $('#total-dividends').html((data.total_volume / 10).toFixed(0) + ' ETH')
+        $('#active-users').html(data.active_users)
+        $('#inactive-users').html(data.total_users-data.active_users)
+        $('#total-users').html(data.total_users)
       })
     </script>
 
