@@ -107,6 +107,8 @@ return [
         'stats.total-volume' => 'Total Volume',
         'stats.eth-balance' => 'Contract Balance',
         'stats.total-divs' => 'Total Dividends',
+        'stats.active-users' => 'Active Users',
+        'stats.total-users' => 'Total Users',
         'stats.top25.heading' => 'Top 25 Token Holders',
         'stats.top25.comment' => 'Aliases of dev team members are shown in place of address if known.',
         'stats.daily.heading' => 'Daily Volume (Last 7 days)',
