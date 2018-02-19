@@ -23,7 +23,7 @@ return [
 
 		'footer.social' => 'Links',
 		'footer.disclaimer.heading' => 'Haftungsausschluss',
-		'footer.disclaimer.content' => 'Dieses Spiel dient ausschließlich dem Zwecke der Unterhaltung. Sende keine Ethereum, die Du nicht bereit bist zu verlieren. Es ist nicht gerantiert, dass Du durch dieses Spiel Ethereum verdienen wirst. Noch wichtiger: es ist nicht garantiert, dass Du Deinen ETH-Einsatz nicht verlieren wirst. Spiele auf eigene Gefahr und versuche nicht, Freunde, Verwandte oder Fremde zum Mitspielen zu verleiten. Am Besten machst Du selbst gar nicht erst mit.'
+		'footer.disclaimer.content' => 'Dieses Spiel dient ausschließlich dem Zwecke der Unterhaltung. Sende keine Ethereum, die Du nicht bereit bist zu verlieren. Es ist nicht gerantiert, dass Du durch dieses Spiel Ethereum verdienen wirst. Noch wichtiger: es ist nicht garantiert, dass Du Deinen ETH-Einsatz nicht verlieren wirst. Spiele auf eigene Gefahr und versuche nicht, Freunde, Verwandte oder Fremde zum Mitspielen zu verleiten. Am Besten machst Du selbst gar nicht erst mit.',
 
 		'index.pyramids.heading' => 'Pyramiden-Technologie',
 		'index.pyramids.content' => 'Wenn jemand EthPyramid Tokens (EPY) kauft oder verkauft, werden 10% des Preises auf alle EPY-Halter aufgeteilt und als Dividenden (in Ethereum) gutgeschrieben. Je mehr EPY man besitzt, desto höher der Anteil an Dividenden. Gesammelte Dividenden sind nicht mehr abhängig vom EPY-Preis.',
@@ -70,7 +70,7 @@ return [
 		'coins.history.log.sent-eth' => '{1} EPY für {0} ETH gekauft',
 		'coins.history.log.sent-div' => '{0} EPY mit Dividenden gekauft',
 		'coins.history.log.withdrew' => 'Dividenden abgehoben',
-		'coins.history.log.sold-epy' => '{0} EPY verkauft'
+		'coins.history.log.sold-epy' => '{0} EPY verkauft',
 
 		'coins.actions.cash-out.button' => 'Tokens Verkaufen',
 		'coins.actions.cash-out.comment' => 'Tokens zum aktuellen Verkaufspreis tauschen und zu Dividenden hinzufügen',
