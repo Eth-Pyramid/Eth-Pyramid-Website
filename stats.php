@@ -58,7 +58,14 @@ include('include/head.php');
                 </div>
                 <div class="ui statistic column">
                     <div class="label">
-					    <?php __('stats.total-users'); ?>
+					    <?php __('stats.inactive-users'); ?>
+                    </div>
+                    <div class="value" id="inactive-users">
+                    </div>
+                </div>
+                <div class="ui statistic column">
+                    <div class="label">
+			            <?php __('stats.total-users'); ?>
                     </div>
                     <div class="value" id="total-users">
                     </div>
@@ -167,6 +174,7 @@ include('include/head.php');
         $('#contract-balance').html(data.contract_balance.toFixed(0) + ' ETH')
         $('#total-dividends').html((data.total_volume / 10).toFixed(0) + ' ETH')
         $('#active-users').html(data.active_users)
+        $('#inactive-users').html(data.total_users-data.active_users)
         $('#total-users').html(data.total_users)
       })
     </script>
