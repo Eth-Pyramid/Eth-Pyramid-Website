@@ -133,6 +133,6 @@ return [
         'wpaper.footer.exit.content' => 'At any time you can escape the contract and withdraw all your Ether by opening up a transaction through MetaMask, sending 0 Ether with a 150,000 gas-limit to the contract and inputting "0xb1e35242" under additional data. This is the getMeOutOfHere() function on the contract and will cash you out of all tokens and dividends.',
         'wpaper.footer.dev-stuff.heading' => 'اشياء التطوير المملة',
         'wpaper.footer.dev-stuff.content' => 'في جوهرها، EthPyramid تستند على العمل الأصلي ل منشورة دكتور يوكن هينيك وهو تحسن على المفهوم العام، فضلا عن تصحيح العديد من العيوب والمآثر التي تم اكتشافها. وتمت إزالة السمات الغريبة والوظائف غير الضرورية، كما تم فحص التعليمات البرمجية الأصلية بشكل كبير. واضفنا عمليات رياضية امنة، لضمان عدم حدوث تجاوز / تدنى لاى علة يمكن أن تحدث. ناقلات الهجوم منخفضة جدا، مع ما يقرب من أي وظائف تسمح لإدخال مخصص من البيانات. على هذا النحو، فإن استغلال التي تسببت في سقوط التكرارات السابقة ليس له تأثير على عقدنا لأنه، بكل بساطة، الدالة التي يتطلبها غير موجودة.',
-		'wpaper.footer.dev-stuff.testing' => 'كان لدينا أكثر من 4000 إيث متدفق / متدنى خلال اختبار الإجهاد على موقع بيتا (https://beta.ethpyramid.com/) ولم dلاحظ أي خلل. تم إطلاق العقد الذكي الكامل قبل الإنطلاق، وسوف تكون دائما قادرا على رؤيته من موقعنا.'
+		'wpaper.footer.dev-stuff.testing' => 'كان لدينا أكثر من 4000 إيث متدفق / متدنى خلال اختبار الإجهاد على موقع بيتا (https://beta.ethpyramid.io/) ولم dلاحظ أي خلل. تم إطلاق العقد الذكي الكامل قبل الإنطلاق، وسوف تكون دائما قادرا على رؤيته من موقعنا.'
 		]
 ];
