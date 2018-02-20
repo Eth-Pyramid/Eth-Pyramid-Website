@@ -67,7 +67,7 @@ return [
 		'Created by:' => '제작자',
 		'Donate ETH:' => 'ETH 기부',
 		'instructions.heading' => '이더리움의 훌륭한 피라미드를 구축하고 싶어하는 사람을 위한 지침 사항:',
-		'instructions.metamask' => '먼저, MetaMask를 여기서 설치하고 이더리움을 넣으세요.',
+		'instructions.metamask' => '먼저, <a href="https://metamask.io/">MetaMask</a>를 여기서 설치하고 이더리움을 넣으세요.',
 		'To buy EPY, simply click the "Buy Tokens" button and enter the amount of Ether you want to convert to EPY, based on the current Buy Price. When confirming the transaction on MetaMask, be sure to use a high enough gas price so that the price doesn\'t change drastically while the transaction is in progress.	<a href="https://ethgasstation.info/">Here</a> you can view recommended gas prices.	Buying coins will increase both the Buy Price and Sell Price with 0.2% per bought coin once the transaction is complete.' => 'EPY를 구매하시려면, “토큰 구매” 버튼을 누르시고 EPY로 전환하고 싶은 이더리움 금액을 입력하세요. MetaMask에서의 트랜잭션을 확인할 때, 충분한 가스비를 이용하는지 확실히 하여 트랜잭션이 진행되는 도중에 가격이 급격하게 변화되지 않도록 하세요. 코인을 구매하여 트랜잭션이 완료되면 구매한 코인 당 0.2%로 구매 가격 및 판매 가격이 둘 다 상승하게 됩니다. ',
 		'instructions.your-epy' => '“EthPyramid 토큰 잔액”에서, 얼마나 많은 EPY를 현재 보유하고 있는지 확인할 수 있습니다. 코인을 캐시 아웃 할 때, 구매 가격 및 판매 가격은 그 후에 떨어져, 여러분이 가지고 있는 코인의 시세가 코인당 0.2%씩 떨어질 수 있다는 점을 유의해주세요.',
 		'instructions.get-divs' => 'EPY 구매 혹은 판매될 때마다, 구매/판매한 코인으로부터 수수료의 일부가 현재 EPY 보유자 (배당금) 하에 분할될 것입니다. ',
