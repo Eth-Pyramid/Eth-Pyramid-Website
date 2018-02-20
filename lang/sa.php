@@ -6,23 +6,23 @@ return [
     'default_currency' => 'USD',
     'text' => [
         'meta.title' => 'EthPyramid',
-        'meta.description' => 'نظام هرمي مكتف ذاتيا وآمن وشفاف',
+        'meta.description' => 'نظام هرمي مكتف ذاتيا ,آمن وشفاف',
 
         'menu.home' => 'الصفحة الرئيسية',
-        'menu.coins' => 'عملاتى',
+        'menu.coins' => 'عملاتي',
         'menu.blog' => 'مدونة',
         'menu.stats' => 'احصائيات',
-        'menu.whitepaper' => 'ورق',
+        'menu.whitepaper' => 'الورق الابيض',
 
-        'index.header.title' => 'نظام هرمي مكتف ذاتيا وآمن وشفاف',
+        'index.header.title' => 'نظام هرمي مكتف ذاتيا ,آمن وشفاف',
         'index.header.buy-in' => 'اشترى دخولك',
-        'index.header.contract' => 'عقد ذكى',
+        'index.header.contract' => 'عقد ذكي',
 
         'footer.social' => 'Social',
         'footer.disclaimer.heading' => 'Disclaimer',
         'footer.disclaimer.content' => 'This game is intended for entertainment purposes only. Do not send any ETH you do not want to or cannot afford to lose. There is zero guarantee that you will make ETH playing this game. And more importantly, zero guarantee that you won\'t lose any ETH you play with. Play at your own risk and do not attempt to pressure friends, family or strangers into playing too. In fact, you shouldn\'t even play yourself.',
 
-        'index.heading' => 'الهرم الأكثر قوة واللامركزية بعد',
+        'index.heading' => 'الهرم الأكثر قوة واللامركزية حتى الان',
         'index.pyramids.heading' => 'تكنولوجيا الهرم',
         'index.pyramids.content' => 'عندما يقوم شخص ما  بشراء أو بيع عملة EthPyramid الرمزية(EPY)، يتم تقسيم 10٪ من سعر الشراء / البيع من قبل إجمالي عدد العملات الرمزية وإعطائها كأرباح مقفلة (بسعر الأثير) لجميع المشترين السابقين بناء على عدد عملات EPY الرمزية التى يمتلكونها.',
         'index.dividends.heading' => 'أرباح',
@@ -30,7 +30,7 @@ return [
 		'index.forever.heading' => 'للابد',
         'index.forever.content' => 'على محمل الجد، ليس فرض، ليس تدمير ذاتي، ليس هناك مخرج احتيال. هذا العقد سوف يتقلب في السعر ويدفع توزيعات الأرباح حتى jموت شبكة الإثريوم. في أي وقت، يمكنك بيع عملاتك رمزية مرة أخرى إلى العقد الذكي ب 80٪ من السعر الحالي، أو سحب / تحويل الأرباح التي تراكمت عليك!',
 		
-        'faq.heading' => 'أسئلة وأجوبة',
+        'faq.heading' => 'الأسئلة الشائعة',
         'faq.realshit.q' => 'س: هل هذا شيء حقيقي؟',
         'faq.realshit.a' => 'ج: نعم، عملات EthPyramid الرمزية بنيت على بلوكشين إثريوم. ليس لديهم قيمة خارج الانخراط في لعبة EP مع الانسان الالى للرياضيات لدينا, لا ينبغي عليك اعتباره استثمار حقيقي أو فئة أصول بأي قيمة جوهرية بأي شكل.',
 		'faq.similar.q' => 'س: لم يكن هناك شيء مماثل لهذا في وقت سابق؟',
