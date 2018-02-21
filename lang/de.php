@@ -30,7 +30,7 @@ return [
 		'index.dividends.heading' => 'Dividenden',
 		'index.dividends.content' => 'Token-Halter erhalten als Belohnung 10% jedes <strong>Kaufes und Verkaufes</strong>. Starke Hände werden mit jedem Steigen und Fallen des Kurses belohnt. Unser Smart-Contract erlaubt als erster, Tokens direkt mit Dividenden zu kaufen.',
 		'index.forever.heading' => 'Für Immer',
-		'index.forever.content' => 'Im Ernst, keine Verteilung vor dem Start der Seite, keine Selbstzerstörung, kein Betrug mit Hintertüren für die Entwickler. Der Vertrag schwingt auf und ab und wird bis ans Ende des Ethereumnetzwerkes Dividenden auszahlen. Du kannst jederzeit deine Münzen zum aktuellen Verkaufspreis verkaufen oder deine gesammelten Dividenden auszahlen/zu Tokens konvertieren lassen.',
+		'index.forever.content' => 'Im Ernst, keine Selbstzerstörung, kein Betrug mit Hintertüren für die Entwickler. Der Vertrag schwingt auf und ab und wird bis ans Ende des Ethereumnetzwerkes Dividenden auszahlen. Du kannst jederzeit deine Münzen zum aktuellen Verkaufspreis verkaufen oder deine gesammelten Dividenden auszahlen/zu Tokens konvertieren lassen.',
 
 		'faq.heading' => 'FAQ',
 		'faq.realshit.q' => 'Q: Ist das echt?',
@@ -41,8 +41,8 @@ return [
 		'faq.security.a' => 'Ja, unser Entwicklerteam hat viele Stunden in die Entwicklung und Testung des Contracts gesteckt, um die Sicherheit deiner Tokens zu gewährleisten. Interne Funktionen des Contracts können nicht durch den Endnutzer aufgerufen werden.',
 		'faq.requirements.q' => 'Q: Alles klar, was brauch ich um mitzumachen?',
 		'faq.requirements.a' => 'A: Du brauchst die Browser-Erweiterung <a href="https://metamask.io/">MetaMask</a> und etwas Ethereum. Ethereum kannst du auf Marktplätzen wie <a href="https://www.bitcoin.de/de/r/tqrve2">bitcoin.de</a> erwerben.',
-		'faq.pre-mined.q' => 'Q: Ist dieser Token vorgeschürft?',
-		'faq.pre-mined.a' => 'A: Nein, und es gibt auch keine Hintertüren im Code, die uns irgendwelche Vorteile beim Handel mit dem Contract bieten.',
+		'faq.pre-mined.q' => 'Q: Habt ihr vor, unser Ethereum zu klauen?',
+		'faq.pre-mined.a' => 'A: Es tut uns Leid, dass du das fragen musstest. Nein, es gibt keine Hintertüren im Code, die uns irgendwelche Vorteile beim Handel mit dem Contract bieten.',
 		'faq.what-happens.q' => 'Q: Also was genau passiert mit den Tokens, die ich kaufe?',
 		'faq.what-happens.a' => 'A: Jedes mal wenn jemand einen Token kauft oder verkauft, verändert sich der Preis. Er steigt 0,2% bei Kauf und sinkt 0,2% bei Verkauf. Wenn du deine Tokens lässt, wo sie sind, erhältst du für jeden Kauf UND Verkauf, den Andere tätigen, Einen Anteil von 10% des Preises als Dividenden. Je größer der Anteil deiner Tokens am Gesamtvolumen, desto mehr Dividenden erhältst du. Du kannst deine Tokens jederzeit in Ethereum konvertieren und in dein Dividendenkonto einzalhen. Dividenden werden nicht durch den EPY-Preis beeinflusst, bringen dir aber auch keine Dividenden mehr. Sie können auch benutzt werden, um neue Tokens zu kaufen.',
 		'faq.more-info.q' => 'Q: Klingt gut, erzähl mir mehr!',
@@ -92,6 +92,7 @@ return [
 		'metamask.plz-login.comment' => 'Du musst in MetaMask angemeldet sein um fortzufahren',
 		'metamask.detecting.status' => 'Suche MetaMask',
 		'metamask.detecting.comment' => 'Warte bitte, während wir versuchen, uns mit MetaMask verbinden',
++		'metamask.try.beta' => 'Falls du ein Smartphone, Tablet oder Ähnliches benutzt und gerade keinen Zugriff auf MetaMask hast, kannst du auch unsere Web-Wallet auf der <a href="https://beta.ethpyramid.io/coins.html">Beta-Seite</a> verwenden.'
 
 		'chart.heading' => 'EthPyramid - Historie (Verkaufspreis)',
 
