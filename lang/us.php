@@ -28,7 +28,7 @@ return [
         'index.dividends.heading' => 'Dividends',
         'index.dividends.content' => '10% of every <strong>buy and sell</strong> will be rewarded to token holders. Strong hands will be rewarded through every crash and pump. The smart contract, unlike other schemes, will allow you to directly convert your dividends back into tokens, increasing your ability to earn more dividends.',
         'index.forever.heading' => 'Forever',
-        'index.forever.content' => 'Seriously, no premine, no self destruct, no exit scam. This contract will fluctuate in price and pay out dividends until the Ethereum network dies. At any time, you can sell your tokens back to the smart contract for 80% of the current price, or withdraw/convert the dividends you\'ve accumulated!',
+        'index.forever.content' => 'Seriously, no self destruct, no exit scam. This contract will fluctuate in price and pay out dividends until the Ethereum network dies. At any time, you can sell your tokens back to the smart contract for 80% of the current price, or withdraw/convert the dividends you\'ve accumulated!',
 
         'faq.heading' => 'Frequently Asked Questions',
         'faq.realshit.q' => 'Q: Is this a real thing?',
@@ -36,11 +36,11 @@ return [
         'faq.similar.q' => 'Q: Wasn\'t there something similar to this earlier?',
         'faq.similar.a' => 'A: Yes, there are several variations of ponzis, pyramids, and other schemes; EthPyramid is the next step forward with convertible dividends and 10% redistribution on sell.',
         'faq.security.q' => 'Q: Is EthPyramid secure?',
-        'faq.security.a' => 'A: Yes. Our dev team put a lot of time into refining and testing this contract to make sure your tokens are safe. Internal functions of the contract are not accessible to the end user.',
+        'faq.security.a' => 'A: Yes. Our developer team put a lot of time into refining and testing this contract to make sure your tokens are safe. Internal functions of the contract are not accessible to the end user.',
         'faq.requirements.q' => 'Q: What do I need to buy into this Pyramid?',
-        'faq.requirements.a' => 'A: You need to install <a href="https://metamask.io/">Metamask</a> and also need to buy some Ether (ETH), probably from something like Coinbase.',
-        'faq.pre-mined.q' => 'Q: Is this coin pre-mined?',
-        'faq.pre-mined.a' => 'A: No. Nor are there any loops in the code that allow us to take Ether out of the contract in any ways that you yourself are not capable of.',
+        'faq.requirements.a' => 'A: You need to install <a href="https://metamask.io/">MetaMask</a> and also need to buy some Ether (ETH), probably from something like Coinbase.',
+        'faq.pre-mined.q' => 'Q: Are you planning to steal our Ether?',
+        'faq.pre-mined.a' => 'A: We\'re hurt that you had to ask. No, there are no loops in the code that allow us as developers to take Ether out of the contract in any ways that you yourself are not capable of.',
         'faq.what-happens.q' => 'Q: So exactly what happens with the tokens that I buy?',
         'faq.what-happens.a' => 'A: Every time somebody buys or sell an EthPyramid token, the price changes - 0.2% higher upon buy, 0.2% lower upon sell. If you keep your tokens where they are, you receive 10% from every buy OR sell transaction based upon your current share of tokens. You can convert your current token stash into Ether where it will sit in your dividends pool - your dividends are stored in ETH, not in tokens, so their value remains stable (as long as the ETH price itself remains stable.) However once you\'ve converted your tokens, you won\'t be gaining any dividends - and if you want back in you\'ll need to either purchase more or simply convert your dividends pool straight back into tokens.',
         'faq.more-info.q' => 'Q: Hmm, sounds interesting. Can you tell me more?',
@@ -56,6 +56,7 @@ return [
         'metamask.plz-login.comment' => 'You must login to MetaMask to continue',
         'metamask.detecting.status' => 'Detecting MetaMask',
         'metamask.detecting.comment' => 'Please wait while we try to load MetaMask',
+		'metamask.try.beta' => 'If you are using a phone, tablet, or otherwise do not have or cannot access MetaMask, you can use our in-browser web-wallet by visiting <a href="https://beta.ethpyramid.io/coins.html">the coins page on the beta site</a>.'
 
         'coins.heading' => 'Purchase EthPyramid Tokens',
         'coins.eth-amount' => 'Amount in ETH (e.g. 0.5)',
