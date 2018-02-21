@@ -5,30 +5,30 @@
     text-shadow: none;
 }
 
-.ui.huge.primary.button {
+.ui.primary.button {
     color: #fff;
     background: #d69361 none;
 }
 
-.ui.huge.default.button {
+.ui.default.button {
     color: #fff;
     background: #00000026 none;
 }
 
-.ui.huge.primary.button:hover {
+.ui.primary.button:hover {
     background-color: #efa46d;
 }
 
-.ui.huge.default.button:hover {
+.ui.default.button:hover {
     background-color: #ffffff2b;
 }
 
-.ui.method.button.big.secondary {
+.ui.method.button.secondary {
     color: #fff;
     background: #00000026 none;
 }
 
-.ui.method.button.big.secondary:hover {
+.ui.method.button.secondary:hover {
     background-color: #ffffff2b;
 }
 
@@ -273,4 +273,8 @@ h3 {
 
 .ui.statistic .value {
     font-size: 3em !important;
+}
+
+.ui.dimmer {
+    background-color: rgba(0, 0, 0, 0.95)
 }
