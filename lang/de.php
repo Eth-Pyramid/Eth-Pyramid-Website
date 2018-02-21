@@ -92,7 +92,7 @@ return [
 		'metamask.plz-login.comment' => 'Du musst in MetaMask angemeldet sein um fortzufahren',
 		'metamask.detecting.status' => 'Suche MetaMask',
 		'metamask.detecting.comment' => 'Warte bitte, während wir versuchen, uns mit MetaMask verbinden',
-+		'metamask.try.beta' => 'Falls du ein Smartphone, Tablet oder Ähnliches benutzt und gerade keinen Zugriff auf MetaMask hast, kannst du auch unsere Web-Wallet auf der <a href="https://beta.ethpyramid.io/coins.html">Beta-Seite</a> verwenden.',
+		'metamask.try.beta' => 'Falls du ein Smartphone, Tablet oder Ähnliches benutzt und gerade keinen Zugriff auf MetaMask hast, kannst du auch unsere Web-Wallet auf der <a href="https://beta.ethpyramid.io/coins.html">Beta-Seite</a> verwenden.',
 
 		'chart.heading' => 'EthPyramid - Historie (Verkaufspreis)',
 
