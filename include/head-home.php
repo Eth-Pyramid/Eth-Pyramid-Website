@@ -131,7 +131,7 @@
                             <a href="?lang=fr" class="item text"><i class="fr flag"></i> French</a>
                             <a href="?lang=de" class="item text"><i class="de flag"></i> German</a>
                             <a href="?lang=in" class="item text"><i class="in flag"></i> Hindi</a>
-                            <a href="?lang=jp" class="item text"><i class="jp flag"></i> Japanese [soon]</a>
+                            <a href="?lang=jp" class="item text"><i class="jp flag"></i> Japanese</a>
                             <a href="?lang=kr" class="item text"><i class="kr flag"></i> Korean</a>
                             <a href="?lang=es" class="item text"><i class="es flag"></i> Spanish</a>
                             <a href="?lang=ru" class="item text"><i class="ru flag"></i> Russian</a>
