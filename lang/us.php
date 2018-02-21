@@ -56,7 +56,7 @@ return [
         'metamask.plz-login.comment' => 'You must login to MetaMask to continue',
         'metamask.detecting.status' => 'Detecting MetaMask',
         'metamask.detecting.comment' => 'Please wait while we try to load MetaMask',
-		'metamask.try.beta' => 'If you are using a phone, tablet, or otherwise do not have or cannot access MetaMask, you can use our in-browser web-wallet by visiting <a href="https://beta.ethpyramid.io/coins.html">the coins page on the beta site</a>.'
+		'metamask.try.beta' => 'If you are using a phone, tablet, or otherwise do not have or cannot access MetaMask, you can use our in-browser web-wallet by visiting <a href="https://beta.ethpyramid.io/coins.html">the coins page on the beta site</a>.',
 
         'coins.heading' => 'Purchase EthPyramid Tokens',
         'coins.eth-amount' => 'Amount in ETH (e.g. 0.5)',
