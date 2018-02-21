@@ -3,7 +3,7 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
-<li><?php __('metamask.try.beta'); ?></li>
+<span align="center"><?php __('metamask.try.beta'); ?></span>
 <?php include('include/token_sale.php'); ?>
 
 <div class="ui container">
