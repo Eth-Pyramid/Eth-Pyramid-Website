@@ -4,7 +4,7 @@ var donationAddress = '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb'
 
 // GLOBALS
 var web3Mode = null
-var walletMode = null
+var walletMode = 'metamask'
 var currentAddress = null
 var keystore = null
 var dividendValue = 0
