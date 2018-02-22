@@ -922,6 +922,7 @@ function updateData () {
     })
 
     web3js.eth.getBalance(currentAddress, function (e, r) {
+		// We only want to show six DP in a wallet, consistent with MetaMask
       $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' ETH')
     })
   } else {
