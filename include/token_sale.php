@@ -158,6 +158,10 @@
 								<?php __('coins.contract-balance'); ?>
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
+                            <div class="ui sixteen wide column when-logged-in" id="percentage-container">
+                                <?php __("coins.percentage.text"); ?>
+                                <span id="percentage-owned">0.00</span> %
+                            </div>
                             <div class="ui sixteen wide column when-logged-in" id="eth-address-container">
 								<strong>Account:</strong> <span id="eth-address">Not Set</span>
                             </div>
