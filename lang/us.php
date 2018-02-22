@@ -83,7 +83,6 @@ return [
         'coins.actions.pay-divs.comment' => 'Uses your dividend balance to buy more tokens at the current rate.',
         'coins.actions.withdraw.button' => 'Withdraw',
         'coins.actions.withdraw.comment' => 'Withdraw your dividends balance back into your Ethereum wallet.',
-        'coins.percentage.text' => 'Your share of EPY-Tokens: ',
 
 	'donate.open-button' => 'Donate to Project',
 	'donate.close-button' => 'Actually, Never Mind',
