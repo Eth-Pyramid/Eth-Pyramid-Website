@@ -320,7 +320,17 @@
     fund: "<?php __('coins.history.log.sent-eth'); ?>",
     reinvest: "<?php __('coins.history.log.sent-div'); ?>",
     withdraw: "<?php __('coins.history.log.withdrew'); ?>",
-    sold: "<?php __('coins.history.log.sold-epy'); ?>"
+    sold: "<?php __('coins.history.log.sold-epy'); ?>",
+    walletGenConfirmation : "<?php __('wallet.js.wallet-gen-confirmation'); ?>",
+    enterPassword : "<?php __('wallet.js.enter-password'); ?>",
+    incorrectPassword : "<?php __('wallet.js.incorrect-password'); ?>",
+    enterSeed : "<?php __('wallet.js.enter-seed');?>",
+    seedInvalid : "<?php __('wallet.js.seed-invalid');?>",
+    deleteWalletConfirmation : "<?php __('wallet.js.delete-wallet-confirmation');?>",
+    copiedToClip : "<?php __('wallet.js.copied-to-clip');?>",
+    invalidInput : "<?php __('wallet.invalid-input'); ?>",
+    invalidInputResponse : "<?php __('wallet.invalid-input-response'); ?>"
+
   }
 </script>
 

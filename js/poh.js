@@ -393,7 +393,7 @@ function getSeed () {
 function generateWallet () {
 
   if (keystore !== null) {
-    if (!confirm('We\'ve detected an existing wallet, are you sure you want to generate a new one?'))
+    if (!confirm(lang.walletGenConfirmation))
       return
   }
 
@@ -401,7 +401,7 @@ function generateWallet () {
   var secretSeed = lightwallet.keystore.generateRandomSeed()
 
   // the seed is stored encrypted by a user-defined password
-  var password = prompt('Enter password for encryption')
+  var password = prompt(lang.enterPassword)
 
   lightwallet.keystore.createVault({
     seedPhrase: secretSeed,
@@ -465,18 +465,18 @@ function loadWallet () {
       updateData()
     } catch (err) {
       console.log(err)
-      alert('Incorrect password supplied')
+      alert(lang.incorrectPassword)
     }
   })
 }
 
 function recoverWallet () {
-  var secretSeed = prompt('Enter your wallet seed')
+  var secretSeed = prompt(lang.enterSeed)
 
   if (!secretSeed)
     return
 
-  var password = prompt('Enter password for encryption')
+  var password = prompt(lang.enterPassword)
 
   if (!password)
     return
@@ -505,7 +505,7 @@ function recoverWallet () {
     })
   } catch (err) {
     console.log(err)
-    alert('Supplied seed is invalid')
+    alert(lang.seedInvalid)
   }
 }
 
@@ -565,7 +565,7 @@ window.addEventListener('load', function () {
             var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAddress)
           } catch (err) {
             console.log(err)
-            alert('Incorrect password supplied')
+            alert(lang.incorrectPassword)
             return
           }
           web3js.eth.sendRawTransaction(signedTx, function (err, hash) {
@@ -629,8 +629,8 @@ window.addEventListener('load', function () {
     let amount = $('#purchase-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#purchase-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: Lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#purchase-amount').removeClass('error').popup('destroy')
@@ -661,15 +661,15 @@ window.addEventListener('load', function () {
     var amount = $('#send-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#send-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: Lang.invalidInputResponse
       }).popup('show')
     } else {
       var address = $('#send-address').val()
       if (!address.match(/^0x[0-9a-fA-F]{40}$/)) {
         $('#send-address').addClass('error').popup({
-          title: 'Invalid Input',
-          content: 'Please input a valid address to send to.'
+          title: lang.invalidInput,
+          content: Lang.invalidInputResponse
         }).popup('show')
       } else {
         $('#send-amount').removeClass('error').popup('destroy')
@@ -683,8 +683,8 @@ window.addEventListener('load', function () {
     let amount = $('#donate-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#donate-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: Lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#donate-amount').removeClass('error').popup('destroy')
@@ -773,12 +773,12 @@ window.addEventListener('load', function () {
   $('#delete-wallet').click(function (e) {
     e.preventDefault()
 
-    if (!confirm('Are you sure you want to delete this wallet? Make sure you have a backup of your seed or private key.'))
+    if (!confirm(lang.deleteWalletConfirmation))
       return
 
     useWallet(function (pwDerivedKey) {
       if (!keystore.isDerivedKeyCorrect(pwDerivedKey)) {
-        alert('Invalid password supplied')
+        alert(lang.incorrectPassword)
       }
       else {
         $('#wallet-close').click()
@@ -815,7 +815,7 @@ window.addEventListener('load', function () {
     copyToClipboard(currentAddress)
 
     $('#copy-eth-address').popup({
-      content: 'Copied to clipboard',
+      content: lang.copiedToClip,
       hoverable: true
     }).popup('show')
 

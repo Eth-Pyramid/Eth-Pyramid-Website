@@ -145,6 +145,16 @@ return [
         'wallet.enter-password' => 'Enter your wallet password',
         'wallet.confirm' => 'Confirm',
         'wallet.cancel' => 'Cancel',
+        'wallet.js.wallet-gen-confirmation' => 'We\'ve detected an existing wallet, are you sure you want to generate a new one?',
+        'wallet.js.enter-password' => 'Enter password for encryption',
+        'wallet.js.incorrect-password' => 'Incorrect password supplied',
+        'wallet.js.enter-seed' => 'Enter your wallet seed',
+        'wallet.js.seed-invalid' => 'Supplied seed is invalid',
+        'wallet.js.delete-wallet-confirmation' => 'Are you sure you want to delete this wallet? Make sure you have a backup of your seed or private key.',
+        'wallet.js.copied-to-clip' => 'Copied to clipboard',
+        'wallet.invalid-input' => 'Invalid Input',
+        'wallet.invalid-input-response' => 'Please input a valid non-negative, non-zero value.',
+
 
 
         'wpaper.heading' => 'EthPyramid - A no-bullshit, transparent, self-sustaining pyramid scheme.',
