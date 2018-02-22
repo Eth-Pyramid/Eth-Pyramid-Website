@@ -926,7 +926,7 @@ function updateData () {
     })
 
     web3js.eth.getBalance(currentAddress, function (e, r) {
-      $('.address-balance').text(convertWeiToEth(r) + ' ETH')
+      $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' ETH')
     })
   } else {
     $('#meta-mask-ui').addClass('logged-out').removeClass('logged-in')
