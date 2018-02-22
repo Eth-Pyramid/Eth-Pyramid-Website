@@ -85,6 +85,7 @@ return [
         'coins.actions.withdraw.comment' => 'Withdraw your dividends balance back into your Ethereum wallet.',
         'coins.percentage.text' => 'Your share of EPY tokens: ',
 
+
 	'donate.open-button' => 'Donate to Project',
 	'donate.close-button' => 'Actually, Never Mind',
 	'donate.action-button' => 'Take my ETH',
