@@ -116,35 +116,31 @@
                             </div>
                             <div class="ui sixteen wide column when-logged-out">
                                 <div class="login-box green">
-                                    <div class="value">Not Logged In</div>
+                                    <div class="value"><?php __('wallet.not-logged-in')?></div>
                                     <div class="value-usd">
-                                        <p>Cannot retrieve your balances because you are not logged in.
-                                            If you are using MetaMask, login using the MetaMask UI. Alternatively, you
-                                            may use our in-browser wallet below.</p>
-                                        <p><strong>WARNING</strong> this feature is in BETA, use at your own risk.</p>
+                                        <p><?php __('wallet.log-in-info') ?></p>
+                                        <p><strong><?php __('wallet.WARNING') ?></strong> <?php __('wallet.beta') ?></p>
                                     </div>
                                     <div class="ui equal width stackable grid login-options">
                                         <div class="ui column">
-                                            <button id="generate-wallet" class="ui button large primary">Generate Wallet
+                                            <button id="generate-wallet" class="ui button large primary"><?php __('wallet.generate-wallet')?>
                                             </button>
                                             <p>
-                                                Generates and displays a wallet seed. The supplied password is used to
-                                                encrypt the wallet and store it securely.
+                                                <?php __('wallet.generate-seed')?>
                                             </p>
                                         </div>
                                         <div class="ui column" id="unlock-wallet-container">
-                                            <button id="unlock-wallet" class="ui button large secondary">Unlock Wallet
+                                            <button id="unlock-wallet" class="ui button large secondary"><?php __('wallet.unlock-wallet')?>
                                             </button>
                                             <p>
-                                                Unlocks the wallet currently encrypted and stored in this browser.
+                                                <?php __('wallet.unlock-wallet-info')?>
                                             </p>
                                         </div>
                                         <div class="ui column">
-                                            <button id="recover-wallet" class="ui button large">Restore Wallet
+                                            <button id="recover-wallet" class="ui button large"><?php __('wallet.restore-wallet')?>
                                             </button>
                                             <p>
-                                                Restores a wallet from the supplied seed. The supplied password is used
-                                                to encrypt the wallet and store it securely.
+                                                <?php __('wallet.restore-wallet-info')?>
                                             </p>
                                         </div>
                                     </div>
@@ -207,27 +203,24 @@
                 <div id="seed-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left">Wallet Seed</h2></br>
-                        <p><strong>WARNING</strong> This is your wallet's seed. If you lose this, you lose access to
-                            your ETH and any EPY along with it. This is only ever stored locally in your web browser.
-                            If you clear your browser data, generate a new wallet over an existing, or your computer
-                            dies, and you don't have this saved anywhere, nobody can recover this for you.
-                            Seriously, save it somewhere safe.</p>
+                        <p><strong><?php __('wallet.WARNING')?></strong>
+                            <?php __('wallet.seed')?></p>
                         <textarea id="wallet-seed">
 
                         </textarea>
-                        <button class="ui button huge primary" id="close-seed">I Have Stored My Seed Somewhere Safe
+                        <button class="ui button huge primary" id="close-seed"><?php __('wallet.stored-seed-confirmation')?>
                         </button>
                     </div>
                 </div>
                 <div id="wallet-dimmer" class="ui dimmer">
                     <div class="inner">
-                        <h2>Wallet Management</h2>
-                        <h4>Balance: <span class="address-balance"></span></h4>
+                        <h2><?php __('wallet.wallet-management')?></h2>
+                        <h4><?php __('wallet.balance')?><span class="address-balance"></span></h4>
                         <hr/>
                         <div class="ui equal width stackable grid">
                             <div class="ui column">
-                                <h3>Send</h3>
-                                <p>Send ETH to another address.</p>
+                                <h3><?php __('wallet.send')?></h3>
+                                <p><?php __('wallet.send-eth')?></p>
                                 <div class="center aligned actions">
                                     <input type="text" id="send-address" class="input-amount" placeholder="Destination address"/>
                                     <input type="number" id="send-amount" min="0" step="0.1" class="input-amount"
@@ -237,18 +230,18 @@
                                 </div>
                             </div>
                             <div class="ui column">
-                                <h3>Receive</h3>
+                                <h3><?php __('wallet.receive')?></h3>
                                 <p>
-                                    To deposit ETH into this wallet, send ETH to your public address:
+                                    <?php __('wallet.deposit-eth')?>
                                 </p>
                                 <p id="eth-public-address">
                                   <a href="#" class="etherscan-link" target="_blank"></a> <a href="#" id="copy-eth-address"><i class="fas fa-copy"></i></a>
                                 </p>
-                                <h3>Actions</h3>
+                                <h3><?php __('wallet.actions')?></h3>
                                 <p>
-                                    <a id="export-seed" href="#" class="ui button small">Export Seed</a>
-                                    <a id="export-private-key" href="#" class="ui button small">Export Private Key</a>
-                                    <a id="delete-wallet" href="#" class="ui button small">Delete Wallet</a>
+                                    <a id="export-seed" href="#" class="ui button small"><?php __('wallet.export-seed')?></a>
+                                    <a id="export-private-key" href="#" class="ui button small"><?php __('wallet.export-key')?></a>
+                                    <a id="delete-wallet" href="#" class="ui button small"><?php __('wallet.delete-wallet')?></a>
                                 </p>
 								<textarea id="exported-seed"></textarea>
                                 <input type="text" id="exported-private-key">
@@ -283,26 +276,26 @@
 
 <div id="tx-confirmation" class="ui modal">
     <div class="header">
-        Transaction Submitted
+        <?php __('wallet.tx-submitted')?>
     </div>
     <div class="content">
         <p>
-            Transaction successfully submitted to network. Transaction hash: <span id="tx-hash"></span>
+             <span id="tx-hash"><?php __('wallet.tx-successful')?></span>
         </p>
     </div>
 </div>
 
 <div id="password-prompt" class="ui modal">
     <div class="header">
-        Enter your wallet password
+        <?php __('wallet.enter-password')?>
     </div>
     <div class="ui content form">
         <div>
             <input type="password" id="password"/>
         </div>
         <div style="padding: 1em;">
-            <button id="confirm-tx" class="ui button primary" style="float: right;">Confirm</button>
-            <button id="cancel-tx" class="ui button">Cancel</button>
+            <button id="confirm-tx" class="ui button primary" style="float: right;"><?php __('wallet.confirm')?></button>
+            <button id="cancel-tx" class="ui button"><?php __('wallet.cancel')?></button>
         </div>
     </div>
 </div>
