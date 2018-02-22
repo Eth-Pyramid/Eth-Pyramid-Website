@@ -884,7 +884,8 @@ function updateData () {
     $('#meta-mask-ui').removeClass('logged-out').addClass('logged-in')
 
     contract.balanceOf(currentAddress, function (e, r) {
-      $('.poh-balance').text((r / 1e18 * 1000).toFixed(4) + ' EPY')
+      const tokenAmount = (r / 1e18 * 1000);
+      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPY')
       contract.getEtherForTokens(r, function (e, r) {
         let bal = convertWeiToEth(r * 0.9)
         $('.poh-value').text(bal.toFixed(4) + ' ETH')
@@ -921,7 +922,7 @@ function updateData () {
     })
 
     web3js.eth.getBalance(currentAddress, function (e, r) {
-      $('.address-balance').text(convertWeiToEth(r) + ' ETH')
+      $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' ETH')
     })
   } else {
     $('#meta-mask-ui').addClass('logged-out').removeClass('logged-in')
