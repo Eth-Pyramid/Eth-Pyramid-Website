@@ -40,7 +40,7 @@ return [
         'faq.requirements.q' => 'Q: What do I need to buy into this Pyramid?',
         'faq.requirements.a' => 'A: You need to install <a href="https://metamask.io/">MetaMask</a> and also need to buy some Ether (ETH), probably from something like Coinbase.',
         'faq.pre-mined.q' => 'Q: Are you planning to steal our Ether?',
-        'faq.pre-mined.a' => 'A: We\'re hurt that you had to ask. No, there are no loops in the code that allow us as developers to take Ether out of the contract in any ways that you yourself are not capable of.',
+        'faq.pre-mined.a' => 'A: We\'re hurt that you had to ask. No, there is no way for any participant to withdraw the Ether of any other participant.',
         'faq.what-happens.q' => 'Q: So exactly what happens with the tokens that I buy?',
         'faq.what-happens.a' => 'A: Every time somebody buys or sell an EthPyramid token, the price changes - 0.2% higher upon buy, 0.2% lower upon sell. If you keep your tokens where they are, you receive 10% from every buy OR sell transaction based upon your current share of tokens. You can convert your current token stash into Ether where it will sit in your dividends pool - your dividends are stored in ETH, not in tokens, so their value remains stable (as long as the ETH price itself remains stable.) However once you\'ve converted your tokens, you won\'t be gaining any dividends - and if you want back in you\'ll need to either purchase more or simply convert your dividends pool straight back into tokens.',
         'faq.more-info.q' => 'Q: Hmm, sounds interesting. Can you tell me more?',
