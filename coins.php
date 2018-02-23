@@ -36,6 +36,8 @@ var x = setInterval(function() {
 }, 1000);
 </script>
 
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/5JqY-6q-RNA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe></p>
+
 <?php include('include/token_sale.php'); ?>
 
 <div class="ui container">
