@@ -276,6 +276,14 @@ h3 {
     background-image: url("../images/BG-RU.jpg") !important;
 }
 
+.ui.statistic .label {
+    color: #a28c92;
+}
+
+.ui.statistic .value {
+    color: #eeeeee;
+}
+
 .ui.statistic .value {
     font-size: 3em !important;
 }
@@ -284,9 +292,6 @@ h3 {
     background-color: rgba(0, 0, 0, 0.95)
 }
 
-.ui.inverted.segment {
-    background-color: #1a0606 !important;
-}
 
 .pusher {
     background-color: #060606 !important;
@@ -298,5 +303,14 @@ body {
 }
 
 .ui.divider {
+    color: white !important;
+}
+
+.ui.segment {
+    color: black !important;
+}
+
+.ui.inverted.segment {
+    background-color: #1a0606 !important;
     color: white !important;
 }
