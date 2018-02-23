@@ -316,7 +316,7 @@ body {
     color: #fff2d2 !important;
 }
 
-h1.ui.header {
+h1.ui.header, h3.ui.header {
     color: #fff2d2 !important;
 }
 
