@@ -321,11 +321,11 @@ h1.ui.header {
 }
 
 a {
-    color: #80519c;
+    color: #f54113;
 }
 
 a:hover, a:visited {
-     color: #945db4;
+     color: #ff6031;
  }
 
 #quoteDisplay {
