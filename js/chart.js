@@ -24,7 +24,7 @@ var chart = AmCharts.makeChart('chartdiv', {
     }],
     'dataProvider': [],
     'color': '#7f8da9',
-    'title': 'EPY Sell Price',
+    'title': 'EPX Sell Price',
     'categoryField': 'date'
   }],
 

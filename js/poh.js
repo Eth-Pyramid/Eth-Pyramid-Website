@@ -885,7 +885,7 @@ function updateData () {
 
     contract.balanceOf(currentAddress, function (e, r) {
       const tokenAmount = (r / 1e18 * 1000);
-      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPY')
+      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPX')
       contract.getEtherForTokens(r, function (e, r) {
         let bal = convertWeiToEth(r * 0.9)
         $('.poh-value').text(bal.toFixed(4) + ' ETH')

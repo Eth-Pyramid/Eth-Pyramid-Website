@@ -17,7 +17,7 @@ include('include/head.php');
 						<?php __('stats.token-supply'); ?>
                     </div>
                     <div class="value" id="epy-supply">
-                        0 EPY
+                        0 EPX
                     </div>
                 </div>
                 <div class="ui statistic column">
@@ -33,7 +33,7 @@ include('include/head.php');
 						<?php __('stats.eth-balance'); ?>
                     </div>
                     <div class="value" id="contract-balance">
-                        0 EPY
+                        0 EPX
                     </div>
                 </div>
                 <div class="ui statistic column">
@@ -169,7 +169,7 @@ include('include/head.php');
       })
 
       $.getJSON('https://api.ethpyramid.io/stats.php', function (data) {
-        $('#epy-supply').html(data.total_supply.toFixed(0) + ' EPY')
+        $('#epy-supply').html(data.total_supply.toFixed(0) + ' EPX')
         $('#total-volume').html(data.total_volume.toFixed(0) + ' ETH')
         $('#contract-balance').html(data.contract_balance.toFixed(0) + ' ETH')
         $('#total-dividends').html((data.total_volume / 10).toFixed(0) + ' ETH')
