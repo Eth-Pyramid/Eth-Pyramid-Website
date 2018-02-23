@@ -7,7 +7,7 @@ include('include/head.php');
     <div class="ui container vertical stripe">
         <h2><?php __('wpaper.heading'); ?></h2>
         <p style="text-align: center; margin: 3em;">
-            <img src="../images/sneky.png">
+            <img src="../images/sneky_phoenix.png">
         </p>
         <h3 class="ui horizontal divider">
             <?php __('wpaper.content.preface.head'); ?>
