@@ -7,7 +7,7 @@
 
 .ui.primary.button {
     color: #fff;
-    background: #d66161 none;
+    background: #330066 none;
 }
 
 .ui.default.button {
@@ -15,11 +15,11 @@
     background: #00000026 none;
 }
 
-.ui.primary.button:hover {
-    background-color: #de8686;
+.ui.primary.button:hover, .ui.primary.button:visited {
+    background-color: #540066;
 }
 
-.ui.default.button:hover {
+.ui.default.button:hover, .ui.default.button:visited {
     background-color: #ffffff2b;
 }
 
@@ -64,6 +64,7 @@
     font-size: 1.4em;
     font-weight: normal;
     color: #ffffff;
+    text-shadow: 2px 2px 8px #0e0007;
     margin-top: 0;
 }
 
@@ -161,7 +162,7 @@ h3 {
     justify-content: center;
     height: 80px;
     border-radius: 50%;
-    background-color: #d66161;
+    background-color: #330066;
     margin: 0 auto 20px;
     font-size: 39px;
     color: white;
@@ -303,7 +304,7 @@ body {
 }
 
 .ui.divider {
-    color: white !important;
+    color: #fff2d2 !important;
 }
 
 .ui.segment {
@@ -311,10 +312,22 @@ body {
 }
 
 .ui.inverted.segment {
-    background-color: #1a0606 !important;
-    color: white !important;
+    background-color: #130a1c !important;
+    color: #fff2d2 !important;
 }
 
 h1.ui.header {
-    color: white !important;
+    color: #fff2d2 !important;
+}
+
+a {
+    color: #80519c;
+}
+
+a:hover, a:visited {
+     color: #945db4;
+ }
+
+#quoteDisplay {
+    color: #fff2d2 !important;
 }
