@@ -594,6 +594,22 @@ window.addEventListener('load', function () {
     }
   }
 
+    function donate(amount) {
+        if (walletMode === 'metamask') {
+            const txobject = {
+                from: currentAddress,
+                to: donationAddress,
+                value : amount,
+
+            }
+            web3js.eth.sendTransaction(txobject, function (err, hash) {
+                console.log(err);
+            });
+           } else if (walletMode === 'web') {
+            call(donationAddress, 'fund', convertEthToWei(amount))
+        }
+    }
+
   function sell () {
     if (walletMode === 'metamask') {
       contract.sellMyTokens(function (e, r) {
@@ -630,7 +646,7 @@ window.addEventListener('load', function () {
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#purchase-amount').addClass('error').popup({
         title: lang.invalidInput,
-        content: Lang.invalidInputResponse
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#purchase-amount').removeClass('error').popup('destroy')
@@ -662,14 +678,14 @@ window.addEventListener('load', function () {
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#send-amount').addClass('error').popup({
         title: lang.invalidInput,
-        content: Lang.invalidInputResponse
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       var address = $('#send-address').val()
       if (!address.match(/^0x[0-9a-fA-F]{40}$/)) {
         $('#send-address').addClass('error').popup({
           title: lang.invalidInput,
-          content: Lang.invalidInputResponse
+          content: lang.invalidInputResponse
         }).popup('show')
       } else {
         $('#send-amount').removeClass('error').popup('destroy')
@@ -684,11 +700,11 @@ window.addEventListener('load', function () {
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#donate-amount').addClass('error').popup({
         title: lang.invalidInput,
-        content: Lang.invalidInputResponse
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#donate-amount').removeClass('error').popup('destroy')
-      fund(donationAddress, amount)
+      donate(amount)
     }
   })
 
