@@ -14,7 +14,7 @@
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
                             <div class="spinning-logo">
-                                <img src="images/BuyLogo.png">
+                                <img src="images/spinning.gif">
                             </div>
 
 
