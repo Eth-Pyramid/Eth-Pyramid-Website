@@ -40,6 +40,7 @@
                                     <option>CNY</option>
                                     <option>CZK</option>
                                     <option>DKK</option>
+                                    <option>EPY</option>
                                     <option>EUR</option>
                                     <option>GBP</option>
                                     <option>HKD</option>
