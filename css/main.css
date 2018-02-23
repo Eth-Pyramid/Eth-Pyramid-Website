@@ -314,3 +314,7 @@ body {
     background-color: #1a0606 !important;
     color: white !important;
 }
+
+h1.ui.header {
+    color: white !important;
+}
