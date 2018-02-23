@@ -7,7 +7,7 @@
 
 .ui.primary.button {
     color: #fff;
-    background: #330066 none;
+    background: #f54113 none;
 }
 
 .ui.default.button {
@@ -16,7 +16,7 @@
 }
 
 .ui.primary.button:hover, .ui.primary.button:visited {
-    background-color: #540066;
+    background-color: #ff6a3b;
 }
 
 .ui.default.button:hover, .ui.default.button:visited {
