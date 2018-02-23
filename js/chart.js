@@ -61,6 +61,7 @@ var chart = AmCharts.makeChart('chartdiv', {
       'highField': 'high',
       'lowField': 'low',
       'valueField': 'close',
+      'lineColor': '#111111',
       'fillColors': '#5ba976',
       'negativeLineColor': '#db4c3c',
       'negativeFillColors': '#db4c3c',

@@ -14,7 +14,7 @@
 }
 
 #buy-panel {
-    background: #2f2f32;
+    background: #181515;
     border-radius: 15px 0px 0px 15px;
 }
 
@@ -23,7 +23,7 @@
 }
 
 #value-panel {
-    background: #363639;
+    background: #262222;
     border-radius: 0px 15px 15px 0px;
 }
 
@@ -153,7 +153,7 @@
 
 .price-box, #transaction-history-container, .login-box {
     padding: 1.8em;
-    background: #404040;
+    background: #4c4040;
     border-radius: 20px;
     box-shadow: 0px 10px 10px #0000001a;
 }
@@ -163,11 +163,11 @@
 }
 
 .price-box.blue {
-    background-color: #384b57;
+    background-color: #44343c;
 }
 
 .price-box.green, .login-box.green {
-    background: #3e596b;
+    background: #442b3d;
 }
 
 .price-box .title, .login-box .title {
@@ -214,7 +214,7 @@
 }
 
 #token-sale .methods p {
-    color: #999999;
+    color: #dea7a7;
 }
 
 #token-sale .inverted.dimmer * {
