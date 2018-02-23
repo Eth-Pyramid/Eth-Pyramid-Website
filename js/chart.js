@@ -1,6 +1,6 @@
 var chart = AmCharts.makeChart('chartdiv', {
   'type': 'stock',
-  'theme': 'light',
+  'theme': 'black',
 
   'categoryAxesSettings': {
     'minPeriod': '15mm',
@@ -61,7 +61,6 @@ var chart = AmCharts.makeChart('chartdiv', {
       'highField': 'high',
       'lowField': 'low',
       'valueField': 'close',
-      'lineColor': '#5ba976',
       'fillColors': '#5ba976',
       'negativeLineColor': '#db4c3c',
       'negativeFillColors': '#db4c3c',

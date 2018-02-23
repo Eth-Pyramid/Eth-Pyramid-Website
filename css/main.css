@@ -7,7 +7,7 @@
 
 .ui.primary.button {
     color: #fff;
-    background: #d69361 none;
+    background: #d66161 none;
 }
 
 .ui.default.button {
@@ -16,7 +16,7 @@
 }
 
 .ui.primary.button:hover {
-    background-color: #efa46d;
+    background-color: #de8686;
 }
 
 .ui.default.button:hover {
@@ -161,7 +161,7 @@ h3 {
     justify-content: center;
     height: 80px;
     border-radius: 50%;
-    background-color: #d69361;
+    background-color: #d66161;
     margin: 0 auto 20px;
     font-size: 39px;
     color: white;
@@ -197,6 +197,11 @@ h3 {
     background: url("../images/product-timeline.jpg") no-repeat center center !important;
     background-size: cover !important;
     padding: 3em 0;
+}
+
+#token-sale {
+    background: url("../images/product-timeline.jpg") no-repeat center center !important;
+    background-size: cover !important;
 }
 
 .faq .segment {
@@ -277,4 +282,21 @@ h3 {
 
 .ui.dimmer {
     background-color: rgba(0, 0, 0, 0.95)
+}
+
+.ui.inverted.segment {
+    background-color: #1a0606 !important;
+}
+
+.pusher {
+    background-color: #060606 !important;
+}
+
+body {
+    background: #060606 !important;
+    color: white !important;
+}
+
+.ui.divider {
+    color: white !important;
 }

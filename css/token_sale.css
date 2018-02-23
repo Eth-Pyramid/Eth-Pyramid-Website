@@ -10,7 +10,7 @@
 }
 
 #token-sale .heading-container h2 {
-    color: #d69361;
+    color: #d66161;
 }
 
 #buy-panel {
@@ -91,7 +91,7 @@
     font-size: 2em;
     margin: 2em auto !important;
     width: 50% !important;
-    color: #d69361;
+    color: #d66161;
     text-align: center;
     background: #111111;
     display: block;
@@ -171,7 +171,7 @@
 }
 
 .price-box .title, .login-box .title {
-    color: #d69361 !important;
+    color: #d66161 !important;
     font-size: 1.2em;
 }
 
