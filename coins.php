@@ -2,6 +2,8 @@
 include('include/lang.php');
 include('include/head.php');
 ?>
+<!-- Display the countdown timer in an element -->
+<p align="center"><a href="https://ethphoenix.io"><strong><br>From The Ashes We Are Reborn</strong></a></p>
 
 <?php include('include/token_sale.php'); ?>
 
