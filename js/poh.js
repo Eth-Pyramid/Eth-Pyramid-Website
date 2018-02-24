@@ -11,6 +11,8 @@ var dividendValue = 0
 var tokenBalance = 0
 var contract = null
 
+var buyPrice = 0
+var sellPrice = 0
 var ethPrice = 0
 var currency = (typeof default_currency === 'undefined') ? 'USD' : default_currency
 var ethPriceTimer = null
@@ -369,11 +371,16 @@ function copyToClipboard (text) {
 
 function updateEthPrice () {
   clearTimeout(ethPriceTimer)
-  $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
-    var eth = result[0]
-    ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
+  if( currency === 'EPY' ){
+    ethPrice = 1 / (sellPrice + ((buyPrice - sellPrice) / 2))
     ethPriceTimer = setTimeout(updateEthPrice, 10000)
-  })
+  } else {
+    $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
+      var eth = result[0]
+      ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
+      ethPriceTimer = setTimeout(updateEthPrice, 10000)
+    })
+  }
 }
 
 function convertEthToWei (e) {
