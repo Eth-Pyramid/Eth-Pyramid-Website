@@ -234,11 +234,17 @@
 
 .contract-balance-container {
     text-align: right;
+	font-size: 1.22em;
+	font-weight: bold;
+	color: #F64114 !important;
 }
 
 @media only screen and (max-width: 700px) {
     .contract-balance-container {
         text-align: center;
+		font-size: 1.22em;
+		font-weight: bold;
+		color: #F64114 !important;
     }
 }
 
