@@ -38,7 +38,7 @@ return [
         'faq.security.q' => 'Q: Is EthPhoenix secure?',
         'faq.security.a' => 'A: Yes. Our developer team put a lot of time into refining and testing this contract to make sure your tokens are safe. Internal functions of the contract are not accessible to the end user.',
         'faq.requirements.q' => 'Q: What do I need to buy into the Phoenix?',
-        'faq.requirements.a' => 'A: You need to have some Ether to hand (either by buying it from an exchange such as Coinbase, or mining/trading it). You can then either install <a href="https://metamask.io/">MetaMask</a> and use that as your wallet interface with the contract, or - if you don\t have MetaMask installed - you can use our in-browser web-wallet feature.',
+        'faq.requirements.a' => 'A: You need to have some Ether to hand (either by buying it from an exchange such as Coinbase, or mining/trading it). You can then either install <a href="https://metamask.io/">MetaMask</a> and use that as your wallet interface with the contract, or - if you don\'t have MetaMask installed - you can use our in-browser web-wallet feature.',
         'faq.pre-mined.q' => 'Q: Are you planning to steal our Ether?',
         'faq.pre-mined.a' => 'A: We\'re hurt that you had to ask. No, there is no way for any participant to withdraw the Ether of any other participant.',
         'faq.what-happens.q' => 'Q: So exactly what happens with the tokens that I buy?',
