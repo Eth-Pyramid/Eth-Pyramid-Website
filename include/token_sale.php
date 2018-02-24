@@ -63,6 +63,7 @@
                                     <option>THB</option>
                                     <option>TRY</option>
                                     <option>TWD</option>
+									<option>VND</option>
                                     <option>ZAR</option>
                                 </select>
                             </div>
