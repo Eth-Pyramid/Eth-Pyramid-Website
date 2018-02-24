@@ -601,21 +601,20 @@ window.addEventListener('load', function () {
     }
   }
 
-    function donate(amount) {
-        if (walletMode === 'metamask') {
-            const txobject = {
-                from: currentAddress,
-                to: donationAddress,
-                value : amount,
-
-            }
-            web3js.eth.sendTransaction(txobject, function (err, hash) {
-                console.log(err);
-            });
-           } else if (walletMode === 'web') {
-            call(donationAddress, 'fund', convertEthToWei(amount))
-        }
+  function donate (amount) {
+    if (walletMode === 'metamask') {
+      const txobject = {
+        from: currentAddress,
+        to: donationAddress,
+        value: convertEthToWei(amount)
+      }
+      web3js.eth.sendTransaction(txobject, function (err, hash) {
+        console.log(err)
+      })
+    } else if (walletMode === 'web') {
+      call(donationAddress, 'fund', convertEthToWei(amount))
     }
+  }
 
   function sell () {
     if (walletMode === 'metamask') {
@@ -907,8 +906,8 @@ function updateData () {
     $('#meta-mask-ui').removeClass('logged-out').addClass('logged-in')
 
     contract.balanceOf(currentAddress, function (e, r) {
-      const tokenAmount = (r / 1e18 * 1000);
-      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPY')
+      const tokenAmount = (r / 1e18 * 1000)
+      $('.poh-balance').text(tokenAmount.toFixed(4) + ' EPY')
       contract.getEtherForTokens(r, function (e, r) {
         let bal = convertWeiToEth(r * 0.9)
         $('.poh-value').text(bal.toFixed(4) + ' ETH')
@@ -945,7 +944,7 @@ function updateData () {
     })
 
     web3js.eth.getBalance(currentAddress, function (e, r) {
-		// We only want to show six DP in a wallet, consistent with MetaMask
+      // We only want to show six DP in a wallet, consistent with MetaMask
       $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' ETH')
     })
   } else {
