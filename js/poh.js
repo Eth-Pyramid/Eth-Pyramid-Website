@@ -1,3 +1,4 @@
+
 // CONSTANTS
 var contractAddress = '0x2Fa0ac498D01632f959D3C18E38f4390B005e200'
 var donationAddress = '0x25dd53e2594735b38a4646f62e5b65b4e4aa42bb'
@@ -11,8 +12,6 @@ var dividendValue = 0
 var tokenBalance = 0
 var contract = null
 
-var buyPrice = 0
-var sellPrice = 0
 var ethPrice = 0
 var currency = (typeof default_currency === 'undefined') ? 'USD' : default_currency
 var ethPriceTimer = null
@@ -371,16 +370,11 @@ function copyToClipboard (text) {
 
 function updateEthPrice () {
   clearTimeout(ethPriceTimer)
-  if( currency === 'EPY' ){
-    ethPrice = 1 / (sellPrice + ((buyPrice - sellPrice) / 2))
+  $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
+    var eth = result[0]
+    ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
     ethPriceTimer = setTimeout(updateEthPrice, 10000)
-  } else {
-    $.getJSON('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=' + currency, function (result) {
-      var eth = result[0]
-      ethPrice = parseFloat(eth['price_' + currency.toLowerCase()])
-      ethPriceTimer = setTimeout(updateEthPrice, 10000)
-    })
-  }
+  })
 }
 
 function convertEthToWei (e) {
@@ -400,7 +394,7 @@ function getSeed () {
 function generateWallet () {
 
   if (keystore !== null) {
-    if (!confirm('We\'ve detected an existing wallet, are you sure you want to generate a new one?'))
+    if (!confirm(lang.walletGenConfirmation))
       return
   }
 
@@ -408,7 +402,7 @@ function generateWallet () {
   var secretSeed = lightwallet.keystore.generateRandomSeed()
 
   // the seed is stored encrypted by a user-defined password
-  var password = prompt('Enter password for encryption')
+  var password = prompt(lang.enterPassword)
 
   lightwallet.keystore.createVault({
     seedPhrase: secretSeed,
@@ -472,18 +466,18 @@ function loadWallet () {
       updateData()
     } catch (err) {
       console.log(err)
-      alert('Incorrect password supplied')
+      alert(lang.incorrectPassword)
     }
   })
 }
 
 function recoverWallet () {
-  var secretSeed = prompt('Enter your wallet seed')
+  var secretSeed = prompt(lang.enterSeed)
 
   if (!secretSeed)
     return
 
-  var password = prompt('Enter password for encryption')
+  var password = prompt(lang.enterPassword)
 
   if (!password)
     return
@@ -512,7 +506,7 @@ function recoverWallet () {
     })
   } catch (err) {
     console.log(err)
-    alert('Supplied seed is invalid')
+    alert(lang.seedInvalid)
   }
 }
 
@@ -572,7 +566,7 @@ window.addEventListener('load', function () {
             var signedTx = '0x' + lightwallet.signing.signTx(keystore, pwDerivedKey, rawTx, currentAddress)
           } catch (err) {
             console.log(err)
-            alert('Incorrect password supplied')
+            alert(lang.incorrectPassword)
             return
           }
           web3js.eth.sendRawTransaction(signedTx, function (err, hash) {
@@ -600,6 +594,22 @@ window.addEventListener('load', function () {
       call(address, 'fund', convertEthToWei(amount))
     }
   }
+
+    function donate(amount) {
+        if (walletMode === 'metamask') {
+            const txobject = {
+                from: currentAddress,
+                to: donationAddress,
+                value : amount,
+
+            }
+            web3js.eth.sendTransaction(txobject, function (err, hash) {
+                console.log(err);
+            });
+           } else if (walletMode === 'web') {
+            call(donationAddress, 'fund', convertEthToWei(amount))
+        }
+    }
 
   function sell () {
     if (walletMode === 'metamask') {
@@ -636,8 +646,8 @@ window.addEventListener('load', function () {
     let amount = $('#purchase-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#purchase-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#purchase-amount').removeClass('error').popup('destroy')
@@ -668,15 +678,15 @@ window.addEventListener('load', function () {
     var amount = $('#send-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#send-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       var address = $('#send-address').val()
       if (!address.match(/^0x[0-9a-fA-F]{40}$/)) {
         $('#send-address').addClass('error').popup({
-          title: 'Invalid Input',
-          content: 'Please input a valid address to send to.'
+          title: lang.invalidInput,
+          content: lang.invalidInputResponse
         }).popup('show')
       } else {
         $('#send-amount').removeClass('error').popup('destroy')
@@ -690,12 +700,12 @@ window.addEventListener('load', function () {
     let amount = $('#donate-amount').val().trim()
     if (amount <= 0 || !isFinite(amount) || amount === '') {
       $('#donate-amount').addClass('error').popup({
-        title: 'Invalid Input',
-        content: 'Please input a valid non-negative, non-zero value.'
+        title: lang.invalidInput,
+        content: lang.invalidInputResponse
       }).popup('show')
     } else {
       $('#donate-amount').removeClass('error').popup('destroy')
-      fund(donationAddress, amount)
+      donate(amount)
     }
   })
 
@@ -780,12 +790,12 @@ window.addEventListener('load', function () {
   $('#delete-wallet').click(function (e) {
     e.preventDefault()
 
-    if (!confirm('Are you sure you want to delete this wallet? Make sure you have a backup of your seed or private key.'))
+    if (!confirm(lang.deleteWalletConfirmation))
       return
 
     useWallet(function (pwDerivedKey) {
       if (!keystore.isDerivedKeyCorrect(pwDerivedKey)) {
-        alert('Invalid password supplied')
+        alert(lang.incorrectPassword)
       }
       else {
         $('#wallet-close').click()
@@ -822,7 +832,7 @@ window.addEventListener('load', function () {
     copyToClipboard(currentAddress)
 
     $('#copy-eth-address').popup({
-      content: 'Copied to clipboard',
+      content: lang.copiedToClip,
       hoverable: true
     }).popup('show')
 
@@ -892,7 +902,7 @@ function updateData () {
 
     contract.balanceOf(currentAddress, function (e, r) {
       const tokenAmount = (r / 1e18 * 1000);
-      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPX')
+      $('.poh-balance').text( tokenAmount.toFixed(4) + ' EPY')
       contract.getEtherForTokens(r, function (e, r) {
         let bal = convertWeiToEth(r * 0.9)
         $('.poh-value').text(bal.toFixed(4) + ' ETH')
@@ -937,13 +947,13 @@ function updateData () {
   }
 
   contract.buyPrice(function (e, r) {
-    buyPrice = (1 / (convertWeiToEth(r) * .9) / 1000000)
+    let buyPrice = (1 / (convertWeiToEth(r) * .9) / 1000000)
     $('.poh-buy').text(buyPrice.toFixed(6) + ' ETH')
     $('.poh-buy-usd').text('(' + (buyPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
   })
 
   contract.sellPrice(function (e, r) {
-    sellPrice = convertWeiToEth(r)
+    let sellPrice = convertWeiToEth(r)
     $('.poh-sell').text(sellPrice.toFixed(6) + ' ETH')
     $('.poh-sell-usd').text('(' + (sellPrice * ethPrice).toFixed(4) + ' ' + currency + ')')
   })
