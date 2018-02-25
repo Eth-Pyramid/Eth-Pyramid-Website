@@ -254,27 +254,27 @@ h3 {
 }
 
 .lang_au .masthead {
-    background-image: url("../images/BG-AU.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .lang_cn .masthead {
-    background-image: url("../images/BG-CN.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .lang_sa .masthead {
-    background-image: url("../images/BG-SA.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .lang_es .masthead {
-    background-image: url("../images/BG-ES.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .lang_de .masthead {
-    background-image: url("../images/BG-DE.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .lang_ru .masthead {
-    background-image: url("../images/BG-RU.jpg") !important;
+    background-image: url("../images/BG.jpg") !important;
 }
 
 .ui.statistic .label {
