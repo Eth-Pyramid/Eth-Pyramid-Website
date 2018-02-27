@@ -4,7 +4,7 @@ var chart = AmCharts.makeChart('chartdiv', {
 
   'categoryAxesSettings': {
     'minPeriod': '15mm',
-    'maxSeries': 150,
+    'maxSeries': 100,
     'groupToPeriods': ['15mm', '30mm', 'hh', '2hh', '3hh', '6hh', '12hh', 'DD', '2DD', '3DD', '4DD', '5DD', '6DD', 'WW', '2WW', 'MM', '3MM', '6MM', 'YYYYt st']
   },
 
@@ -24,7 +24,11 @@ var chart = AmCharts.makeChart('chartdiv', {
     }, {
       'fromField': 'volume',
       'toField': 'volume'
-    }],
+    }, {
+      'fromField': 'balance',
+      'toField': 'balance'
+    },
+    ],
     'dataProvider': [],
     'color': '#7f8da9',
     'title': 'EPX Sell Price',
@@ -34,22 +38,19 @@ var chart = AmCharts.makeChart('chartdiv', {
 
   'panels': [{
     'title': 'Value',
-
-    'showCategoryAxis': true,
-
-    'percentHeight': 70,
-
-    'dataDateFormat': 'YYYY-MM-DD JJ:NN',
+    'percentHeight': 65,
 
     'valueAxes': [{
       'dashLength': 5
     }],
 
+    'dataDateFormat': 'YYYY-MM-DD JJ:NN',
     'categoryField': 'date',
-
     'categoryAxis': {
       'parseDates': true
     },
+
+    'showCategoryAxis': false,
 
     'chartCursor': {
       'valueLineEnabled': true,
@@ -73,17 +74,51 @@ var chart = AmCharts.makeChart('chartdiv', {
       'useDataSetColors': false,
       'comparable': true,
       'compareField': 'value',
-      'showBalloon': true
+      'showBalloon': true,
+      'dateFormat': 'YYYY-MM-DD JJ:NN',
     }]
   }, {
     'title': 'Volume',
-    'percentHeight': 25,
+    'showCategoryAxis': false,
+    'percentHeight': 15,
+    'dataDateFormat': 'YYYY-MM-DD JJ:NN',
+    'categoryField': 'date',
+    'categoryAxis': {
+      'parseDates': true
+    },
     'stockGraphs': [{
       'valueField': 'volume',
+      'balloonText': 'Volume:<b>[[value]] ETH</b>',
       'type': 'column',
       'showBalloon': true,
+      'periodValue': 'Sum',
       'fillAlphas': 1,
-      'visibleInLegend': false
+      'visibleInLegend': false,
+      'cornerRadiusTop': 2,
+    }],
+    'stockLegend': {
+      'periodValueTextRegular': '[[value.close]]'
+    }
+  }, {
+    'title': 'Balance',
+    'percentHeight': 20,
+    'bullet': 'round',
+    'showCategoryAxis': true,
+    'dataDateFormat': 'YYYY-MM-DD JJ:NN',
+    'categoryField': 'date',
+    'periodValue': 'Average',
+    'categoryAxis': {
+      'parseDates': true
+    },
+    'stockGraphs': [{
+      'valueField': 'balance',
+      'balloonText': 'Balance:<b>[[value]] ETH</b>',
+      'fillAlphas': 0.25,
+      'type': 'smoothedLine',
+      'bullet': 'round',
+      'lineThickness': 2,
+      'showBalloon': true,
+      'visibleInLegend': false,
     }],
     'stockLegend': {
       'periodValueTextRegular': '[[value.close]]'
