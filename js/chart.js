@@ -21,12 +21,16 @@ var chart = AmCharts.makeChart('chartdiv', {
     }, {
       'fromField': 'low',
       'toField': 'low'
+    }, {
+      'fromField': 'volume',
+      'toField': 'volume'
     }],
     'dataProvider': [],
     'color': '#7f8da9',
     'title': 'EPX Sell Price',
     'categoryField': 'date'
-  }],
+  }
+  ],
 
   'panels': [{
     'title': 'Value',
@@ -71,13 +75,26 @@ var chart = AmCharts.makeChart('chartdiv', {
       'compareField': 'value',
       'showBalloon': true
     }]
+  }, {
+    'title': 'Volume',
+    'percentHeight': 25,
+    'stockGraphs': [{
+      'valueField': 'volume',
+      'type': 'column',
+      'showBalloon': true,
+      'fillAlphas': 1,
+      'visibleInLegend': false
+    }],
+    'stockLegend': {
+      'periodValueTextRegular': '[[value.close]]'
+    }
   }],
 
   'chartScrollbarSettings': {
     'graph': 'g1',
     'graphType': 'line',
     'usePeriod': '15mm',
-    'height': 90,
+    'height': 70,
     'color': '#222222'
   }
 
