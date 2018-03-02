@@ -104,7 +104,8 @@
                 <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
                 <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
                 <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
-                <a class="item" href="http://www.pyrmex.com">Futures</a>
+                <a class="item" href="http://www.pyrmex.com">Futures</a>>
+				<a class="item" href="roadmap.html">Roadmap</a>
 
                 <div class="right item">
                     <!-- Social Icons -->
