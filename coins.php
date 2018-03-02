@@ -3,8 +3,6 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
-<p align="center"><br><iframe width="560" height="315" src="https://www.youtube.com/embed/nzOrC9sm89A?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
-
 <?php include('include/token_sale.php'); ?>
 
 <div class="ui container">
