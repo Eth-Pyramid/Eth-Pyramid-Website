@@ -3,7 +3,7 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
-<p align="center">The world is no longer the way it used to be, mmm no no no!</p>
+<p align="center">And you, my father, there on the sad height -</p>
 
 <?php include('include/token_sale.php'); ?>
 
