@@ -3,6 +3,8 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
+<title>Time Cube</title>
+
 <body bgcolor=white background=grid.gif lang=EN-US link="#53813C"
 vlink="#FF191C" style='tab-interval:.5in' alink="#FFFFFF">
 

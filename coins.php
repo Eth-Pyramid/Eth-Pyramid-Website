@@ -3,7 +3,6 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
-<meta name="description" content="EthPhoenix - My Coins | <?php __('desc_locale'); ?>">
 <p align="center">And you, my father, there on the sad height -</p>
 
 <?php include('include/token_sale.php'); ?>

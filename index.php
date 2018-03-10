@@ -4,7 +4,6 @@ $showBanner = true;
 include('include/head-home.php');
 ?>
 
-<meta name="description" content="EthPhoenix - Main Page | <?php __('desc_locale'); ?>">
 <div class="ui container vertical stripe">
     <h1 class="ui header center aligned"><?php __('index.heading'); ?></h1>
     <div class="ui vertical stripe features">
