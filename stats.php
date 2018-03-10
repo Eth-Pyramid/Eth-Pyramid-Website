@@ -3,6 +3,7 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
+<meta name="description" content="EthPhoenix - Statistics | <?php __('desc_locale'); ?>">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
 <div class="ui container vertical stripe">

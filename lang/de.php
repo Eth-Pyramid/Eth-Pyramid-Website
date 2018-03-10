@@ -1,6 +1,7 @@
 <?php
 return [
     'code' => 'de',
+	'desc_locale' => "DE",
     'iso_code' => 'de',
     'iso_country' => 'de',
     'default_currency' => 'EUR',

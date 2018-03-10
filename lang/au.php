@@ -1,7 +1,8 @@
 <?php
 
 return [
-	'name' => 'English (AU)',
+	'name' => 'English (AU)',	
+	'desc_locale' => "AU",
 	'code' => 'au',
 	'iso_code' => 'en',
 	'iso_country' => 'au',

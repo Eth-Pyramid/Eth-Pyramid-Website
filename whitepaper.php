@@ -3,6 +3,7 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
+<meta name="description" content="EthPhoenix - Whitepaper | <?php __('desc_locale'); ?>">
 <div class="faq-main-content whitepaper">
     <div class="ui container vertical stripe">
         <h2><?php __('wpaper.heading'); ?></h2>
