@@ -41,7 +41,7 @@ include('include/head.php');
 						<?php __('stats.total-divs'); ?>
                     </div>
                     <div class="value" id="total-dividends">
-                        0 ETHt s
+                        0 ETH
                     </div>
                 </div>
             </div>
