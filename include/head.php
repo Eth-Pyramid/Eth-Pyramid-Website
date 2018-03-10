@@ -74,7 +74,7 @@
         <a class="item" href="https://ethphoenix.wordpress.com"><?php __('menu.blog'); ?></a>
         <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
         <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
-		<a class="item" href="http://www.pyrmex.com">Futures</a>
+		<a class="item" href="https://www.pyrmex.com">Futures</a>
         <div class="right menu">
             <div class="social-bits">
                 <a href="https://twitter.com/ethphoenix" target="_blank">
@@ -106,7 +106,7 @@
                 <a class="item" href="https://ethphoenix.wordpress.com"><?php __('menu.blog'); ?></a>
                 <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
                 <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
-				<a class="item" href="http://www.pyrmex.com">Futures</a>
+				<a class="item" href="https://www.pyrmex.com">Futures</a>
 
                 <div class="right item">
                     <!-- Social Icons -->
