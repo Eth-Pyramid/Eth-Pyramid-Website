@@ -5,6 +5,7 @@ include('include/head.php');
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/TU-PXfzsj4o?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 <div class="ui container vertical stripe">
     <h3 class="ui horizontal divider"><?php __('stats.heading'); ?></h3>
 
