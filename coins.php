@@ -3,7 +3,7 @@ include('include/lang.php');
 include('include/head.php');
 ?>
 
-<p align="center">And you, my father, there on the sad height -</p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ESWzPhZWYeI?rel=0&amp;controls=0&amp;autoplay=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 <?php include('include/token_sale.php'); ?>
 
