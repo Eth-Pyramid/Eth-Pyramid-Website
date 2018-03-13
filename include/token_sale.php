@@ -84,7 +84,7 @@
                         <div class="ui stackable relaxed grid">
                             <div class="ui eight wide column">
                                 <div class="price-box">
-                                    <div class="title">NZBA83AFXA2FWT9C</div>
+                                    <div class="title"><?php __('coins.buy-price'); ?></div>
                                     <div class="poh-buy value"></div>
                                     <div class="poh-buy-usd value-usd"></div>
                                 </div>
