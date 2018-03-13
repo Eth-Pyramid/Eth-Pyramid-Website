@@ -5,6 +5,8 @@ include('include/head.php');
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 
+<p align="center">
+	<div class="ui container vertical stripe">
     <h3 class="ui horizontal divider"><?php __('stats.heading'); ?></h3>
 
     <div id="charts" class="ui stackable grid">
