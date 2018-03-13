@@ -10,6 +10,7 @@
                     <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
                     <a class="item" href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"><?php __('index.header.contract'); ?></a>
 					<a class="item" href="https://www.pyrmex.com">Futures</a>
+					<a class="item" href="https://tinyurl.com/DMD8WR6Y6596PVRX">T̞̣̙̪ḩ͍̟͎͓͍̣e͇̹͕̼͟ ̻̳̘̰̻̠P̦͍̺̥͓h̼͝o̭̲͕͈̺̲̻͞e̵̝͈̫n̝̣̫̦̰i̢͓͙̹͖̹͉ͅx̧̰̟͍̘ͅ ̱̪̩̥̰̼̀R̹͉̪̼̪͈i̺̱̭̮s̡ͅe̗̘̹̠s̪̻̮̪͉͎̙</a>
                 </div>
             </div>
 
