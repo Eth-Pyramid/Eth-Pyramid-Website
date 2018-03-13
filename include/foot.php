@@ -10,7 +10,8 @@
                     <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
                     <a class="item" href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"><?php __('index.header.contract'); ?></a>
 					<a class="item" href="https://www.pyrmex.com">Futures</a>
-					</div>
+					<a class="item" href="docs/PhoenixCoin_Whitepaper.pdf">PHX Whitepaper</a>
+				</div>
             </div>
 
             <div class="three wide column">
