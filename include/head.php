@@ -55,10 +55,11 @@
 <div class="ui vertical inverted sidebar menu">
     <a class="item" href="index.html"><?php __('menu.home'); ?></a>
     <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
-    <a class="item" href="https://ethpyramid.wordpress.com"><?php __('menu.blog'); ?></a>
     <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
     <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
     <a class="item" href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"><?php __('index.header.contract'); ?></a>
+	<a class="item" href="docs/PhoenixCoin_Whitepaper.pdf">PHX Whitepaper</a>
+	<a class="item" href="mine">Mine PHX</a>
 </div>
 
 <!-- Following Menu -->
@@ -71,13 +72,13 @@
             <img src="images/minilogo.png">
         </a>
         <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
-        <a class="item" href="https://ethphoenix.wordpress.com"><?php __('menu.blog'); ?></a>
         <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
         <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
 		<a class="item" href="https://www.pyrmex.com">Futures</a>
 		<a class="item" href="docs/PhoenixCoin_Whitepaper.pdf">PHX Whitepaper</a>
+		<a class="item" href="mine">Mine PHX</a>
         <div class="right menu">
-            <div class="social-bits">
+            <div class="social-bits">	
                 <a href="https://twitter.com/ethphoenix" target="_blank">
                     <i class="fab fa-twitter-square"
                        style="margin-right:10px; color:white;"></i></a>
@@ -104,11 +105,11 @@
                     <img src="images/minilogo.png">
                 </a>
                 <a class="item" href="coins.html"><?php __('menu.coins'); ?></a>
-                <a class="item" href="https://ethphoenix.wordpress.com"><?php __('menu.blog'); ?></a>
                 <a class="item" href="stats.html"><?php __('menu.stats'); ?></a>
                 <a class="item" href="whitepaper.html"><?php __('menu.whitepaper'); ?></a>
 				<a class="item" href="https://www.pyrmex.com">Futures</a>
 				<a class="item" href="docs/PhoenixCoin_Whitepaper.pdf">PHX Whitepaper</a>
+				<a class="item" href="mine">Mine PHX</a>
 
                 <div class="right item">
                     <!-- Social Icons -->
