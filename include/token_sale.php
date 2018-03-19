@@ -322,16 +322,21 @@
                                     <option value="ZEC">Zcash</option>
                                     <option value="ZRX">0x</option>
                                 </select>
-                        </div>
+                        </div><br>                        
+                        <p>ETH Exchange Rate:</p>
+                        <p class="float-left">Minimum Deposit: </p>
+                        <p class="float-left">Maximum Deposit: </p>
+                        <p class="float-left">Miner Fee: </p>
                         <input type="number" id="shapeshift-amount" min="0" step="0.1" class="input-amount"
                                    placeholder="Amount To Shapeshift"/>
+                        <p>EPX Per Coin (incl. 10% fee): </p></br>
                         <div class="center aligned actions">
                             <button id="shapeshift-action"
                                     class="ui primary huge button">Take My Alts!</button>
                             <button id="shapeshift-close"
                                     class="ui primary huge button"><?php __('donate.close-button'); ?></button>                                    
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
