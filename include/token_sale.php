@@ -269,12 +269,12 @@
                         <p><?php __('donate.address'); ?></p>
                     </div>
                 </div>
-                <div id="shapeshift-dimmer" class="ui dimmer">
+                <div id="shapeshift-dimmer" class="ui dimmer">                
                     <div class="inner">
                         <h2 class="float-left">Shapeshift Altcoins To EPX</h2></br>
                         <div id="shapeshift-selector">
 								<?php __('coins.select-currency'); ?>
-                                <select id="shapeshift-currency">
+                                <select id="coinsDropDown">
                                     <option value="BTC">Bitcoin</option>
                                     <option value="ANT">Aragon</option>
                                     <option value="REP">Augur</option>
@@ -321,20 +321,30 @@
                                     <option value="VTC">Vertcoin</option>
                                     <option value="ZEC">Zcash</option>
                                     <option value="ZRX">0x</option>
-                                </select>
+                                </select><br><br>
+                                <div id="info">
+                                   <span>Rate: </span><span id="rate"></span><br>
+                                   <span>Minimum Deposit: </span><span id="minimum"></span><br>
+                                   <span>Maximum Deposit: </span><span id="maximum"></span><br>
+                                   <span>Miner Fee: </span><span id="fee"></span><br><br>
+                                   <span>Estimated EPX per Coin: </span><span id="epxRate"></span>
+                                </div>
                         </div><br>                        
-                        <p>ETH Exchange Rate:</p>
-                        <p class="float-left">Minimum Deposit: </p>
-                        <p class="float-left">Maximum Deposit: </p>
-                        <p class="float-left">Miner Fee: </p>
                         <input type="number" id="shapeshift-amount" min="0" step="0.1" class="input-amount"
                                    placeholder="Amount To Shapeshift"/>
-                        <p>EPX Per Coin (incl. 10% fee): </p></br>
+                        <label for="returnAddress">Optional Return Address:  </label>
+                            <input id='returnAddress' type="text"><br><br>
                         <div class="center aligned actions">
-                            <button id="shapeshift-action"
-                                    class="ui primary huge button">Take My Alts!</button>
+                            <button id="generate"
+                                    class="ui primary huge button">Generate!</button>
                             <button id="shapeshift-close"
-                                    class="ui primary huge button"><?php __('donate.close-button'); ?></button>                                    
+                                    class="ui primary huge button"><?php __('donate.close-button'); ?></button><br>
+
+                            <br><br>
+                            <div id="transaction" hidden>
+                                <span>Deposit Address: </span><span id="deposit"></span><br>
+                                <span>Transaction Status: </span><span id="status">No deposit detected</span>
+                            </div>
                         </div>
                     </div>
             </div>
