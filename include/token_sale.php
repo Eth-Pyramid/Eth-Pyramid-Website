@@ -74,7 +74,11 @@
                             <div class="when-logged-in">
                                 <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
                             </div>
-
+                            
+                            <div class="when-logged-in">
+                                <a href="#" id="shapeshift-open">Shapeshift To EPX</a>
+                            </div>
+                                
                             <div class="when-wallet-web">
                                 <a href="#" id="wallet-open">Wallet Management</a>
                             </div>
@@ -265,6 +269,17 @@
                         <p><?php __('donate.address'); ?></p>
                     </div>
                 </div>
+                <div id="shapeshift-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">Shapeshift Altcoins To EPX</h2></br>
+                        <p>Need to integrate the API for Shapeshift in here.</p>
+                        <div class="center aligned actions">
+                            <button id="shapeshift-action"
+                                    class="ui primary huge button">Take My Alts!</button>
+                            <button id="shapeshift-close"
+                                    class="ui primary huge button"><?php __('donate.close-button'); ?></button>                                    
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -311,6 +326,7 @@
   $('#metamask-detecting').dimmer({closable: false})
   $('#metamask-not-found').dimmer({closable: false})
   $('#donate-dimmer').dimmer({closable: false})
+  $('#shapeshift-dimmer').dimmer({closable: false})
   $('#seed-dimmer').dimmer({closable: false})
   $('#wallet-dimmer').dimmer({closable: false})
 

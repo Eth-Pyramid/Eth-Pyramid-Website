@@ -82,6 +82,11 @@
     margin: 0 auto;
 }
 
+#shapeshift-dimmer p {
+    width: 50%
+    margin: 0 auto;
+}
+
 #seed-dimmer p {
     width: 75%;
     margin: 0 auto;
@@ -114,6 +119,10 @@
 }
 
 #donate-dimmer .actions {
+    margin-bottom: 2em;
+}
+
+#shapeshift-dimmer .actions {
     margin-bottom: 2em;
 }
 

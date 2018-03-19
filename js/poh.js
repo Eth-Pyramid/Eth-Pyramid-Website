@@ -728,7 +728,16 @@ window.addEventListener('load', function () {
   $('#donate-close').click(function () {
     $('#donate-dimmer').dimmer('hide')
   })
+  
+  $('#shapeshift-open').click(function (e) {
+    e.preventDefault()
+    $('#shapeshift-dimmer').dimmer('show')
+  })
 
+  $('#shapeshift-close').click(function () {
+    $('#shapeshift-dimmer').dimmer('hide')
+  })
+  
   // Sell token click handler
   $('#sell-tokens-btn').click(function () {
     sell()
