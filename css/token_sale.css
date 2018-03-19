@@ -63,6 +63,11 @@
     margin: 2em auto;
 }
 
+#shapeshift-amount {
+    max-width: 300px;
+    margin: 2em auto;
+}
+
 #wallet-address {
     font-weight: 700;
 }
@@ -132,6 +137,12 @@
 
 #currency-selector {
     margin: 2em 0 2em 0;
+}
+
+#shapeshift-selector {
+    position: relative;
+    margin: 2 em auto;
+    text-align: center;
 }
 
 #currency-selector select {

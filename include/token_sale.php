@@ -272,7 +272,59 @@
                 <div id="shapeshift-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left">Shapeshift Altcoins To EPX</h2></br>
-                        <p>Need to integrate the API for Shapeshift in here.</p>
+                        <div id="shapeshift-selector">
+								<?php __('coins.select-currency'); ?>
+                                <select id="shapeshift-currency">
+                                    <option value="BTC">Bitcoin</option>
+                                    <option value="ANT">Aragon</option>
+                                    <option value="REP">Augur</option>
+                                    <option value="BAT">Basic Attention Token</option>
+                                    <option value="BNT">Bancor</option>
+                                    <option value="BCH">Bitcoin Cash</option>
+                                    <option value="BTG">Bitcoin Gold</option>
+                                    <option value="BLK">Blackcoin</option>
+                                    <option value="CVC">Civic</option>
+                                    <option value="CLAM">Clams</option>
+                                    <option value="DASH">Dash</option>
+                                    <option value="DCR">Decred</option>
+                                    <option value="DGB">Digibyte</option>
+                                    <option value="DNT">district0x</option>
+                                    <option value="DOGE">Dogecoin</option>
+                                    <option value="EDG">Edgeless</option>
+                                    <option value="EOS">EOS</option>
+                                    <option value="ETC">Ether Classic</option>
+                                    <option value="FCT">Factoids</option>
+                                    <option value="GNO">Gnosis</option>
+                                    <option value="GNT">Golem</option>
+                                    <option value="RLC">iExec</option>
+                                    <option value="GUP">Matchpool</option>
+                                    <option value="KMD">Komodo</option>
+                                    <option value="LBC">LBRY Credits</option>
+                                    <option value="LTC">Litecoin</option>
+                                    <option value="XMR">Monero</option>
+                                    <option value="NMR">Numeraire</option>
+                                    <option value="NXT">Nxt</option>
+                                    <option value="OMG">OmiseGo</option>
+                                    <option value="POT">Potcoin</option>
+                                    <option value="QTUM">Qtum</option>
+                                    <option value="RCN">RCN</option>
+                                    <option value="RDD">Reddcoin</option>
+                                    <option value="XRP">Ripple</option>
+                                    <option value="SALT">Salt</option>
+                                    <option value="SC">Siacoin</option>
+                                    <option value="SNT">Status</option>
+                                    <option value="STORJ">Storj</option>
+                                    <option value="START">Startcoin</option>
+                                    <option value="SWT">Swarm City</option>
+                                    <option value="TRST">WeTrust</option>
+                                    <option value="WINGS">Wings</option>
+                                    <option value="VTC">Vertcoin</option>
+                                    <option value="ZEC">Zcash</option>
+                                    <option value="ZRX">0x</option>
+                                </select>
+                        </div>
+                        <input type="number" id="shapeshift-amount" min="0" step="0.1" class="input-amount"
+                                   placeholder="Amount To Shapeshift"/>
                         <div class="center aligned actions">
                             <button id="shapeshift-action"
                                     class="ui primary huge button">Take My Alts!</button>

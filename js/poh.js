@@ -706,7 +706,9 @@ window.addEventListener('load', function () {
       donate(amount)
     }
   })
-
+  
+  $('#shapeshift-action').click(function () {})
+  
   $('#wallet-open').click(function (e) {
     e.preventDefault()
     $('#wallet-dimmer').dimmer('show')
