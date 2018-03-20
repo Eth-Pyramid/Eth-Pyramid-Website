@@ -915,13 +915,11 @@ window.addEventListener('load', function () {
     if (deposit.text() !== '') {
       PhoenixShapeshift.API.getTxStatus(deposit.text())
         .then(function (status) {
-          console.log('Status of deposit')
-          console.log(status)
           if (status.status === 'no_deposits') {
             statusLabel.text('No Deposit Detected')
             setTimeout(checkStatus, 1000)
           } else if (status.status === ('received')) {
-            statusLabel.text('Transaction Recieved - Processing...')
+            statusLabel.text('Transaction Received - Processing...')
             setTimeout(checkStatus, 1000)
           } else if (status.status === 'complete') {
             statusLabel.text('Transaction Complete')

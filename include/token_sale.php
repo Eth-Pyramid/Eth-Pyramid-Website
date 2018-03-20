@@ -320,78 +320,77 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-
-    </div>
-
-    <div id="tx-confirmation" class="ui modal">
-        <div class="header">
-			<?php __('wallet.tx-submitted') ?>
-        </div>
-        <div class="content">
-            <p>
-                <span id="tx-hash"><?php __('wallet.tx-successful') ?></span>
-            </p>
         </div>
     </div>
+</div>
 
-    <div id="password-prompt" class="ui modal">
-        <div class="header">
-			<?php __('wallet.enter-password') ?>
+<div id="tx-confirmation" class="ui modal">
+    <div class="header">
+		<?php __('wallet.tx-submitted') ?>
+    </div>
+    <div class="content">
+        <p>
+            <span id="tx-hash"><?php __('wallet.tx-successful') ?></span>
+        </p>
+    </div>
+</div>
+
+<div id="password-prompt" class="ui modal">
+    <div class="header">
+		<?php __('wallet.enter-password') ?>
+    </div>
+    <div class="ui content form">
+        <div>
+            <input type="password" id="password"/>
         </div>
-        <div class="ui content form">
-            <div>
-                <input type="password" id="password"/>
-            </div>
-            <div style="padding: 1em;">
-                <button id="confirm-tx" class="ui button primary"
-                        style="float: right;"><?php __('wallet.confirm') ?></button>
-                <button id="cancel-tx" class="ui button"><?php __('wallet.cancel') ?></button>
-            </div>
+        <div style="padding: 1em;">
+            <button id="confirm-tx" class="ui button primary"
+                    style="float: right;"><?php __('wallet.confirm') ?></button>
+            <button id="cancel-tx" class="ui button"><?php __('wallet.cancel') ?></button>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-      var default_currency = '<?php echo getDefaultCurrency(); ?>'
+<script type="text/javascript">
+  var default_currency = '<?php echo getDefaultCurrency(); ?>'
 
-      $(function () {
-        $('#history-toggle').click(function (e) {
-          e.preventDefault()
-          $('#transaction-history-container').slideToggle()
-        })
-      })
+  $(function () {
+    $('#history-toggle').click(function (e) {
+      e.preventDefault()
+      $('#transaction-history-container').slideToggle()
+    })
+  })
 
-      $('#metamask-detecting').dimmer({closable: false})
-      $('#metamask-not-found').dimmer({closable: false})
-      $('#donate-dimmer').dimmer({closable: false})
-      $('#shapeshift-dimmer').dimmer({closable: false})
-      $('#seed-dimmer').dimmer({closable: false})
-      $('#wallet-dimmer').dimmer({closable: false})
+  $('#metamask-detecting').dimmer({closable: false})
+  $('#metamask-not-found').dimmer({closable: false})
+  $('#donate-dimmer').dimmer({closable: false})
+  $('#shapeshift-dimmer').dimmer({closable: false})
+  $('#seed-dimmer').dimmer({closable: false})
+  $('#wallet-dimmer').dimmer({closable: false})
 
-      $('#metamask-detecting').dimmer('show')
-    </script>
+  $('#metamask-detecting').dimmer('show')
+</script>
 
-    <script type="text/javascript">
-      var lang = {
-        fund: "<?php __('coins.history.log.sent-eth'); ?>",
-        reinvest: "<?php __('coins.history.log.sent-div'); ?>",
-        withdraw: "<?php __('coins.history.log.withdrew'); ?>",
-        sold: "<?php __('coins.history.log.sold-epy'); ?>",
-        walletGenConfirmation: "<?php __('wallet.js.wallet-gen-confirmation'); ?>",
-        enterPassword: "<?php __('wallet.js.enter-password'); ?>",
-        incorrectPassword: "<?php __('wallet.js.incorrect-password'); ?>",
-        enterSeed: "<?php __('wallet.js.enter-seed');?>",
-        seedInvalid: "<?php __('wallet.js.seed-invalid');?>",
-        deleteWalletConfirmation: "<?php __('wallet.js.delete-wallet-confirmation');?>",
-        copiedToClip: "<?php __('wallet.js.copied-to-clip');?>",
-        invalidInput: "<?php __('wallet.invalid-input'); ?>",
-        invalidInputResponse: "<?php __('wallet.invalid-input-response'); ?>"
-      }
-    </script>
+<script type="text/javascript">
+  var lang = {
+    fund: "<?php __('coins.history.log.sent-eth'); ?>",
+    reinvest: "<?php __('coins.history.log.sent-div'); ?>",
+    withdraw: "<?php __('coins.history.log.withdrew'); ?>",
+    sold: "<?php __('coins.history.log.sold-epy'); ?>",
+    walletGenConfirmation: "<?php __('wallet.js.wallet-gen-confirmation'); ?>",
+    enterPassword: "<?php __('wallet.js.enter-password'); ?>",
+    incorrectPassword: "<?php __('wallet.js.incorrect-password'); ?>",
+    enterSeed: "<?php __('wallet.js.enter-seed');?>",
+    seedInvalid: "<?php __('wallet.js.seed-invalid');?>",
+    deleteWalletConfirmation: "<?php __('wallet.js.delete-wallet-confirmation');?>",
+    copiedToClip: "<?php __('wallet.js.copied-to-clip');?>",
+    invalidInput: "<?php __('wallet.invalid-input'); ?>",
+    invalidInputResponse: "<?php __('wallet.invalid-input-response'); ?>"
+  }
+</script>
 
-    <script type="text/javascript" src="js/web3.js"></script>
-    <script type="text/javascript" src="js/lightwallet.min.js"></script>
-    <script type="text/javascript" src="js/phoenix-shapeshift.js"></script>
-    <script type="text/javascript" src="js/poh.js"></script>
+<script type="text/javascript" src="js/web3.js"></script>
+<script type="text/javascript" src="js/lightwallet.min.js"></script>
+<script type="text/javascript" src="js/phoenix-shapeshift.js"></script>
+<script type="text/javascript" src="js/poh.js"></script>
 
