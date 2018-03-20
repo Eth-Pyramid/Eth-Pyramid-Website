@@ -48,6 +48,37 @@
     text-align: center;
 }
 
+#shapeshift-info {
+    margin: 2em 0;
+}
+
+#shapeshift-info span.label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    padding-right: 2em;
+}
+
+#shapeshift-info span.value {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+}
+
+#shapeshift-dimmer .actions {
+    margin-top: 3em;
+}
+
+.shapeshift-input {
+    display: inline-block;
+    padding: 0.5em;
+    background: #3f4045;
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+}
+
 #send-amount {
     max-width: 75%;
     margin: 2em auto;
@@ -63,8 +94,21 @@
     margin: 2em auto;
 }
 
-#shapeshift-amount {
-    max-width: 300px;
+#shapeshift-deposit {
+    margin-top: 2em;
+}
+
+#shapeshift-deposit .status {
+    color: #999999;
+}
+
+#shapeshift-deposit .deposit-address-container {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#shapeshift-amount, #returnAddress {
+    max-width: 400px;
     margin: 2em auto;
 }
 
@@ -87,8 +131,12 @@
     margin: 0 auto;
 }
 
+#shapeshift-dimmer {
+    user-select: auto;
+}
+
 #shapeshift-dimmer p {
-    width: 50%
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -131,7 +179,7 @@
     margin-bottom: 2em;
 }
 
-.input-amount.error {
+.input-amount.error, .shapeshift-input.error, .shapeshift-return-address.error {
     border-color: red;
 }
 
@@ -141,7 +189,7 @@
 
 #shapeshift-selector {
     position: relative;
-    margin: 2 em auto;
+    margin: 2em auto;
     text-align: center;
 }
 
@@ -183,13 +231,11 @@
 }
 
 .price-box.blue {
-    background-color: #403233
-;
+    background-color: #403233;
 }
 
 .price-box.green, .login-box.green {
-    background: #442b2b
-;
+    background: #442b2b;
 }
 
 .price-box .title, .login-box .title {
@@ -236,7 +282,7 @@
 }
 
 #token-sale .methods p {
-    color: #fff2d2 ;
+    color: #fff2d2;
 }
 
 #token-sale .inverted.dimmer * {
@@ -254,17 +300,17 @@
 
 .contract-balance-container {
     text-align: right;
-	font-size: 1.22em;
-	font-weight: bold;
-	color: #F64114 !important;
+    font-size: 1.22em;
+    font-weight: bold;
+    color: #F64114 !important;
 }
 
 @media only screen and (max-width: 700px) {
     .contract-balance-container {
         text-align: center;
-		font-size: 1.22em;
-		font-weight: bold;
-		color: #F64114 !important;
+        font-size: 1.22em;
+        font-weight: bold;
+        color: #F64114 !important;
     }
 }
 

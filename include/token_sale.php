@@ -18,7 +18,8 @@
                             </div>
 
 
-                            <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in input-amount"
+                            <input type="number" id="purchase-amount" min="0" step="0.01"
+                                   class="when-logged-in input-amount"
                                    placeholder="<?php __('coins.eth-amount'); ?>">
 
                             <div class="when-logged-in" id="address-balance">
@@ -63,7 +64,7 @@
                                     <option>THB</option>
                                     <option>TRY</option>
                                     <option>TWD</option>
-									<option>VND</option>
+                                    <option>VND</option>
                                     <option>ZAR</option>
                                 </select>
                             </div>
@@ -74,11 +75,11 @@
                             <div class="when-logged-in">
                                 <a href="#" id="donate-open"><?php __('donate.open-button'); ?></a>
                             </div>
-                            
+
                             <div class="when-logged-in">
                                 <a href="#" id="shapeshift-open">Shapeshift To EPX</a>
                             </div>
-                                
+
                             <div class="when-wallet-web">
                                 <a href="#" id="wallet-open">Wallet Management</a>
                             </div>
@@ -122,31 +123,34 @@
                             </div>
                             <div class="ui sixteen wide column when-logged-out">
                                 <div class="login-box green">
-                                    <div class="value"><?php __('wallet.not-logged-in')?></div>
+                                    <div class="value"><?php __('wallet.not-logged-in') ?></div>
                                     <div class="value-usd">
                                         <p><?php __('wallet.log-in-info') ?></p>
                                         <p><strong><?php __('wallet.WARNING') ?></strong> <?php __('wallet.beta') ?></p>
                                     </div>
                                     <div class="ui equal width stackable grid login-options">
                                         <div class="ui column">
-                                            <button id="generate-wallet" class="ui button large primary"><?php __('wallet.generate-wallet')?>
+                                            <button id="generate-wallet"
+                                                    class="ui button large primary"><?php __('wallet.generate-wallet') ?>
                                             </button>
                                             <p>
-                                                <?php __('wallet.generate-seed')?>
+												<?php __('wallet.generate-seed') ?>
                                             </p>
                                         </div>
                                         <div class="ui column" id="unlock-wallet-container">
-                                            <button id="unlock-wallet" class="ui button large secondary"><?php __('wallet.unlock-wallet')?>
+                                            <button id="unlock-wallet"
+                                                    class="ui button large secondary"><?php __('wallet.unlock-wallet') ?>
                                             </button>
                                             <p>
-                                                <?php __('wallet.unlock-wallet-info')?>
+												<?php __('wallet.unlock-wallet-info') ?>
                                             </p>
                                         </div>
                                         <div class="ui column">
-                                            <button id="recover-wallet" class="ui button large"><?php __('wallet.restore-wallet')?>
+                                            <button id="recover-wallet"
+                                                    class="ui button large"><?php __('wallet.restore-wallet') ?>
                                             </button>
                                             <p>
-                                                <?php __('wallet.restore-wallet-info')?>
+												<?php __('wallet.restore-wallet-info') ?>
                                             </p>
                                         </div>
                                     </div>
@@ -161,7 +165,7 @@
                                 <span class="contract-balance">0.00</span> ETH
                             </div>
                             <div class="ui sixteen wide column when-logged-in" id="eth-address-container">
-								<strong>Account:</strong> <span id="eth-address">Not Set</span>
+                                <strong>Account:</strong> <span id="eth-address">Not Set</span>
                             </div>
                             <div class="ui sixteen wide column">
                                 <div id="transaction-history-container" style="display: none">
@@ -205,47 +209,55 @@
                 <div id="seed-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left">Wallet Seed</h2></br>
-                        <p><strong><?php __('wallet.WARNING')?></strong>
-                            <?php __('wallet.seed')?></p>
+                        <p><strong><?php __('wallet.WARNING') ?></strong>
+							<?php __('wallet.seed') ?></p>
                         <textarea id="wallet-seed">
 
                         </textarea>
-                        <button class="ui button huge primary" id="close-seed"><?php __('wallet.stored-seed-confirmation')?>
+                        <button class="ui button huge primary"
+                                id="close-seed"><?php __('wallet.stored-seed-confirmation') ?>
                         </button>
                     </div>
                 </div>
                 <div id="wallet-dimmer" class="ui dimmer">
                     <div class="inner">
-                        <h2><?php __('wallet.wallet-management')?></h2>
-                        <h4><?php __('wallet.balance')?><span class="address-balance"></span></h4>
+                        <h2><?php __('wallet.wallet-management') ?></h2>
+                        <h4><?php __('wallet.balance') ?><span class="address-balance"></span></h4>
                         <hr/>
                         <div class="ui equal width stackable grid">
                             <div class="ui column">
-                                <h3><?php __('wallet.send')?></h3>
-                                <p><?php __('wallet.send-eth')?></p>
+                                <h3><?php __('wallet.send') ?></h3>
+                                <p><?php __('wallet.send-eth') ?></p>
                                 <div class="center aligned actions">
-                                    <input type="text" id="send-address" class="input-amount" placeholder="Destination address"/>
+                                    <input type="text" id="send-address" class="input-amount"
+                                           placeholder="Destination address"/>
                                     <input type="number" id="send-amount" min="0" step="0.1" class="input-amount"
                                            placeholder="<?php __('coins.eth-amount'); ?>"/>
                                     <button id="send-action"
-                                            class="ui primary huge button">Send ETH</button>
+                                            class="ui primary huge button">Send ETH
+                                    </button>
                                 </div>
                             </div>
                             <div class="ui column">
-                                <h3><?php __('wallet.receive')?></h3>
+                                <h3><?php __('wallet.receive') ?></h3>
                                 <p>
-                                    <?php __('wallet.deposit-eth')?>
+									<?php __('wallet.deposit-eth') ?>
                                 </p>
                                 <p id="eth-public-address">
-                                  <a href="#" class="etherscan-link" target="_blank"></a> <a href="#" id="copy-eth-address"><i class="fas fa-copy"></i></a>
+                                    <a href="#" class="etherscan-link" target="_blank"></a> <a href="#"
+                                                                                               id="copy-eth-address"><i
+                                                class="fas fa-copy"></i></a>
                                 </p>
-                                <h3><?php __('wallet.actions')?></h3>
+                                <h3><?php __('wallet.actions') ?></h3>
                                 <p>
-                                    <a id="export-seed" href="#" class="ui button small"><?php __('wallet.export-seed')?></a>
-                                    <a id="export-private-key" href="#" class="ui button small"><?php __('wallet.export-key')?></a>
-                                    <a id="delete-wallet" href="#" class="ui button small"><?php __('wallet.delete-wallet')?></a>
+                                    <a id="export-seed" href="#"
+                                       class="ui button small"><?php __('wallet.export-seed') ?></a>
+                                    <a id="export-private-key" href="#"
+                                       class="ui button small"><?php __('wallet.export-key') ?></a>
+                                    <a id="delete-wallet" href="#"
+                                       class="ui button small"><?php __('wallet.delete-wallet') ?></a>
                                 </p>
-								<textarea id="exported-seed"></textarea>
+                                <textarea id="exported-seed"></textarea>
                                 <input type="text" id="exported-private-key">
                             </div>
                         </div>
@@ -269,155 +281,117 @@
                         <p><?php __('donate.address'); ?></p>
                     </div>
                 </div>
-                <div id="shapeshift-dimmer" class="ui dimmer">                
+                <div id="shapeshift-dimmer" class="ui dimmer">
                     <div class="inner">
                         <h2 class="float-left">Shapeshift Altcoins To EPX</h2></br>
                         <div id="shapeshift-selector">
-								<?php __('coins.select-currency'); ?>
-                                <select id="coinsDropDown">
-                                    <option value="BTC">Bitcoin</option>
-                                    <option value="ANT">Aragon</option>
-                                    <option value="REP">Augur</option>
-                                    <option value="BAT">Basic Attention Token</option>
-                                    <option value="BNT">Bancor</option>
-                                    <option value="BCH">Bitcoin Cash</option>
-                                    <option value="BTG">Bitcoin Gold</option>
-                                    <option value="BLK">Blackcoin</option>
-                                    <option value="CVC">Civic</option>
-                                    <option value="CLAM">Clams</option>
-                                    <option value="DASH">Dash</option>
-                                    <option value="DCR">Decred</option>
-                                    <option value="DGB">Digibyte</option>
-                                    <option value="DNT">district0x</option>
-                                    <option value="DOGE">Dogecoin</option>
-                                    <option value="EDG">Edgeless</option>
-                                    <option value="EOS">EOS</option>
-                                    <option value="ETC">Ether Classic</option>
-                                    <option value="FCT">Factoids</option>
-                                    <option value="GNO">Gnosis</option>
-                                    <option value="GNT">Golem</option>
-                                    <option value="RLC">iExec</option>
-                                    <option value="GUP">Matchpool</option>
-                                    <option value="KMD">Komodo</option>
-                                    <option value="LBC">LBRY Credits</option>
-                                    <option value="LTC">Litecoin</option>
-                                    <option value="XMR">Monero</option>
-                                    <option value="NMR">Numeraire</option>
-                                    <option value="NXT">Nxt</option>
-                                    <option value="OMG">OmiseGo</option>
-                                    <option value="POT">Potcoin</option>
-                                    <option value="QTUM">Qtum</option>
-                                    <option value="RCN">RCN</option>
-                                    <option value="RDD">Reddcoin</option>
-                                    <option value="XRP">Ripple</option>
-                                    <option value="SALT">Salt</option>
-                                    <option value="SC">Siacoin</option>
-                                    <option value="SNT">Status</option>
-                                    <option value="STORJ">Storj</option>
-                                    <option value="START">Startcoin</option>
-                                    <option value="SWT">Swarm City</option>
-                                    <option value="TRST">WeTrust</option>
-                                    <option value="WINGS">Wings</option>
-                                    <option value="VTC">Vertcoin</option>
-                                    <option value="ZEC">Zcash</option>
-                                    <option value="ZRX">0x</option>
-                                </select><br><br>
-                                <div id="info">
-                                   <span>Rate: </span><span id="rate"></span><br>
-                                   <span>Minimum Deposit: </span><span id="minimum"></span><br>
-                                   <span>Maximum Deposit: </span><span id="maximum"></span><br>
-                                   <span>Miner Fee: </span><span id="fee"></span><br><br>
-                                   <span>Estimated EPX per Coin: </span><span id="epxRate"></span>
-                                </div>
-                        </div><br>                        
-                        <input type="number" id="shapeshift-amount" min="0" step="0.1" class="input-amount"
-                                   placeholder="Amount To Shapeshift"/>
-                        <label for="returnAddress">Optional Return Address:  </label>
-                            <input id='returnAddress' type="text"><br><br>
-                        <div class="center aligned actions">
-                            <button id="generate"
-                                    class="ui primary huge button">Generate!</button>
-                            <button id="shapeshift-close"
-                                    class="ui primary huge button"><?php __('donate.close-button'); ?></button><br>
+                            <label for="coinsDropDown"><?php __('coins.select-currency'); ?></label>
+                            <select id="coinsDropDown" class="shapeshift-input">
+                            </select>
+                            <div id="shapeshift-info">
+                                <span class="label">Rate: </span><span id="rate" class="value"></span><br>
+                                <span class="label">Minimum Deposit: </span><span id="minimum" class="value"></span><br>
+                                <span class="label">Maximum Deposit: </span><span id="maximum" class="value"></span><br>
+                                <span class="label">Miner Fee: </span><span id="fee" class="value"></span><br><br>
+                                <span class="label">Estimated EPX per Coin: </span>
+                                <span id="epxRate" class="value"></span>
+                            </div>
+                        </div>
 
-                            <br><br>
-                            <div id="transaction" hidden>
-                                <span>Deposit Address: </span><span id="deposit"></span><br>
-                                <span>Transaction Status: </span><span id="status">No deposit detected</span>
+                        <input id="returnAddress" placeholder="Optional Return Address" class="input-amount"
+                               type="text">
+
+                        <div class="center aligned actions">
+                            <button id="generate" class="ui primary huge button">Generate Address</button>
+
+                            <button id="shapeshift-close"
+                                    class="ui default huge button"><?php __('donate.close-button'); ?></button>
+                            <br>
+
+                            <div id="shapeshift-deposit" style="display: none;">
+                                <div class="deposit-address-container">
+                                    <span>Deposit Address: </span><span id="deposit">Generating...</span>
+                                </div>
+                                <div class="status">
+                                    <span>Transaction Status: </span><span id="status">No deposit detected</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="tx-confirmation" class="ui modal">
+        <div class="header">
+			<?php __('wallet.tx-submitted') ?>
+        </div>
+        <div class="content">
+            <p>
+                <span id="tx-hash"><?php __('wallet.tx-successful') ?></span>
+            </p>
+        </div>
+    </div>
+
+    <div id="password-prompt" class="ui modal">
+        <div class="header">
+			<?php __('wallet.enter-password') ?>
+        </div>
+        <div class="ui content form">
+            <div>
+                <input type="password" id="password"/>
+            </div>
+            <div style="padding: 1em;">
+                <button id="confirm-tx" class="ui button primary"
+                        style="float: right;"><?php __('wallet.confirm') ?></button>
+                <button id="cancel-tx" class="ui button"><?php __('wallet.cancel') ?></button>
             </div>
         </div>
-
     </div>
 
-</div>
+    <script type="text/javascript">
+      var default_currency = '<?php echo getDefaultCurrency(); ?>'
 
-<div id="tx-confirmation" class="ui modal">
-    <div class="header">
-        <?php __('wallet.tx-submitted')?>
-    </div>
-    <div class="content">
-        <p>
-             <span id="tx-hash"><?php __('wallet.tx-successful')?></span>
-        </p>
-    </div>
-</div>
+      $(function () {
+        $('#history-toggle').click(function (e) {
+          e.preventDefault()
+          $('#transaction-history-container').slideToggle()
+        })
+      })
 
-<div id="password-prompt" class="ui modal">
-    <div class="header">
-        <?php __('wallet.enter-password')?>
-    </div>
-    <div class="ui content form">
-        <div>
-            <input type="password" id="password"/>
-        </div>
-        <div style="padding: 1em;">
-            <button id="confirm-tx" class="ui button primary" style="float: right;"><?php __('wallet.confirm')?></button>
-            <button id="cancel-tx" class="ui button"><?php __('wallet.cancel')?></button>
-        </div>
-    </div>
-</div>
+      $('#metamask-detecting').dimmer({closable: false})
+      $('#metamask-not-found').dimmer({closable: false})
+      $('#donate-dimmer').dimmer({closable: false})
+      $('#shapeshift-dimmer').dimmer({closable: false})
+      $('#seed-dimmer').dimmer({closable: false})
+      $('#wallet-dimmer').dimmer({closable: false})
 
-<script type="text/javascript">
-  var default_currency = '<?php echo getDefaultCurrency(); ?>'
+      $('#metamask-detecting').dimmer('show')
+    </script>
 
-  $(function () {
-    $('#history-toggle').click(function (e) {
-      e.preventDefault()
-      $('#transaction-history-container').slideToggle()
-    })
-  })
+    <script type="text/javascript">
+      var lang = {
+        fund: "<?php __('coins.history.log.sent-eth'); ?>",
+        reinvest: "<?php __('coins.history.log.sent-div'); ?>",
+        withdraw: "<?php __('coins.history.log.withdrew'); ?>",
+        sold: "<?php __('coins.history.log.sold-epy'); ?>",
+        walletGenConfirmation: "<?php __('wallet.js.wallet-gen-confirmation'); ?>",
+        enterPassword: "<?php __('wallet.js.enter-password'); ?>",
+        incorrectPassword: "<?php __('wallet.js.incorrect-password'); ?>",
+        enterSeed: "<?php __('wallet.js.enter-seed');?>",
+        seedInvalid: "<?php __('wallet.js.seed-invalid');?>",
+        deleteWalletConfirmation: "<?php __('wallet.js.delete-wallet-confirmation');?>",
+        copiedToClip: "<?php __('wallet.js.copied-to-clip');?>",
+        invalidInput: "<?php __('wallet.invalid-input'); ?>",
+        invalidInputResponse: "<?php __('wallet.invalid-input-response'); ?>"
+      }
+    </script>
 
-  $('#metamask-detecting').dimmer({closable: false})
-  $('#metamask-not-found').dimmer({closable: false})
-  $('#donate-dimmer').dimmer({closable: false})
-  $('#shapeshift-dimmer').dimmer({closable: false})
-  $('#seed-dimmer').dimmer({closable: false})
-  $('#wallet-dimmer').dimmer({closable: false})
+    <script type="text/javascript" src="js/web3.js"></script>
+    <script type="text/javascript" src="js/lightwallet.min.js"></script>
+    <script type="text/javascript" src="js/phoenix-shapeshift.js"></script>
+    <script type="text/javascript" src="js/poh.js"></script>
 
-  $('#metamask-detecting').dimmer('show')
-</script>
-
-<script type="text/javascript">
-  var lang = {
-    fund: "<?php __('coins.history.log.sent-eth'); ?>",
-    reinvest: "<?php __('coins.history.log.sent-div'); ?>",
-    withdraw: "<?php __('coins.history.log.withdrew'); ?>",
-    sold: "<?php __('coins.history.log.sold-epy'); ?>",
-    walletGenConfirmation : "<?php __('wallet.js.wallet-gen-confirmation'); ?>",
-    enterPassword : "<?php __('wallet.js.enter-password'); ?>",
-    incorrectPassword : "<?php __('wallet.js.incorrect-password'); ?>",
-    enterSeed : "<?php __('wallet.js.enter-seed');?>",
-    seedInvalid : "<?php __('wallet.js.seed-invalid');?>",
-    deleteWalletConfirmation : "<?php __('wallet.js.delete-wallet-confirmation');?>",
-    copiedToClip : "<?php __('wallet.js.copied-to-clip');?>",
-    invalidInput : "<?php __('wallet.invalid-input'); ?>",
-    invalidInputResponse : "<?php __('wallet.invalid-input-response'); ?>"
-  }
-</script>
-
-<script type="text/javascript" src="js/web3.js"></script>
-<script type="text/javascript" src="js/lightwallet.min.js"></script>
-<script type="text/javascript" src="js/poh.js"></script>

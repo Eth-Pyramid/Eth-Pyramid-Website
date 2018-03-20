@@ -706,9 +706,9 @@ window.addEventListener('load', function () {
       donate(amount)
     }
   })
-  
+
   $('#shapeshift-action').click(function () {})
-  
+
   $('#wallet-open').click(function (e) {
     e.preventDefault()
     $('#wallet-dimmer').dimmer('show')
@@ -730,7 +730,7 @@ window.addEventListener('load', function () {
   $('#donate-close').click(function () {
     $('#donate-dimmer').dimmer('hide')
   })
-  
+
   $('#shapeshift-open').click(function (e) {
     e.preventDefault()
     $('#shapeshift-dimmer').dimmer('show')
@@ -739,7 +739,7 @@ window.addEventListener('load', function () {
   $('#shapeshift-close').click(function () {
     $('#shapeshift-dimmer').dimmer('hide')
   })
-  
+
   // Sell token click handler
   $('#sell-tokens-btn').click(function () {
     sell()
@@ -848,6 +848,114 @@ window.addEventListener('load', function () {
   }).on('mouseout', function () {
     $('#copy-eth-address').popup('destroy')
   })
+
+  // Shapeshift goods
+  var generateButton = $('#generate')
+  var coinsDropDown = $('#coinsDropDown')
+  var transactionDiv = $('#shapeshift-deposit')
+  var deposit = $('#deposit')
+  var statusLabel = $('#status')
+  var amountInput = $('#shapeshift-amount')
+  var returnInput = $('#returnAddress')
+
+  var coins
+  var selectedCoin
+
+  function setDropDown (items) {
+    $.each(items, function (i, item) {
+      coinsDropDown.append($('<option>', {
+        value: item.value,
+        text: item.text
+      }))
+    })
+    selectedCoin = $('#coinsDropDown option:selected')
+  }
+
+  function disableUi (state) {
+    generateButton.prop('disabled', state)
+    coinsDropDown.prop('disabled', state)
+    amountInput.prop('disabled', state)
+    returnInput.prop('disabled', state)
+
+    if (state) {
+      transactionDiv.slideDown()
+    } else {
+      transactionDiv.slideUp()
+    }
+  }
+
+  coinsDropDown.change(function () {
+    selectedCoin = $('#coinsDropDown option:selected')
+    PhoenixShapeshift.API.getInfo($(this).val()).then(infoCallback)
+    transactionDiv.hide()
+    deposit.empty()
+    disableUi(false)
+  })
+
+  generateButton.on('click', function () {
+    $('#shapeshift-amount').removeClass('error').popup('destroy')
+
+    var address = $('#returnAddress').val().trim()
+
+    if (address === '' || address.match(/^0x[0-9a-fA-F]{40}$/) !== null) {
+      $('#returnAddress').removeClass('error').popup('destroy')
+      PhoenixShapeshift.API.newTransaction(selectedCoin.val(), currentAddress, address)
+        .then(transactionCallback)
+
+      disableUi(true)
+    } else {
+      $('#returnAddress').addClass('error').popup({
+        title: lang.invalidInput,
+        content: 'Please input a valid Ethereum adddress.'
+      }).popup('show')
+    }
+  })
+
+  function checkStatus () {
+    if (deposit.text() !== '') {
+      PhoenixShapeshift.API.getTxStatus(deposit.text())
+        .then(function (status) {
+          if (status.status === 'no_deposits') {
+            statusLabel.text('No Deposit detected')
+            setTimeout(checkStatus, 5000)
+          } else if (status.status === ('received')) {
+            statusLabel.text('Transaction Recieved - Processing...')
+          } else if (status.status === 'complete') {
+            statusLabel.text('Transaction Complete')
+            fund(contractAddress, status.outputAmount)
+          } else if (status.status === 'failed') {
+            statusLabel.text('Transaction Failed')
+          }
+        })
+    }
+  }
+
+  function transactionCallback (tx) {
+    deposit.text(tx.deposit)
+    checkStatus()
+  }
+
+  function coinsCallback (_coins) {
+    coins = _coins
+    setDropDown(coins)
+    PhoenixShapeshift.API.getInfo(selectedCoin.val()).then(infoCallback)
+  }
+
+  function infoCallback (coins) {
+    const rate = coins.rate
+    $('#rate').text(rate.toFixed(6) + ' ETH')
+    $('#maximum').text(coins.limit.toFixed(6) + ' ' + selectedCoin.val().toUpperCase())
+    $('#minimum').text(coins.minimum.toFixed(6) + ' ' + selectedCoin.val().toUpperCase())
+    $('#fee').text(coins.minerFee.toFixed(6) + ' ETH')
+    PhoenixShapeshift.EPX.getBuyPrice(rate).then(priceCallback)
+  }
+
+  function priceCallback (price) {
+    $('#epxRate').text(price.toFixed(6) + ' EPX')
+  }
+
+  PhoenixShapeshift.EPX.initEpx()
+  PhoenixShapeshift.API.getCoins().then(coinsCallback)
 })
 
 function updateTransactionHistory () {
