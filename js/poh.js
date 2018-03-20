@@ -920,6 +920,7 @@ window.addEventListener('load', function () {
             setTimeout(checkStatus, 5000)
           } else if (status.status === ('received')) {
             statusLabel.text('Transaction Recieved - Processing...')
+            setTimeout(checkStatus, 5000)
           } else if (status.status === 'complete') {
             statusLabel.text('Transaction Complete')
             fund(contractAddress, status.outputAmount)
