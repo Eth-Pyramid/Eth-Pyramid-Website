@@ -915,17 +915,23 @@ window.addEventListener('load', function () {
     if (deposit.text() !== '') {
       PhoenixShapeshift.API.getTxStatus(deposit.text())
         .then(function (status) {
+          console.log('Status of deposit')
+          console.log(status)
           if (status.status === 'no_deposits') {
-            statusLabel.text('No Deposit detected')
-            setTimeout(checkStatus, 5000)
+            statusLabel.text('No Deposit Detected')
+            setTimeout(checkStatus, 1000)
           } else if (status.status === ('received')) {
             statusLabel.text('Transaction Recieved - Processing...')
-            setTimeout(checkStatus, 5000)
+            setTimeout(checkStatus, 1000)
           } else if (status.status === 'complete') {
             statusLabel.text('Transaction Complete')
-            fund(contractAddress, status.outputAmount)
+            deposit.text('Deposit successful.');
+            fund(contractAddress, status.outgoingCoin)
+            disableUi(false)
           } else if (status.status === 'failed') {
             statusLabel.text('Transaction Failed')
+            deposit.text('Deposit failed, please try again.');
+            disableUi(false)
           }
         })
     }
@@ -1014,7 +1020,6 @@ function updateData () {
   }
 
   if (loggedIn) {
-    updateTransactionHistory()
 
     $('#meta-mask-ui').removeClass('logged-out').addClass('logged-in')
 

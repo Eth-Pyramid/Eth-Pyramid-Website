@@ -283,7 +283,7 @@
                 </div>
                 <div id="shapeshift-dimmer" class="ui dimmer">
                     <div class="inner">
-                        <h2 class="float-left">Shapeshift Altcoins To EPX</h2></br>
+                        <h2 class="float-left">Shapeshift To EPX</h2>
                         <div id="shapeshift-selector">
                             <label for="coinsDropDown"><?php __('coins.select-currency'); ?></label>
                             <select id="coinsDropDown" class="shapeshift-input">
