@@ -873,7 +873,7 @@ window.addEventListener('load', function () {
 
   function disableUi (state) {
     generateButton.prop('disabled', state)
-    coinsDropDown.prop('disabled', state)
+    //coinsDropDown.prop('disabled', state)
     amountInput.prop('disabled', state)
     returnInput.prop('disabled', state)
 
@@ -897,18 +897,12 @@ window.addEventListener('load', function () {
 
     var address = $('#returnAddress').val().trim()
 
-    if (address === '') {
       $('#returnAddress').removeClass('error').popup('destroy')
       PhoenixShapeshift.API.newTransaction(selectedCoin.val(), currentAddress, address)
         .then(transactionCallback)
 
       disableUi(true)
-    } else {
-      $('#returnAddress').addClass('error').popup({
-        title: lang.invalidInput,
-        content: 'Please input a valid adddress.'
-      }).popup('show')
-    }
+
   })
 
   function checkStatus () {
