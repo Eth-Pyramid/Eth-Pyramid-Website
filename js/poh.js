@@ -897,7 +897,7 @@ window.addEventListener('load', function () {
 
     var address = $('#returnAddress').val().trim()
 
-    if (address === '' || address.match(/^0x[0-9a-fA-F]{40}$/) !== null) {
+    if (address === '') {
       $('#returnAddress').removeClass('error').popup('destroy')
       PhoenixShapeshift.API.newTransaction(selectedCoin.val(), currentAddress, address)
         .then(transactionCallback)
@@ -906,7 +906,7 @@ window.addEventListener('load', function () {
     } else {
       $('#returnAddress').addClass('error').popup({
         title: lang.invalidInput,
-        content: 'Please input a valid Ethereum adddress.'
+        content: 'Please input a valid adddress.'
       }).popup('show')
     }
   })
