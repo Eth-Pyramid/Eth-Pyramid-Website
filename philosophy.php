@@ -36,6 +36,9 @@ include('include/head.php');
             * We are <b>not</b> a get-rich-quick scheme. There are other smart contracts out there with an explicit focus on obtaining wealth for wealth's sake.<br><br>
             * We are <b>not</b> doing this for our own financial benefit. For the most part, we live comfortably, and want to see this project succeed for it's own sake.<br><br>
             * We are <b>not</b> a group that will ever employ dubious practices such as referral links, bot-spam manipulation or intentional fear, uncertainty and doubt.<br><br>
+            * We are <b>not</b> ever going to make any patently false claims such as guaranteed ROI, or that this is a reasonable quasi-investment of any format. It is<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;designed to feed off of the emotions of its participants at a primal level. We are working on ways to add value outside of the zero-sum nature<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;of the `game', but even then it is a mad gamble. Do not contribute <b>anything</b> you are not comfortable with losing in its entirety.<br><br>
             * We are <b>not</b> a group that would exit-scam with hundreds of Ether. Point of fact: we couldn't do it even if we <i>did</i> want to.
         </p>  
         
@@ -47,8 +50,6 @@ include('include/head.php');
               &nbsp;&nbsp;&nbsp;&nbsp;based upon the underlying volatility of the EPX smart contract. The white paper for PHX can be found <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3140310">here</a>.<br><br>
             * We <b>are</b> a team willing to help out with issues that fellow developers approach us for advice with. We have already established a history of doing so.<br><br>
             * We <b>are</b> a friendly bunch who regularly hang around in the EPX Discord. We strive for visibility and availability during nearly every hour of the day.<br><br>
-            * We <b>are</b> a group acutely aware of the abuse of trust which permeates the cryptocurrency space. To that end, we often reimburse victims of scams<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;and sleight-of-hand from the contents of our own community-funded marketing wallet.<br><br>
             * [Sidenote] We <b>are</b> the same team behind EthPyramid. In fact, the smart contract states as such.<br>
               &nbsp;&nbsp;&nbsp;&nbsp;This name -- intended to be ironic -- did not serve us well in being taken seriously as an aspiring ecosystem, hence the front-end refactor.
             
