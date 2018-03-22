@@ -12,7 +12,7 @@ return [
         'menu.coins' => 'My Coins',
         'menu.blog' => 'Blog',
         'menu.stats' => 'Stats',
-        'menu.whitepaper' => 'Whitepaper',
+        'menu.whitepaper' => 'Our Philosophy',
 
         'index.header.title' => 'A <b>self-sustaining</b>, <b>secure</b> and <b>transparent</b> game of fear and greed.',
         'index.header.buy-in' => 'Buy In',
