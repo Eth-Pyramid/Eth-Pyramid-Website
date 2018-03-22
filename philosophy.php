@@ -36,7 +36,7 @@ include('include/head.php');
         <p>One of the first things that might stand out to people who have stumbled on this page is a distinct lack of a "developers" page.<br><br>
             It's a fair criticism to say that that means we have something to hide. There is no response to this that doesn't sound like we're hand-waving, so we'll give it to you straight.<br><br>
             We're not (and likely never will be) certain that this mad rollercoaster is, in fact, legal. We truly hope that it is, but ignorantia juris non excusat.<br>
-            Whilst crypto is as yet (and hopefully soon will be) regulated, we believe ourselves to be on the right side of history here, for reasons which we describe below.<br>
+            Although crypto is as yet not (but hopefully soon will be) regulated, we believe ourselves to be on the right side of history here, for reasons which we describe below.<br>
             However, our view is ultimately irrelevant in the eyes of various national and regional legislatures.<br><br>
             We hope that in time we will be able to identify ourselves, but for now, here's the Cliff Notes version:<br><br>
             
