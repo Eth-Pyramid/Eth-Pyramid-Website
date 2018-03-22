@@ -36,6 +36,9 @@ include('include/head.php');
             * We are <b>not</b> a get-rich-quick scheme. There are other smart contracts out there with an explicit focus on obtaining wealth for wealth's sake.<br><br>
             * We are <b>not</b> doing this for our own financial benefit. For the most part, we live comfortably, and want to see this project succeed for it's own sake.<br><br>
             * We are <b>not</b> a group that will ever employ dubious practices such as referral links, bot-spam manipulation or intentional fear, uncertainty and doubt.<br><br>
+            * We are <b>not</b> ever going to make any patently false claims such as guaranteed ROI, or that this is a reasonable quasi-investment of any format. It is<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;designed to feed off of the emotions of its participants at a primal level. We are working on ways to add value outside of the zero-sum nature<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;of the `game', but even then it is a mad gamble. Do not contribute <b>anything</b> you are not comfortable with losing in its entirety.<br><br>
             * We are <b>not</b> a group that would exit-scam with hundreds of Ether. Point of fact: we couldn't do it even if we <i>did</i> want to.
         </p>  
         
