@@ -7,6 +7,23 @@ include('include/head.php');
     
     <div class="ui container vertical stripe">
         <h3 class="ui horizontal divider">
+            The TL;DR Up-Front
+        </h3>
+    We are a group of six curious tinkerers spread across the globe, in a variety of levels of education and occupation, ranging from our early twenties to late forties.<br>
+    We believe in the power of open source software and code. As a result, whenever possible we have open Github repositories and verified smart contract code available.<br><br>
+
+    We'd love to have you along for the journey, but we are NOT a get-rich-quick scheme.<br>If that's what you're looking for, there are other projects and other smart contracts out there with an explicit focus on obtaining wealth for wealth's sake.<br>Not us - we're the kids that make cool projects for cool's sake. Keep an eye out for <a href="http://pyrebirds.com">PyreBirds</a>!<br><br>
+
+    As a unified group, we are decided:<br>
+    * We will never employ dubious practices such as referral links, bot-spam manipulation or intentional fear, uncertainty and doubt.<br>
+    * We will never make patently false claims such as guaranteed ROI, or that this is a reasonable quasi-investment of any format.<br>
+    * We will never exit-scam.<br>
+
+    ^ Point of fact: all of our deployed contracts explicitly disallow exit-scamming, and you can check this in our code. They are all open-source and/or externally vetted.<br><br>
+
+    For the full, more detailed version, keep reading.        
+
+        <h3 class="ui horizontal divider">
             The EthPhoenix Philosophy
         </h3>
 		<h2>So What Is This All About?</h2><br>
