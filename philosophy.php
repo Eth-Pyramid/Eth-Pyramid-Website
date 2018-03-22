@@ -67,8 +67,7 @@ include('include/head.php');
               &nbsp;&nbsp;&nbsp;&nbsp;based upon the underlying volatility of the EPX smart contract. The white paper for PHX can be found <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3140310">here</a>.<br><br>
             * We <b>are</b> a team willing to help out with issues that fellow developers approach us for advice with. We have already established a history of doing so.<br><br>
             * We <b>are</b> a friendly bunch who regularly hang around in the EPX Discord. We strive for visibility and availability during nearly every hour of the day.<br><br>
-            * [Sidenote] We <b>are</b> the same team behind EthPyramid. In fact, the smart contract states as such.<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;This name -- intended to be ironic -- did not serve us well in being taken seriously as an aspiring ecosystem, hence the front-end refactor.
+            * We <b>are</b> the same team behind EthPyramid. In fact, our smart contract states as such. However, EPX and EPY tokens are but roses by different names.<br>
             
         </p>        
         
