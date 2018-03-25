@@ -9,7 +9,7 @@
                     <a class="item" href="philosophy.html"><?php __('menu.whitepaper'); ?></a>
                     <a class="item" href="https://etherscan.io/address/0x2fa0ac498d01632f959d3c18e38f4390b005e200"><?php __('index.header.contract'); ?></a>
 					<a class="item" href="https://www.pyrmex.com">Futures</a>
-					<a class="item" href="docs/PhoenixCoin_Whitepaper.pdf">PHX Whitepaper</a>
+					<a class="item" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3140310">PHX Whitepaper</a>
 					<a class="item" href="mine">Mine PHX</a>
 				</div>
             </div>
