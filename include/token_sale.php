@@ -14,7 +14,7 @@
                     <div class="ui five wide column center aligned" id="buy-panel">
                         <div class="inner">
                             <div class="spinning-logo">
-                                <img src="images/spinning.gif">
+                                <img src="images/our_new_lord_and_saviour.png">
                             </div>
 
 
